@@ -1,0 +1,190 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#basic-navbar-nav {
+    display: flex;
+    justify-content: flex-start; }
+  
+  .Navbar {
+    background: black !important;
+    color: #ffffff !important;
+    width: 100% !important;
+    max-width: 140rem;
+    margin: 0 auto; }
+    .Navbar_Logo {
+      width: 100%; }
+      .Navbar_Logo_Settings {
+        display: none;
+        color: #cfcbcb; }
+      @media only screen and (max-width: 37.5em) {
+        .Navbar_Logo {
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .Navbar_Logo_Settings {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 3rem; } }
+    .Navbar_Links {
+      width: 100%;
+      font-size: 1.6rem;
+      display: flex;
+      justify-content: space-around; }
+      @media only screen and (max-width: 37.5em) {
+        .Navbar_Links {
+          justify-content: space-between;
+          font-size: 1.9rem;
+          display: flex;
+          align-items: center;
+          margin-top: 1rem; } }
+      .Navbar_Links_Underline {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #cfcbcb;
+        color: #cfcbcb !important; }
+        .Navbar_Links_Underline span {
+          margin-right: 0.2rem; }
+      .Navbar_Links_Underline:hover {
+        cursor: pointer; }
+      .Navbar_Links_Item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #cfcbcb !important; }
+      @media only screen and (max-width: 37.5em) {
+        .Navbar_Links_Item:nth-child(4) {
+          display: none; }
+        .Navbar_Links_Underline:nth-child(4) {
+          display: none; } }
+      .Navbar_Links_Item:hover {
+        cursor: pointer; }
+    .Navbar_Image {
+      height: 7rem;
+      width: auto; }
+      @media only screen and (max-width: 48em) {
+        .Navbar_Image {
+          height: 6rem; } }
+    .Navbar_Popper {
+      height: auto;
+      width: auto;
+      background: #141414;
+      padding: 2rem;
+      display: flex; }
+      @media only screen and (max-width: 48em) {
+        .Navbar_Popper {
+          padding: 1rem;
+          flex-direction: column; } }
+      .Navbar_Popper_Box {
+        min-height: 15rem;
+        margin: 0 1rem;
+        width: 20rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        @media only screen and (max-width: 48em) {
+          .Navbar_Popper_Box {
+            flex: 1;
+            width: 90vw;
+            align-items: flex-start;
+            margin: 1rem; } }
+        .Navbar_Popper_Box_Paragraph {
+          font-size: 1.9rem !important;
+          line-height: 2rem !important; }
+          @media only screen and (max-width: 48em) {
+            .Navbar_Popper_Box_Paragraph {
+              font-size: 1.5rem !important;
+              line-height: 1.7rem !important; } }
+    .Navbar_Link {
+      font-size: 1.6rem;
+      color: #ffffff !important;
+      margin: 0 2rem;
+      text-decoration: none; }
+      @media only screen and (max-width: 48em) {
+        .Navbar_Link {
+          margin: 0; } }
+    .Navbar_Button {
+      width: 8rem;
+      height: 2rem;
+      background-color: #ffffff !important;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: black;
+      border-radius: 2.5rem; }
+      .Home_Technologies {
+        height: auto;
+        width: 100%;
+        padding: 1rem 0;
+        background-color: black;
+        margin:  auto;
+        position: relative; }
+        @media only screen and (max-width: 62em) {
+          .Home_Technologies {
+            width: 94%; } }
+        @media only screen and (max-width: 48em) {
+          .Home_Technologies {
+            width: 100%; } }
+        .Home_Technologies h1 {
+          text-align: center;
+          margin-bottom: 2rem; }
+        .Home_Technologies_Datas {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: rem !important;
+          width: 100%;
+          margin: 0 auto; }
+          @media only screen and (max-width: 62em) {
+            .Home_Technologies_Datas {
+              flex-direction: column; } }
+          .Home_Technologies_Datas_Left {
+            flex: 0 0 15%;
+            border-right: 3px solid #cfcbcb; }
+            @media only screen and (max-width: 62em) {
+              .Home_Technologies_Datas_Left {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                margin: 0;
+                /* border-right: none; */
+                /* flex: 1; */
+                border-bottom: 1px solid #9b9b9b; } }
+            @media only screen and (max-width: 48em) {
+              .Home_Technologies_Datas_Left {
+                flex-wrap: wrap; } }
+            .Home_Technologies_Datas_Left_Paragraph {
+              font-size: 2rem;
+              color: #ffffff;
+              margin: 2rem; }
+              @media only screen and (max-width: 62em) {
+                .Home_Technologies_Datas_Left_Paragraph {
+                  font-size: 2rem; } }
+            .Home_Technologies_Datas_Left p {
+              color: #cfcbcb;
+              margin: 2rem; }
+              .Home_Technologies_Datas_Left p:hover {
+                cursor: pointer; }
+          .Home_Technologies_Datas_Right {
+            flex: 1;
+            height: auto;
+            display: flex;
+            flex-wrap: wrap; }
+            .Home_Technologies_Datas_Right_Box {
+              height: auto;
+              width: auto;
+              display: flex;
+              flex-direction: column;
+              align-items: center; }
+              .Home_Technologies_Datas_Right_Box_Image {
+                height: 15rem;
+                width: 15rem; }
+                @media only screen and (max-width: 37.5em) {
+                  .Home_Technologies_Datas_Right_Box_Image {
+                    width: 8rem;
+                    height: 8rem; } }
+              .Home_Technologies_Datas_Right_Box p {
+                font-size: 2rem;
+                font-weight: 700; }
