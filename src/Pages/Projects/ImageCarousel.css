@@ -1,0 +1,19 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+.slide {
+    transform: scale(0.7);
+    transition: transform 300ms;
+    opacity: 0.5;
+  }
+  .slideWrapper {
+    display: flex;
+    justify-content: center;
+   
+  }
+
+  .dots{
+    background: white;
+    color: white;
+    
+  }

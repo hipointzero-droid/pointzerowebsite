@@ -16,7 +16,7 @@ const navigate=useNavigate();
 <Link to="/" className='cursor-pointer'>Home</Link>
 <Link to="/about" className='cursor-pointer'>About</Link>
 <p className='cursor-pointer'>Service</p>
-<p className='cursor-pointer'>Product</p>
+<Link to="/project" className='cursor-pointer'>Product</Link>
 <Link to="/contact" className='cursor-pointer'>Contact</Link>
 </div>
 <button className='rounded-3xl lg:block hidden text-white bg-[#000838]  p-2 px-7 font-bold'
