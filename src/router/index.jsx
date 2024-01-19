@@ -4,6 +4,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Contact from "../Pages/Contact/Contact";
 import About from "../Pages/About/About";
 import Project from "../Pages/Projects/Project";
+import Services from "../Pages/Service/Services";
 
 
 export const routes=createBrowserRouter([
@@ -22,6 +23,10 @@ export const routes=createBrowserRouter([
     {
         path:"/project",
         element:<Project/>
+    },
+    {
+        path:"/services",
+        element:<Services/>
     },
     {
         path: "*", 

@@ -15,7 +15,7 @@ const navigate=useNavigate();
 <div className='lg:flex gap-4 hidden'>
 <Link to="/" className='cursor-pointer'>Home</Link>
 <Link to="/about" className='cursor-pointer'>About</Link>
-<p className='cursor-pointer'>Service</p>
+<Link to="/services" className='cursor-pointer'>Service</Link>
 <Link to="/project" className='cursor-pointer'>Product</Link>
 <Link to="/contact" className='cursor-pointer'>Contact</Link>
 </div>
