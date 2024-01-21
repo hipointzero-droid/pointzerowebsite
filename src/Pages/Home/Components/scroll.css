@@ -1,0 +1,29 @@
+#container::-webkit-scrollbar {
+    width: 5px;
+    background-color: black;
+}
+
+#container::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 20px;
+}
+
+#container::-webkit-scrollbar-thumb {
+    background:black;
+    border-radius: 10px;
+    width: 100px;
+    height: 10px; /* Adjust the height of the scrollbar thumb as needed */
+}
+
+#container::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
+
+#container::-webkit-scrollbar-thumb:active {
+    background: black;
+}
+
+
+#container::-webkit-scrollbar-thumb:active {
+    background: black; /* Change the color when actively scrolled */
+}

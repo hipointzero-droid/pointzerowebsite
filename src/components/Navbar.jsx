@@ -19,7 +19,7 @@ const navigate=useNavigate();
 <Link to="/project" className='cursor-pointer'>Product</Link>
 <Link to="/contact" className='cursor-pointer'>Contact</Link>
 </div>
-<button className='rounded-3xl lg:block hidden text-white bg-[#000838]  p-2 px-7 font-bold'
+<button className='rounded-3xl lg:block hidden text-white bg-[#0b6380]  p-2 px-7 font-bold'
 onClick={()=>{
     navigate("/contact")
 }}

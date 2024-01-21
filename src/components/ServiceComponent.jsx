@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-export default function ServiceComponent({developer,developer1,title,desc}) {
+export default function ServiceComponent({developer,developer1,title,desc,color}) {
     const [first, setfirst] = useState(false)
   return (
-    <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-orange-100 transition duration-700 ease-in-out hover:text-black `}
+    <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:${color} transition duration-700 ease-in-out hover:text-black `}
        onMouseEnter={()=>{
         setfirst(!first);
       }} onMouseLeave={()=>{
