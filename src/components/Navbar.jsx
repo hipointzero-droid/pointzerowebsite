@@ -37,25 +37,25 @@ onClick={()=>{
     <div className={`${isOpen ? 'block' : 'hidden'} lg:hidden bg-gray-200 transition-transform duration-100 ease-in-out transform`}>
                 <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-center">
                     
-                    <a
-                        href="#"
+                    <Link
+                        to="/"
                         className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                     >
                         Home
-                    </a>
+                    </Link>
                     <Link 
                         to="/about"
                         className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                     >
                         About
                     </Link>
-                    <a
-                        href="#"
+                    <Link
+                        to="/services"
                         className="text-black hover:bg-gray-700 group relative hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        onClick={()=>{setDropdownOpen(true)}}
+                    
                     >
                         Service
-                    </a>
+                    </Link>
                     {isDropdownOpen && (
             <div className="absolute mt-2 z-10 px-7 md:-right-8 right-3 rounded-lg bg-white border text-black p-2 space-y-2 transition-opacity duration-900 ease-in-out opacity-100"
             onMouseOver={()=>{setDropdownOpen(true)}} onMouseLeave={()=>setDropdownOpen(false)}
@@ -72,12 +72,12 @@ onClick={()=>{
             </div>
           )}
        
-                    <a
-                        href="#"
+                    <Link
+                        to="/project"
                         className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                     >
                         Product
-                    </a>
+                    </Link>
                     <Link
                         to="/contact"
                         className="text-black hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"

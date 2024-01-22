@@ -157,7 +157,7 @@
                 flex-wrap: wrap; } }
             .Home_Technologies_Datas_Left_Paragraph {
               font-size: 2rem;
-              color: #ffffff;
+              color: #0b6380;
               margin: 2rem; }
               @media only screen and (max-width: 62em) {
                 .Home_Technologies_Datas_Left_Paragraph {
@@ -171,15 +171,25 @@
             flex: 1;
             height: auto;
             display: flex;
+           
+            transition: all 10s ease-out;
+
             flex-wrap: wrap; }
             .Home_Technologies_Datas_Right_Box {
               height: auto;
               width: auto;
               display: flex;
               flex-direction: column;
+             
+              transition-property: all;
+              transition-duration: 4s;
+              transition-delay: 2s;
               align-items: center; }
               .Home_Technologies_Datas_Right_Box_Image {
                 height: 15rem;
+                transition-property: all;
+                transition-duration: 4s;
+                transition-delay: 2s;
                 width: 15rem; }
                 @media only screen and (max-width: 37.5em) {
                   .Home_Technologies_Datas_Right_Box_Image {

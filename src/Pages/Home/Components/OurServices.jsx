@@ -9,6 +9,7 @@ import ui from '../../../assets/ux.png';
 import ui1 from '../../../assets/ux1.png';
 import mobile from '../../../assets/mobile.png';
 import mboile1 from '../../../assets/mobile1.png';
+import './scroll.css'
 export default function OurServices() {
   const [first, setfirst] = useState(false);
   const [first1, setfirst1] = useState(false);
@@ -20,11 +21,11 @@ export default function OurServices() {
     <h1 className='text-center pt-4  lg:text-5xl text-xl font-semibold'>
       Our Core Services
     </h1>
-    <div  className='flex gap-9 items-center lg:p-0 p-5 lg:justify-center justify-start mt-10 overflow-x-auto'>
+    <div id='container'  className='flex gap-9 items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
      
      
       {/* developer */}
-      {/* <div className='flex-shrink-0 flex-grow-0'>
+      <div className='flex-shrink-0 flex-grow-0'>
       <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-orange-200 transition duration-700 ease-in-out hover:text-black `}
        onMouseEnter={()=>{
         setfirst1(!first1);
@@ -36,7 +37,7 @@ export default function OurServices() {
 <p className=' font-semibold  mt-3 w-[90%]'>Create your own team of developers for your software development project on short term, long term or permanent basis with guaranteed project delivery at affordable prices.</p>
 <p className={`mt-6 font-bold  ${first1===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
       </div>
-      </div> */}
+      </div>
       {/* App */}
       <div className='flex-shrink-0 flex-grow-0'>
       <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-orange-200 transition duration-700 ease-in-out hover:text-black `}
