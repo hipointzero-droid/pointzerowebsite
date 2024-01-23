@@ -1,58 +1,31 @@
 import React, { useState } from "react";
 // 1.
 
-import Slider from "react-slick";
-import "./ImageCarousel.css";
 // 2.
 
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const ImageSlider = ({ images, slidesToShow = 3 }) => {
-	// 3.
-  const [imageIndex, setImageIndex] = useState(0);
-	// 4.
-  const settings = {
-    centerMode: true,
-    infinite: true,
-    dots: true,
-    speed: 300,
-    slidesToShow: slidesToShow,
-    centerPadding: "0",
-    swipeToSlide: true,
-    focusOnSelect: true,
-    arrows:false,
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+// import required modules
+import { Pagination } from 'swiper/modules';
+import image1 from '../../assets/image1.png';
+import image2 from '../../assets/image2.png'
+
+import image3 from '../../assets/image3.png'
+const ImageSlider = () => {
+	
  
-    beforeChange: (current, next) => setImageIndex(next),
-    responsive: [
-      {
-        breakpoint: 1490,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          
-        },
-      },
-      {
-        breakpoint: 820,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-	// 5.
-  const templateImages = images.map((image, idx) => {
-    return (
-      <div
-        className={idx === imageIndex ? "activeSlide" : "slide"}
-        key={image.id}
-      >
-        <div className="slideWrapper lg:h-[300px]">
-          {image.code ? image.code : <img src={image.src} alt={image.alt} />}
-        </div>
-      </div>
-    );
-  });
-  return <Slider {...settings}>{templateImages}</Slider>;
+  return <div>
+     <Swiper pagination={true} modules={[Pagination]} className="lg:h-[600px] flex items-center justify-center lg:w-[100%]">
+  
+        <SwiperSlide className="flex items-center justify-center"><img src={image1} alt="" className="lg:h-[600px] w-full flex items-center justify-center"/></SwiperSlide>
+        <SwiperSlide className="flex items-center justify-center"><img src={image2} alt="" className="lg:h-[600px] w-full flex items-center justify-center"/></SwiperSlide>
+        <SwiperSlide className="flex items-center justify-center"><img src={image3} alt="" className="lg:h-[600px] w-full flex items-center justify-center"/></SwiperSlide>
+     </Swiper>
+  </div>
 };
 export default ImageSlider;
