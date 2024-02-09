@@ -4,6 +4,14 @@ import Footer from '../Home/Components/Footer'
 import img1 from '../../assets/about1.png'
 import img2 from '../../assets/about2.png'
 import SmoothCounter from './SmoothCount'
+import rectang1 from '../../assets/about/Rectangle 7.png'
+import rectang2 from '../../assets/about/rectangle.png'
+import rectang3 from '../../assets/about/Rectangle 5.png'
+import rectang4 from '../../assets/about/Rectangle 3.png'
+import rectang5 from '../../assets/about/Rectangle 6.png'
+import kripas from '../../assets/about/kirpas.png'
+import sagun from '../../assets/about/sagun.png'
+import yunish from '../../assets/about/yunish.png'
 
 export default function About() {
   const [count, setCount] = useState(0);
@@ -69,29 +77,20 @@ export default function About() {
         <section className='text-white  md:px-28 px-8 mt-40'>
         <div className='flex gap-6 lg:items-center items-start justify-start  lg:justify-center mt-10 overflow-x-auto'>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[230px] rounded-3xl bg-white p-5 w-[160px] '>
-          
-          </div>
+      <img src={rectang1} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
+      
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[230px] rounded-3xl bg-white p-5 w-[160px] '>
-          
-          </div>
+      <img src={rectang2} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[230px] rounded-3xl bg-white p-5 w-[160px] '>
-          
-          </div>
+      <img src={rectang3} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[230px] rounded-3xl bg-white p-5 w-[160px] '>
-          
-          </div>
+      <img src={rectang4} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[230px] rounded-3xl bg-white p-5 w-[160px] '>
-          
-          </div>
+      <img src={rectang5} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
       </div>
       
      
@@ -140,16 +139,13 @@ export default function About() {
         <p className='font-bold md:text-3xl text-xl text-center'>Our Team </p>
         <div className='flex gap-6 items-start px-8  md:justify-center justify-start mt-10 overflow-x-auto'>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[250px] rounded-xl bg-white p-5 w-[200px] '>
-          
-          </div>
+        <img src={kripas} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] '/>
+      
           <p className='font-bold text-xl mt-2'>CEO</p>
           <p className='font-semibold text-base text-[#8A889C]'>kripas khatiwada</p>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[250px] rounded-xl bg-white p-5 w-[200px] '>
-          
-          </div>
+      <img src={sagun} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] '/>
           <p className='font-bold text-xl mt-2'>MD</p>
           <p className='font-semibold text-base text-[#8A889C]'>Sagun khatiwada</p>
       </div>
@@ -161,11 +157,9 @@ export default function About() {
           <p className='font-semibold text-base text-[#8A889C]'> kripas khatiwada</p>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[250px] rounded-xl bg-white p-5 w-[200px] '>
-          
-          </div>
-          <p className='font-bold text-xl mt-2'>Developer</p>
-          <p className='font-semibold text-base text-[#8A889C]'>kripas khatiwada</p>
+      <img src={yunish} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] '/>
+          <p className='font-bold text-xl mt-2'>Full Stack Developer</p>
+          <p className='font-semibold text-base text-[#8A889C]'>Yunish Pandit</p>
       </div>
       
      
