@@ -77,20 +77,20 @@ export default function About() {
         <section className='text-white  md:px-28 px-8 mt-40'>
         <div className='flex gap-6 lg:items-center items-start justify-start  lg:justify-center mt-10 overflow-x-auto'>
       <div className='flex-shrink-0 flex-grow-0'>
-      <img src={rectang1} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
+      <img src={rectang1} alt="" className='object-fill border-2 border-black h-[160px] rounded-3xl   w-[160px]'/>
       
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <img src={rectang2} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
+      <img src={rectang2} alt="" className='object-fill border-2 border-black h-[160px] rounded-3xl   w-[160px]'/>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <img src={rectang3} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
+      <img src={rectang3} alt="" className='object-fill border-2 border-black h-[160px] rounded-3xl   w-[160px]'/>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <img src={rectang4} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
+      <img src={rectang4} alt="" className='object-fill border-2 border-black h-[160px] rounded-3xl   w-[160px]'/>
       </div>
       <div className='flex-shrink-0 flex-grow-0'>
-      <img src={rectang5} alt="" className='object-fill border-2 border-black h-[230px] rounded-3xl   w-[160px]'/>
+      <img src={rectang5} alt="" className='object-fill border-2 border-black h-[160px] rounded-3xl   w-[160px]'/>
       </div>
       
      
