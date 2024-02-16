@@ -63,8 +63,8 @@ export default function Footer() {
     </div>
     <div className='h-[2px] bg-white w-full my-6'></div>
     <div className='flex lg:flex-row flex-col justify-between items-center'>
-<p className='font-thin text-white text-xs lg:w-[50%] w-[100%]'>(C) 2024, IndiaNIC Infotech Limited. Protected by Google reCAPTCHA. Read our Terms and Policies. 
-IndiaNIC logo, brandmark and name are a registered trademark of IndiaNIC Infotech Limited.</p>
+<p className='font-thin text-white text-xs lg:w-[50%] w-[100%]'>(C) 2024, Pointzero. Protected by Google reCAPTCHA. Read our Terms and Policies. 
+Pointzero, brandmark and name are a registered trademark of pointzero .</p>
 <div className='flex gap-2 items-center text-white'>
 <FacebookIcon/>
 <InstagramIcon/>

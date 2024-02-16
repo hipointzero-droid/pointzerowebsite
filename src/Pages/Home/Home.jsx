@@ -19,7 +19,7 @@ export default function Home() {
       <Features/>
       <OurServices/>
       <HomeTechnologies/>
-      <PlanSection/>
+      {/* <PlanSection/> */}
       <OurCoreFeatures/>
       <DetailSection/>
       <Footer/>
