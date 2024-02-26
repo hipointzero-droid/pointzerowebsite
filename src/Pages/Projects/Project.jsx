@@ -6,7 +6,7 @@ import React from 'react'
 import ImageSlider from './Imageslider'
 import image1 from '../../assets/image1.png';
 import image2 from '../../assets/image2.png'
-
+import './scroll.css'
 import image3 from '../../assets/image3.png'
 import porject2 from '../../assets/project2.png'
 import tunesevern from '../../assets/project/tuneseven.png'
@@ -58,7 +58,7 @@ export default function Project() {
   return (
     <div className='bg-black text-white'>
         <Navbar/>
-        <div className='lg:w-[98%] w-[98%] px-2 h-[450.1px]  mt-10'>
+        <div className='lg:w-[100%] w-[98%] px-1 h-[450.1px]  mt-10'>
         <ImageSlider images={images}/>
   
         </div>
@@ -67,7 +67,7 @@ export default function Project() {
         <div className='lg:px-10 px-2'>
 
        
-        <div id='container'  className='flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
+        <div id='container1'  className='flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
         <OurProjects image={porject2} subtitle="Welcome to Rozai Traders - Your Premier Destination for Quality Goods in Nepal!"
         title="Rozai.com.np" technology="React js  , Django "
         />
@@ -99,7 +99,7 @@ export default function Project() {
         </div>
         </div>
         <div className='lg:px-10 px-1'>
-        <div id='container'  className='flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
+        <div id='container1'  className='flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
           <MobileProject image={medicity} title="Medicity" subtitle="Fast money is the running Fintech app in Nepal it is a Fully functional Fintech money transaction with advance admin panel and data base , full customizable by admin ."/>
           <MobileProject image={newsapp} title="News House Nepal" subtitle="News House Nepal trusted news portal dedicated to bringing you up-to-the-minute updates on all things Nepal"/>
           <MobileProject image={ecommerceapp} title="E-Commerce" subtitle="E-commerce typically features functionalities such as product categorization, search capabilities, secure payment gateways, order tracking, and customer support."/>

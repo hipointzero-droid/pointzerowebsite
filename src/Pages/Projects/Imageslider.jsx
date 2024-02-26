@@ -45,7 +45,7 @@ const ImageSlider = ({ images, slidesToShow = 3 }) => {
         className={idx === imageIndex ? "activeSlide" : "slide"}
         key={image.id}
       >
-        <div className="slideWrapper lg:h-[300px]">
+        <div className="slideWrapper lg:h-[350px]">
           {image.code ? image.code : <img src={image.src} alt={image.alt} />}
         </div>
       </div>

@@ -18,7 +18,7 @@ service that you've pioneered. Give it room to shine here
 service that you've pioneered. Give it room to shine here
      </p>
       </div>
-     <div className='w-[30%]'>
+     <div className='lg:w-[30%] lg:pt-0 pt-5'>
 <img src={image} alt="" />
      </div>
     </section>

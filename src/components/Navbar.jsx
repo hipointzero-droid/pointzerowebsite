@@ -11,8 +11,8 @@ export default function Navbar() {
 const navigate=useNavigate();
   return (
     <div>
-    <div className='bg-black text-white flex items-center justify-between lg:px-20 px-5  py-6'>
-<Link to="/"> <img src={logo} alt="" className='h-14'/></Link>
+    <div className='bg-black text-white flex items-center justify-between lg:px-20 px-1  py-6'>
+<Link to="/"> <img src={logo} alt="" className='lg:h-24 h-20'/></Link>
 <div className='lg:flex gap-4 hidden'>
 <Link to="/" className='cursor-pointer'>Home</Link>
 <Link to="/about" className='cursor-pointer'>About</Link>
