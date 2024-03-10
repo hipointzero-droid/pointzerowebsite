@@ -59,7 +59,7 @@ const ComputerCanvas = () => {
           fontWeight:800,
           marginTop:40
         }}
-        >{100}%</p>
+        >Loading</p>
       </span>
     </Html>}>
         <OrbitControls enableZoom={false}
