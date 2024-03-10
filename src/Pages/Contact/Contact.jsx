@@ -1,14 +1,18 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../Home/Components/Footer'
+import EarthCanvas from '../../components/Earth'
 
 export default function Contact() {
   return (
     <div>
         <Navbar/>
-        <div className='  flex-col w-[100%] flex lg:gap-10 overflow-hidden pt-4 bg-black items-center justify-center'>
+        <div className='flex lg:flex-row flex-col justify-between h-full md:px-16 bg-black pt-4'>
+
+       
+        <div className='  flex-col lg:w-[56%] xl:w-[67%] w-full  flex lg:gap-10 overflow-hidden pt-4 bg-black items-center justify-center'>
   <div 
-  className='flex flex-col  p-8 rounded-2xl bg-white w-[90%]  lg:w-[50%] mb-16'
+  className='flex flex-col  p-8 rounded-2xl bg-white w-[90%]  lg:w-[70%] mb-16'
   >
   <p className='font-semibold text-2xl'>Get in touch</p>
   <h3 className='font-bold text-5xl'>Contact.</h3>
@@ -49,6 +53,10 @@ export default function Contact() {
   </form>
   </div>
  
+    </div>
+    <div className='xl:flex-1 xl:w-[20%] lg:w-[40%] lg:h-[550px] w-full h-[350px] '>
+    <EarthCanvas/>
+    </div>
     </div>
     <Footer/>
     </div>

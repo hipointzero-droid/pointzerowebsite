@@ -5,10 +5,11 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import backimage from "../../../assets/3.1.png";
 import frontimage from "../../../assets/10.png";
 import { useNavigate } from 'react-router-dom';
+import ComputerCanvas from '../../../components/Laptop';
 export default function TopSection() {
   const navigate=useNavigate();
   return (
-    <section className=' bg-black lg:px-20 px-5 lg:pt-14 pt-5 pb-7 flex justify-between'>
+    <section className=' bg-black lg:px-20 px-5 lg:pt-14 pt-5 pb-7 flex md:flex-row flex-col-reverse justify-between'>
         <div className='lg:w-[40%] w-[100%] text-white'>
         {/* <p className=' font-bold text-xl'>PointZero</p> */}
         <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl mt-8'>Your Trusted </h1>
@@ -33,11 +34,15 @@ export default function TopSection() {
            </div>
         </div>
         </div>
-           <div className=' lg:flex hidden items-center justify-center w-[50%] '>
+        <div className='md:w-[50%] w-full   flex-col items-start justify-start md:flex hidden '>
+        <ComputerCanvas/>
+        </div>
+     
+           {/* <div className=' lg:flex hidden items-center justify-center w-[50%] '>
             <img src={backimage} alt="" className='relative h-[500px]'/>
 
             <img src={frontimage} alt="" className='absolute top-[390px] left-[70%] transform -translate-x-1/2 -translate-y-1/2 h-80 rounded-full'/>
-           </div>
+           </div> */}
 
     </section>
   )
