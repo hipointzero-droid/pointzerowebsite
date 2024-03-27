@@ -17,8 +17,8 @@ const navigate=useNavigate();
 <Link to="/" className='cursor-pointer'>Home</Link>
 <Link to="/about" className='cursor-pointer'>About</Link>
 <Link to="/services" className='cursor-pointer'>Service</Link>
-<Link to="/project" className='cursor-pointer'>Product</Link>
-<Link to="/contact" className='cursor-pointer'>Contact</Link>
+<Link to="/project" className='cursor-pointer'>Project</Link>
+{/* <Link to="/contact" className='cursor-pointer'>Contact</Link> */}
 </div>
 <button className='rounded-3xl lg:block hidden text-white bg-[#0b6380]  p-2 px-7 font-bold'
 onClick={()=>{

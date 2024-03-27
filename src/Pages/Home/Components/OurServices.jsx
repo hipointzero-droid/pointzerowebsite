@@ -26,15 +26,19 @@ export default function OurServices() {
      
       {/* developer */}
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-orange-200 transition duration-700 ease-in-out hover:text-black `}
+      <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-yellow-200 transition duration-700 ease-in-out hover:text-black `}
        onMouseEnter={()=>{
         setfirst1(!first1);
       }} onMouseLeave={()=>{
         setfirst1(!first1)
       }}>
 <img src={first1===false? developer:developer1} alt="" className='h-26 '/>
-<p className=' text-xl font-bold  mt-3 w-[80%]'>Hire Dedicated Developers</p>
-<p className=' font-semibold  mt-3 w-[90%]'>Create your own team of developers for your software development project on short term, long term or permanent basis with guaranteed project delivery at affordable prices.</p>
+<p className=' text-xl font-bold  mt-3 w-[100%]'>Hire Dedicated Developers</p>
+<p className=' font-semibold text-sm mt-1 w-[95%]'>Augment your team with our Hire Dedicated Developers service,
+where you gain access to seasoned professionals fully committed to bringing your projects to
+fruition. Whether you need additional expertise for a specific project or ongoing support for your
+development needs, our dedicated developers become an extension of your team, working
+closely with you to deliver high-quality solutions on time and within budget.</p>
 <p className={`mt-6 font-bold  ${first1===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
       </div>
       </div>
@@ -48,13 +52,18 @@ export default function OurServices() {
       }}>
 <img src={first3===false? mobile:mboile1} alt="" className='h-26 '/>
 <p className=' text-xl font-bold  mt-3 w-[80%]'>Mobile Apps</p>
-<p className=' font-semibold  mt-3 w-[90%]'>We build intuitive and engaging Android, iOS and cross-platform apps for businesses, consumers and enterprises that end users love and adapt to them very quickly.</p>
+<p className=' font-semibold text-sm mt-3 w-[95%]'>Our mission at Point Zero is simple: to empower businesses with the tools and technologies
+they need to thrive in the digital age. We are driven by a relentless pursuit of excellence and a
+commitment to delivering innovative solutions that exceed expectations. With a focus on quality,
+creativity, and customer satisfaction, we strive to be the go-to partner for businesses looking to
+harness the power of technology to achieve their goals and make a lasting impact in their
+industries.</p>
 <p className={`mt-6 font-bold  ${first3===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
       </div>
       </div>
       {/* website */}
       <div className='flex-shrink-0 flex-grow-0'>
-      <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-red-200 transition duration-700 ease-in-out hover:text-black `}
+      <div className={`bg-[#242323] h-[500px] py-12 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-red-200 transition duration-700 ease-in-out hover:text-black `}
        onMouseEnter={()=>{
         setfirst2(!first2);
       }} onMouseLeave={()=>{
@@ -62,7 +71,12 @@ export default function OurServices() {
       }}>
 <img src={first2===false? website:website1} alt="" className='h-26 '/>
 <p className=' text-xl font-bold  mt-3 w-[80%]'>Web Development</p>
-<p className=' font-semibold  mt-3 w-[90%]'>Our web developers create custom web and web application solutions. We deliver web presence to help you grow your business using the best web technologies.</p>
+<p className=' font-semibold text-sm  mt-3 w-[95%]'>Our mission at Point Zero is simple: to empower businesses with the tools and technologies
+they need to thrive in the digital age. We are driven by a relentless pursuit of excellence and a
+commitment to delivering innovative solutions that exceed expectations. With a focus on quality,
+creativity, and customer satisfaction, we strive to be the go-to partner for businesses looking to
+harness the power of technology to achieve their goals and make a lasting impact in their
+industries.</p>
 <p className={`mt-6 font-bold  ${first2===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
       </div>
       </div>
@@ -75,8 +89,12 @@ export default function OurServices() {
         setfirst(!first)
       }}>
 <img src={first===false? ui:ui1} alt="" className='h-26 '/>
-<p className=' text-xl font-bold  mt-3 w-[80%]'>UI/UX Design</p>
-<p className=' font-semibold  mt-3 w-[90%]'>Starting from concept, information architecture, visual identity and UI/UX design, our team delivers dazzling experiences for maximum user engagement.</p>
+<p className=' text-xl font-bold  mt-3 w-[80%]'>Infrastructure &amp; DevOps</p>
+<p className=' font-semibold text-sm  mt-3 w-[95%]'>In today&#39;s fast-paced digital landscape, having a reliable and efficient
+infrastructure is essential for success. Our Infrastructure &amp; DevOps service is geared towards
+architecting resilient infrastructure and implementing DevOps practices that enhance agility,
+scalability, and reliability. From cloud migration to continuous integration and deployment, we
+optimize your infrastructure to support your evolving business needs and drive innovation.</p>
 <p className={`mt-6 font-bold  ${first===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
       </div>
       </div>

@@ -72,7 +72,16 @@ export default function About() {
           <p className='font-light lg:text-xl text-base'> Software Development Company Since 2022</p>
             <div className='h-[0.02rem]  bg-white md:w-[28%] w-[80%] my-3'></div>
             <h1 className='md:w-[70%] w-[80%] font-bold lg:text-7xl text-xl text-center md:mt-10 mt-6'>Our Treasure Comprises Our People, Vision & Values</h1>
-            <p className='font-light text-sm md:mt-10 mt-6 text-center md:w-[40%] w-[60%]'>Pointzeroo is not only a globally recognized IT company but also a family filled with talented experts that help global brands, enterprises, mid-size businesses or even startups with innovative solutions.</p>
+            <p className='font-light text-sm md:mt-10 mt-6 text-center md:w-[70%] w-[60%]'>Point Zero is more than just a software development company; we are the architects of digital
+transformation. With a relentless commitment to innovation and excellence, we specialize in
+crafting tailored solutions that empower businesses to thrive in the digital age. Our team of
+dedicated professionals brings together expertise from diverse backgrounds, united by a shared
+passion for pushing boundaries and delivering results that exceed expectations. At Point Zero,
+we believe that success is built on a foundation of collaboration and transparency. We work
+closely with our clients, listening to their needs, understanding their challenges, and co-creating
+solutions that drive tangible impact and value. Whether it&#39;s web development, app development,
+software solutions, or beyond, Point Zero is your trusted partner on the journey to digital
+success.</p>
         </section>
         <section className='text-white  md:px-28 px-8 mt-40'>
         <div className='flex gap-6 lg:items-center items-start justify-start  lg:justify-center mt-10 overflow-x-auto'>
@@ -99,14 +108,22 @@ export default function About() {
             <div className='flex lg:flex-row flex-col lg:items-center lg:justify-center items-center w-[100%] '>
    <div className='flex flex-col items-start  lg:w-[450px] w-[100%] mt-10'>
 <p className='font-bold text-xl'>Who We Are</p>
-<p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>Pointzeroo is not an entity, it’s a family that represents togetherness for over two decades of a successful journey. For us, the definition of success is to transcend innovative ideas of people to reality with the help of our tech expertise, this is what we, as a Team, want to be remembered for!</p>
-<p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>The goal is to empower clients and businesses by creating new possibilities leveraging the technologies of today and tomorrow with the utmost quality, satisfaction, and transparency.</p>
+<p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>Point Zero is a forward-thinking software development company with a passion for innovation
+and excellence. We pride ourselves on our dynamic team of professionals who bring diverse
+
+expertise and a shared commitment to pushing the boundaries of what&#39;s possible in the digital
+realm. At Point Zero, creativity, collaboration, and integrity are at the core of everything we do.</p>
+{/* <p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>The goal is to empower clients and businesses by creating new possibilities leveraging the technologies of today and tomorrow with the utmost quality, satisfaction, and transparency.</p> */}
 
    </div>
    <div className='flex flex-col items-start lg:w-[450px] w-[100%] mt-10'>
 <p className='font-bold text-xl'>What We Do</p>
-<p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>Our enthusiasm has led us to become a top IT company in Nepal for delivering various industry-led mobility solutions in web and mobile application development domains leveraging futuristic technologies like Internet of Things (IoT), AI-ML, AR-VR,  DevOps & Cloud computing, etc.</p>
-<p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>We feel empowered with our certified tech experts and our R&D team who have always challenged themselves to help global clientele with a plethora of IT services and solutions.</p>
+<p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>At Point Zero, we specialize in a range of digital services aimed at empowering businesses to
+thrive in today&#39;s competitive landscape. From captivating web development to groundbreaking
+app solutions, our services encompass everything needed to establish and elevate your digital
+presence. We offer tailored software solutions, cutting-edge technology integration, and expert
+consultation to ensure that our clients achieve their goals with confidence.</p>
+{/* <p className='font-thin text-sm md:w-[68%] w-[95%] mt-4'>We feel empowered with our certified tech experts and our R&D team who have always challenged themselves to help global clientele with a plethora of IT services and solutions.</p> */}
 
    </div>
             </div>
@@ -117,12 +134,22 @@ export default function About() {
 <div className='md:w-[45%] w-[100%] flex flex-col  items-start justify-start'>
 <img src={img1} alt="" className='-ml-7'/>
 <p className='font-bold text-xl mt-4'>Client-centric Approach</p>
-<p className='mt-4 font-thin w-[90%]'>For any business, customers are always at the center. Being a leading web and mobile app development company, our definition goes beyond our direct customers. We always start from where you are with your ideas and we think from YOUR end customers' perspectives, their pain areas and devise a solution that solves core problems to benefit your business.</p>
+<p className='mt-4 font-thin w-[90%]'>Our approach is rooted in collaboration and transparency. We believe in working closely with
+our clients to understand their unique needs, challenges, and goals. By fostering open
+communication and a deep understanding of our clients&#39; businesses, we are able to develop
+customized solutions that address their specific requirements and deliver measurable results. At
+Point Zero, we see ourselves as partners in our clients&#39; success, dedicated to providing
+unparalleled support and expertise every step of the way.</p>
 </div>
 <div className='md:w-[45%] w-[100%] flex flex-col  items-start justify-start'>
 <img src={img2} alt="" className='-ml-3'/>
 <p className='font-bold text-xl mt-4'>Quality Delivered in Time</p>
-<p className='mt-4 font-thin w-[90%]'>With over two decades of experience in the offshore IT software development industry, we have a great set of internal frameworks with best-in-class infrastructure that enables us to deliver solutions with superior quality, at all times. All these years, we have learned how to prevent failures and replicate success. We don't just brag about quality. We define and deliver it in time.</p>
+<p className='mt-4 font-thin w-[90%]'>Our mission at Point Zero is simple: to empower businesses with the tools and technologies
+they need to thrive in the digital age. We are driven by a relentless pursuit of excellence and a
+commitment to delivering innovative solutions that exceed expectations. With a focus on quality,
+creativity, and customer satisfaction, we strive to be the go-to partner for businesses looking to
+harness the power of technology to achieve their goals and make a lasting impact in their
+industries.</p>
 </div>
    </div>
         </section>
@@ -167,7 +194,7 @@ export default function About() {
      
       {/* Repeat the above structure for other boxes */}
     </div>
-    <div className='md:bg-[#0b6380] bg-black py-10 mb-8 md:px-20 px-8 mt-20 w-full flex md:flex-row flex-col md:gap-0 gap-6 items-center justify-center '>
+    {/* <div className='md:bg-[#0b6380] bg-black py-10 mb-8 md:px-20 px-8 mt-20 w-full flex md:flex-row flex-col md:gap-0 gap-6 items-center justify-center '>
 
 <div className='flex gap-3 bg-[#0b6380] md:p-0 p-3 rounded-xl'>
 <div className='h-14 w-14 bg-gray-300 rounded-full'>
@@ -188,6 +215,9 @@ export default function About() {
 </div>
 <p className='w-[45%] text-sm font-light'>For any business, customers are always at the center. Being a leading </p>
 </div>
+        </div> */}
+        <div className='mb-20'>
+
         </div>
         </section>
         

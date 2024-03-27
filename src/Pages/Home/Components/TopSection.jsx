@@ -15,7 +15,9 @@ export default function TopSection() {
         <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl mt-8'>Your Trusted </h1>
         <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl lg:-mt-2 -mt-1'>Development</h1>
         <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl lg:-mt-2 -mt-1'>Partner</h1>
-        <p className='mt-10 font-serif'>Point Zero understands that the web/app is all about user experience, and that's why we're a team of designers, developers, and technologists who love what we do. We believe that a successful and happy customer is our most important asset.</p>
+        <p className='mt-10 font-serif'>At Point Zero, we specialize in bringing your digital dreams to life. With a team of passionate
+and experienced professionals, we offer a wide range of services tailored to meet your needs
+and exceed your expectations.</p>
         <button className=' rounded-3xl lg:block hidden text-white bg-[#0b6380]  p-2  font-bold  px-7 mt-10'
         onClick={()=>{
           navigate("/contact")

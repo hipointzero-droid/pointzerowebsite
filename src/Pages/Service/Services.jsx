@@ -21,7 +21,7 @@ export default function Services() {
        
 
 </h1>
-<p className='font-light text-sm md:mt-16 mt-6 mb-10 md:px-0 px-2 text-center md:w-[550px] w-full'>Since 2021, we have been a reliable offshore partner for software application development. We provide a comprehensive spectrum of IT services and  solutions worldwide, including mobile and desktop app development.</p>
+<p className='font-light text-sm md:mt-16 mt-6 mb-10 md:px-0 px-2 text-center md:w-[550px] w-full'>Since 2022, we have been a reliable offshore partner for software application development. We provide a comprehensive spectrum of IT services and  solutions worldwide, including mobile and desktop app development.</p>
         </div>
         <div className='flex flex-wrap md:px-20 px-3 mt-40 text-white justify-evenly items-center'>
     <div>
