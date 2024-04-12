@@ -9,10 +9,12 @@ import DetailSection from './Components/DetailSection'
 import Footer from './Components/Footer'
 import Navbar from '../../components/Navbar'
 import HomeTechnologies from './Components/HomeTechnologies/HomeTechnologies'
+import TopBanner from './Components/TopBanner'
 
 export default function Home() {
   return (
     <div>
+      <TopBanner/>
       <Navbar/>
       <TopSection/>
       <InnovateSection/>
