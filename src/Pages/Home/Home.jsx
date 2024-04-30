@@ -46,7 +46,7 @@ setopen(false)
 </div>:<></>} */}
       </div>
    
-      <TopBanner/>
+      {/* <TopBanner/> */}
       <Navbar/>
       <TopSection/>
       <InnovateSection/>

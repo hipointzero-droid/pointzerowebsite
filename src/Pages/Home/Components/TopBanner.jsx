@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import  { Countdown } from './TimerComponent';
-
+import { useNavigate } from 'react-router-dom';
 export default function TopBanner() {
+  const navigate=useNavigate();
     const THREE_DAYS_IN_MS = 2 * 15 * 60 * 60 * 1000;
     const NOW_IN_MS = new Date().getTime();
-  
     const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
  
   return (
@@ -14,7 +14,9 @@ export default function TopBanner() {
 
 <Countdown/>
 </div>
-     <div className='font-bold text-white h-[30px] flex text-center justify-center items-center text-sm w-[100px] rounded-lg bg-[#0b6380]'>
+     <div className='font-bold text-white h-[30px] flex text-center justify-center items-center text-sm w-[100px] cursor-pointer rounded-lg bg-[#0b6380]' onClick={()=>{
+navigate("/contact")
+     }}>
         Hire Now
      </div>
     </div>
