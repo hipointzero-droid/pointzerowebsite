@@ -12,6 +12,9 @@ import rectang5 from '../../assets/about/Rectangle 6.png'
 import kripas from '../../assets/about/kirpas.png'
 import sagun from '../../assets/about/sagun.png'
 import yunish from '../../assets/about/yunish.png'
+import sujan from '../../assets/about/sujan.jpg'
+import kushal from '../../assets/about/kushal.jpg'
+import prayag from '../../assets/about/prayag.jpg'
 
 export default function About() {
   const [count, setCount] = useState(0);
@@ -164,7 +167,7 @@ industries.</p>
         </section>
         <section className='text-white mt-40  '>
         <p className='font-bold md:text-3xl text-xl text-center'>Our Team </p>
-        <div className='flex gap-6 items-start px-8  md:justify-center justify-start mt-10 overflow-x-auto'>
+        <div id='container1' className=' flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto lg:mx-10'>
       <div className='flex-shrink-0 flex-grow-0'>
         <img src={kripas} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] '/>
       
@@ -176,19 +179,27 @@ industries.</p>
           <p className='font-bold text-xl mt-2'>MD</p>
           <p className='font-semibold text-base text-[#8A889C]'>Sagun khatiwada</p>
       </div>
-      <div className='flex-shrink-0 flex-grow-0'>
-      <div className='border-2 border-black h-[250px] rounded-xl bg-white p-5 w-[200px] '>
-          
-          </div>
-          <p className='font-bold text-xl mt-2'>Project manager</p>
-          <p className='font-semibold text-base text-[#8A889C]'> kripas khatiwada</p>
-      </div>
+    
       <div className='flex-shrink-0 flex-grow-0'>
       <img src={yunish} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] '/>
           <p className='font-bold text-xl mt-2'>Full Stack Developer</p>
           <p className='font-semibold text-base text-[#8A889C]'>Yunish Pandit</p>
       </div>
-      
+      <div className='flex-shrink-0 flex-grow-0'>
+      <img src={sujan} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] object-cover'/>
+          <p className='font-bold text-xl mt-2'>Backend / Flutter <br /> Developer</p>
+          <p className='font-semibold text-base text-[#8A889C]'>Sujan Aangbo</p>
+      </div>
+      <div className='flex-shrink-0 flex-grow-0'>
+      <img src={kushal} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] object-cover'/>
+          <p className='font-bold text-xl mt-2'>Creative manger and <br /> Copywriter</p>
+          <p className='font-semibold text-base text-[#8A889C]'>Kushal basnet </p>
+      </div>
+      <div className='flex-shrink-0 flex-grow-0'>
+      <img src={prayag} alt="" className='border-2 border-black h-[250px] rounded-xl bg-white w-[200px] '/>
+          <p className='font-bold text-xl mt-2'>Graphics designer</p>
+          <p className='font-semibold text-base text-[#8A889C]'>Prayag Raj thapa</p>
+      </div>
      
       
      
