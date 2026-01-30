@@ -1,22 +1,42 @@
-import React, { useEffect } from "react";
-import { TOTAL_FILES } from "../constants";
+import React from "react";
 import ImageReturn from "../ImageReturn";
 
 const RightSide = ({ selected, tech }) => {
+  const currentTech = tech[selected];
+  const techName = currentTech[0];
+  const techLogos = currentTech[1];
+
+  // Format tech names for display
+  const formatName = (name) => {
+    return name
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, (l) => l.toUpperCase());
+  };
+
   return (
-    <div style={{display:"flex",justifyContent:"space-between"}}>
-      {Array(TOTAL_FILES-1)
-        .fill(0)
-        .map((l, index) => (
-          <div key={index} className="Home_Technologies_Datas_Right_Box">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+      {techLogos.map((logoName, index) => (
+        <div
+          key={index}
+          className="group p-4 sm:p-6 bg-gray-800/50 border border-white/5 rounded-2xl
+                     flex flex-col items-center justify-center gap-3
+                     transition-all duration-300 hover:border-cyan-500/30
+                     hover:bg-gray-800/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10"
+        >
+          <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center
+                          transition-transform duration-300 group-hover:scale-110">
             <img
-              // style={{ width: 50, height: 50 }}
-              src={ImageReturn(tech[selected][0], tech[selected][1][index])}
-              className="Home_Technologies_Datas_Right_Box_Image"
-              alt="logo"
+              src={ImageReturn(techName, logoName)}
+              alt={logoName}
+              className="max-w-full max-h-full object-contain"
             />
           </div>
-        ))}
+          <p className="text-gray-400 text-xs sm:text-sm font-medium text-center
+                        group-hover:text-white transition-colors">
+            {formatName(logoName)}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };

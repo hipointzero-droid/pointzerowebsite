@@ -3,42 +3,48 @@ import React, { useState, useEffect, useRef } from 'react';
 const SmoothCounter = ({ startValue, endValue }) => {
   const [count, setCount] = useState(0);
   const counterRef = useRef(null);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
           startCounting();
-          observer.disconnect(); // Stop observing once it's in view
+          observer.disconnect();
         }
       },
-      { threshold: 0.5 } // Adjust the threshold as needed
+      { threshold: 0.5 }
     );
 
     if (counterRef.current) {
       observer.observe(counterRef.current);
     }
 
-    return () => observer.disconnect(); // Cleanup on component unmount
+    return () => observer.disconnect();
   }, []);
 
   const startCounting = () => {
     let currentCount = startValue;
+    const duration = 2000; // 2 seconds
+    const steps = endValue - startValue;
+    const stepTime = Math.abs(Math.floor(duration / steps));
+
     const interval = setInterval(() => {
-      setCount((prevCount) => {
-        currentCount = prevCount + 1;
-        if (currentCount === endValue) {
-          clearInterval(interval);
-        }
-        return currentCount;
-      });
-    }, 5); // Adjust the interval as needed
+      currentCount += 1;
+      setCount(currentCount);
+
+      if (currentCount >= endValue) {
+        clearInterval(interval);
+        setCount(endValue);
+      }
+    }, stepTime);
   };
 
   return (
-    <div ref={counterRef} className="md:mt-20 mt-10 text-5xl font-bold">
+    <span ref={counterRef} className="tabular-nums">
       {count}+
-    </div>
+    </span>
   );
 };
 

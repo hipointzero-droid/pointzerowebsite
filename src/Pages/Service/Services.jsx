@@ -1,157 +1,486 @@
-import React from 'react'
-import Navbar from '../../components/Navbar'
-import image1 from '../../assets/image 5.png';
-import image2 from '../../assets/image 6.png'
-
-import image3 from '../../assets/image 7.png'
-import image4 from '../../assets/image 4.png'
-import image5 from '../../assets/image 8.png'
-import image6 from '../../assets/Capture 1.png'
-import image7 from '../../assets/Capture2 1.png'
-import image8 from '../../assets/image 9.png'
-import image9 from '../../assets/image 10.png'
+import React, { Suspense } from 'react';
+import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
+import StarsCanvas from '../../components/Stars';
+
+// Images
+import mobileImg from '../../assets/image 4.png';
+import webImg from '../../assets/image 9.png';
+import uiuxImg from '../../assets/image 8.png';
+import qaImg from '../../assets/image 10.png';
+import devopsImg from '../../assets/developer.png';
+import teamImg from '../../assets/developer1.png';
+
+// Icons
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import WebIcon from '@mui/icons-material/Web';
+import BrushIcon from '@mui/icons-material/Brush';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import CloudIcon from '@mui/icons-material/Cloud';
+import GroupsIcon from '@mui/icons-material/Groups';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import SpeedIcon from '@mui/icons-material/Speed';
+import SecurityIcon from '@mui/icons-material/Security';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
+  const navigate = useNavigate();
+
+  const services = [
+    {
+      id: 'mobile',
+      icon: <PhoneIphoneIcon className="w-8 h-8" />,
+      title: 'Mobile App Development',
+      subtitle: 'iOS & Android Excellence',
+      description: 'Our specialty is developing powerful mobile applications for all sizes of businesses. We leverage cutting-edge technology to create apps for iOS, Android, hybrid, and cross-platform platforms that deliver exceptional user experiences.',
+      gradient: 'from-purple-500 to-pink-600',
+      image: mobileImg,
+      features: [
+        'Native iOS App Development',
+        'Native Android App Development',
+        'Cross-platform Solutions',
+        'React Native & Flutter',
+        'App Store Optimization',
+        'Maintenance & Support',
+      ],
+      technologies: [
+        { name: 'Swift', color: '#FA7343' },
+        { name: 'Kotlin', color: '#7F52FF' },
+        { name: 'React Native', color: '#61DAFB' },
+        { name: 'Flutter', color: '#02569B' },
+      ],
+      cta: 'Hire Mobile Developers',
+    },
+    {
+      id: 'web',
+      icon: <WebIcon className="w-8 h-8" />,
+      title: 'Web Development',
+      subtitle: 'Modern Web Solutions',
+      description: 'We are a top web development company. Our certified developers are masters at building unique online solutions with the newest web technology for businesses of all scales. From simple websites to complex web applications.',
+      gradient: 'from-cyan-500 to-blue-600',
+      image: webImg,
+      features: [
+        'Custom Website Development',
+        'Web Application Development',
+        'eCommerce Solutions',
+        'Progressive Web Apps',
+        'API Development',
+        'Cloud Integration',
+      ],
+      technologies: [
+        { name: 'React', color: '#61DAFB' },
+        { name: 'Next.js', color: '#ffffff' },
+        { name: 'Node.js', color: '#68A063' },
+        { name: 'Python', color: '#3776AB' },
+      ],
+      cta: 'Hire Web Developers',
+    },
+    {
+      id: 'uiux',
+      icon: <BrushIcon className="w-8 h-8" />,
+      title: 'UI/UX Design',
+      subtitle: 'User-Centered Design',
+      description: 'Create stunning user experiences that captivate and convert. Our design team crafts intuitive interfaces that delight users and drive business results through research-driven design methodology.',
+      gradient: 'from-orange-500 to-red-600',
+      image: uiuxImg,
+      features: [
+        'User Research & Analysis',
+        'Wireframing & Prototyping',
+        'Visual Design Systems',
+        'Interaction Design',
+        'Usability Testing',
+        'Design Handoff',
+      ],
+      technologies: [
+        { name: 'Figma', color: '#F24E1E' },
+        { name: 'Adobe XD', color: '#FF61F6' },
+        { name: 'Sketch', color: '#F7B500' },
+        { name: 'Framer', color: '#0055FF' },
+      ],
+      cta: 'Hire UI/UX Designers',
+    },
+    {
+      id: 'qa',
+      icon: <BugReportIcon className="w-8 h-8" />,
+      title: 'Quality Assurance',
+      subtitle: 'Bug-Free Delivery',
+      description: 'Quality Assurance and software testing services are fundamental to our ecosystem. Our proficient testers contribute to expedited releases without compromising quality through comprehensive testing strategies.',
+      gradient: 'from-green-500 to-emerald-600',
+      image: qaImg,
+      features: [
+        'Manual QA Testing',
+        'Automated Testing',
+        'Performance Testing',
+        'Security Testing',
+        'API Testing',
+        'Mobile App Testing',
+      ],
+      technologies: [
+        { name: 'Selenium', color: '#43B02A' },
+        { name: 'Cypress', color: '#64748b' },
+        { name: 'Jest', color: '#C21325' },
+        { name: 'Postman', color: '#FF6C37' },
+      ],
+      cta: 'Hire QA Experts',
+    },
+    {
+      id: 'devops',
+      icon: <CloudIcon className="w-8 h-8" />,
+      title: 'DevOps & Cloud',
+      subtitle: 'Scalable Infrastructure',
+      description: 'Build resilient, scalable infrastructure with our DevOps expertise. We help you deploy faster, scale effortlessly, and maintain high availability with modern cloud-native solutions.',
+      gradient: 'from-blue-500 to-indigo-600',
+      image: devopsImg,
+      features: [
+        'CI/CD Pipeline Setup',
+        'Cloud Migration',
+        'Container Orchestration',
+        'Infrastructure as Code',
+        'Monitoring & Logging',
+        '24/7 Support',
+      ],
+      technologies: [
+        { name: 'AWS', color: '#FF9900' },
+        { name: 'Docker', color: '#2496ED' },
+        { name: 'Kubernetes', color: '#326CE5' },
+        { name: 'Terraform', color: '#7B42BC' },
+      ],
+      cta: 'Hire DevOps Engineers',
+    },
+    {
+      id: 'team',
+      icon: <GroupsIcon className="w-8 h-8" />,
+      title: 'Dedicated Teams',
+      subtitle: 'Extend Your Team',
+      description: 'Augment your team with dedicated developers who integrate seamlessly with your workflow. Get skilled professionals committed to your project success with flexible engagement models.',
+      gradient: 'from-yellow-500 to-orange-600',
+      image: teamImg,
+      features: [
+        'Flexible Engagement',
+        'Skilled Professionals',
+        'Quick Onboarding',
+        'Direct Communication',
+        'Agile Methodology',
+        'Transparent Pricing',
+      ],
+      technologies: [
+        { name: 'Full Stack', color: '#22D3EE' },
+        { name: 'Frontend', color: '#F59E0B' },
+        { name: 'Backend', color: '#10B981' },
+        { name: 'Mobile', color: '#8B5CF6' },
+      ],
+      cta: 'Build Your Team',
+    },
+  ];
+
+  const stats = [
+    { icon: <RocketLaunchIcon />, value: '500+', label: 'Projects Delivered' },
+    { icon: <SpeedIcon />, value: '99%', label: 'On-Time Delivery' },
+    { icon: <SecurityIcon />, value: '100%', label: 'Secure Code' },
+    { icon: <SupportAgentIcon />, value: '24/7', label: 'Support' },
+  ];
+
   return (
-    <div className='bg-black'>
-        <Navbar/>
-        <div className='text-white flex flex-col items-center justify-center mt-12  w-[100%] '>
-        <h1 className='font-bold lg:text-6xl text-xl text-center md:mt-10 mt-6'>Hire Specialised Web & Mobile <br /> Software Development Company
-       
+    <div className="bg-black min-h-screen">
+      <Navbar />
 
-</h1>
-<p className='font-light text-sm md:mt-16 mt-6 mb-10 md:px-0 px-2 text-center md:w-[550px] w-full'>Since 2022, we have been a reliable offshore partner for software application development. We provide a comprehensive spectrum of IT services and  solutions worldwide, including mobile and desktop app development.</p>
+      {/* Hero Section */}
+      <section className="relative min-h-[70vh] overflow-hidden">
+        <Suspense fallback={null}>
+          <StarsCanvas />
+        </Suspense>
+
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
         </div>
-        <div className='flex flex-wrap md:px-20 px-3 mt-40 text-white justify-evenly items-center'>
-    <div>
-      <p className='font-bold text-4xl'>Mobile Apps Development</p>
-      <p className='font-light text-sm  mt-6 mb-10 text-start md:w-[550px] '>Our specialty is developing powerful mobile applications for all sizes of businesses. Our top-notch mobile app development services are intended to produce outcomes. We have a reputation for leveraging cutting edge technology to create apps for iOS, Android, hybrid, and cross-platform platforms. Top mobile app development firm pointzeroo has a track record of creating captivating mobile applications.</p>
-<div className='flex gap-4 my-3 w-[50%] md:mx-0 mx-3 justify-evenly '>
-<img src={image1} alt="" className='w-[54px] '/>
-<img src={image2} alt="" className='w-[54px] '/>
-<img src={image3} alt="" className='w-[54px] '/>
-</div>
-<div className='flex justify-between mt-10'>
-<div>
-  <ul className='text-white marker:text-white list-outside list-disc mt-8'>
-    <li className='font-bold text-sm'>Native iOS App Development</li>
-    <li className='font-bold text-sm'>Native Android App Development</li>
-    <li className='font-bold text-sm'>Cross-platform App Development</li>
-  </ul>
-</div>
-<div>
-  <ul className='text-white marker:text-white list-outside list-disc mt-8'>
-    <li className='font-bold text-sm'>Native iOS App Development</li>
-    <li className='font-bold text-sm'>Native Android App Development</li>
-    <li className='font-bold text-sm'>Cross-platform App Development</li>
-  </ul>
-</div>
-</div>
-<div className='flex items-start justify-start'>
-<div className='w-[250px] font-bold h-[40px] rounded-xl text-base mt-10 bg-[#0b6380] flex items-center justify-center text-white'>
-Mobile Apps Developers
-</div>
-</div>
-    </div>
-    <div>
-      <img src={image4} alt="" className='h-[400px] md:mt-0 mt-4'/>
-    </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
+              <RocketLaunchIcon className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-gray-300">World-Class Development Services</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+              Hire Specialized{' '}
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Web & Mobile
+              </span>
+              <br />
+              Development Experts
+            </h1>
+
+            <p className="mt-8 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Since 2022, we have been a reliable partner for software application development.
+              We provide a comprehensive spectrum of IT services and solutions worldwide.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => navigate("/contact")}
+                className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  Start Your Project
+                  <ArrowForwardIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </button>
+              <button
+                onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10"
+              >
+                Explore Services
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl">
+                <div className="inline-flex p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl text-cyan-400 mb-4">
+                  {stat.icon}
+                </div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-sm text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='flex flex-wrap-reverse md:px-20 px-3 mt-40 text-white justify-evenly items-center'>
-        <div>
-      <img src={image5} alt="" className='h-[400px] md:mt-0 mt-4'/>
-    </div>
-    <div>
-      <p className='font-bold text-4xl'>Web Development</p>
-      <p className='font-light text-sm  mt-6 mb-10 text-start md:w-[550px] '>We are a top online and application development company. Our certified developers are masters at building unique online solutions with the newest web technology. pointzeroo can assist you if you require a website to showcase your company, a central information hub for your enterprise, or robust backend technology to enhance your apps and Internet of Things devices. To suit your demands, we provide a large selection of web solutions and frameworks.</p>
-<div className='flex gap-4 my-3 w-[50%] md:mx-0 mx-3 justify-evenly '>
-<img src={image6} alt="" className=' '/>
+      </section>
 
-</div>
-<div className='flex justify-between md:w-[80%]'>
-<div>
-  <ul className='text-white marker:text-white list-outside list-disc mt-8'>
-    <li className='font-bold text-sm'>Custom Website Development</li>
-    <li className='font-bold text-sm'>Web Application Development</li>
-    <li className='font-bold text-sm'>eCommerce Store Development</li>
-    <li className='font-bold text-sm'>Custom CRM/ERP Software Apps</li>
+      {/* Services Section */}
+      <section id="services" className="relative py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Our{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Services
+              </span>
+            </h2>
+            <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+              Comprehensive digital solutions tailored to transform your business
+            </p>
+          </div>
 
-  </ul>
-</div>
-<div>
-  <ul className='text-white marker:text-white list-outside list-disc mt-8'>
-    <li className='font-bold text-sm'>Full-Stack Development</li>
-    <li className='font-bold text-sm'>Responsive Web Apps</li>
-    <li className='font-bold text-sm'>Progressive Web Apps</li>
-    <li className='font-bold text-sm'>Bespoke CMS Developm</li>
-  </ul>
-</div>
-</div>
-<div className='flex items-center justify-start'>
-<div className='w-[250px] font-bold h-[40px] rounded-xl text-base mt-10 bg-[#0b6380] flex items-center justify-center text-white'>
-Hire Web Developers
-</div>
-</div>
-    </div>
-    
+          <div className="space-y-40">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                id={service.id}
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}
+              >
+                {/* Image Side */}
+                <div className="lg:w-1/2 w-full">
+                  <div className="relative group">
+                    {/* Glow Effect */}
+                    <div className={`absolute -inset-4 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500`}></div>
+
+                    {/* Image Container */}
+                    <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 border border-white/10 overflow-hidden">
+                      {/* Decorative Elements */}
+                      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-10 blur-2xl`}></div>
+                      <div className={`absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-10 blur-2xl`}></div>
+
+                      {/* Main Image */}
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="relative w-full h-auto max-h-[400px] object-contain mx-auto transition-transform duration-500 group-hover:scale-105"
+                      />
+
+                      {/* Floating Badge */}
+                      <div className={`absolute top-4 left-4 px-4 py-2 bg-gradient-to-r ${service.gradient} rounded-full text-white text-sm font-semibold shadow-lg`}>
+                        {service.subtitle}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Side */}
+                <div className="lg:w-1/2 w-full">
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`p-4 bg-gradient-to-br ${service.gradient} rounded-2xl text-white shadow-lg`}>
+                      {service.icon}
+                    </div>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white">{service.title}</h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-lg leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    {service.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3 group/item">
+                        <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center flex-shrink-0`}>
+                          <CheckCircleIcon className="w-3 h-3 text-white" />
+                        </div>
+                        <span className="text-gray-300 group-hover/item:text-white transition-colors">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-3 mb-8">
+                    {service.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/10 hover:scale-105"
+                        style={{ color: tech.color }}
+                      >
+                        {tech.name}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className={`group px-8 py-4 bg-gradient-to-r ${service.gradient} text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-105`}
+                  >
+                    <span className="flex items-center gap-2">
+                      {service.cta}
+                      <ArrowForwardIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='flex flex-wrap md:px-20 px-3 mt-40 text-white justify-evenly items-center'>
-    <div>
-      <p className='font-bold text-4xl'>UI/UX Design Service</p>
-      <p className='font-light text-sm  mt-6 mb-10 text-start md:w-[550px] '>We are a top online and application development company. Our certified developers are masters at building unique online solutions with the newest web technology. pointzeroo can assist you if you require a website to showcase your company, a central information hub for your enterprise, or robust backend technology to enhance your apps and Internet of Things devices. To suit your demands, we provide a large selection of web solutions and frameworks.</p>
+      </section>
 
-<div className='flex gap-4 my-3 w-[50%] md:mx-0 mx-3 justify-evenly '>
-<img src={image7} alt="" className=' '/>
+      {/* Process Section */}
+      <section className="relative py-24 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Our{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Process
+              </span>
+            </h2>
+            <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+              A proven methodology that delivers results
+            </p>
+          </div>
 
-</div>
-
-<div className='flex items-center justify-start'>
-<div className='w-[250px] font-bold h-[40px] rounded-xl text-base mt-10 bg-[#0b6380] flex items-center justify-center text-white'>
-Hire UI/UX Designers
-</div>
-</div>
-    </div>
-    <div>
-      <img src={image8} alt="" className='h-[400px] md:mt-0 mt-4'/>
-    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { step: '01', title: 'Discovery', desc: 'Understanding your vision, goals, and requirements', icon: '🎯' },
+              { step: '02', title: 'Planning', desc: 'Creating roadmap, architecture, and timeline', icon: '📋' },
+              { step: '03', title: 'Development', desc: 'Agile development with regular updates', icon: '⚡' },
+              { step: '04', title: 'Delivery', desc: 'Testing, deployment, and ongoing support', icon: '🚀' },
+            ].map((item, index) => (
+              <div key={index} className="relative group">
+                <div className="h-full p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30 hover:bg-gray-900/80 hover:-translate-y-2">
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <span className="text-5xl font-bold bg-gradient-to-r from-cyan-400/30 to-blue-500/30 bg-clip-text text-transparent">
+                    {item.step}
+                  </span>
+                  <h3 className="mt-4 text-xl font-bold text-white">{item.title}</h3>
+                  <p className="mt-2 text-gray-400">{item.desc}</p>
+                </div>
+                {index < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-cyan-500/50 to-transparent"></div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className='flex flex-wrap-reverse md:px-20 px-3 mt-40 text-white justify-evenly items-center mb-10'>
-        <div>
-      <img src={image9} alt="" className='h-[400px] md:mt-0 mt-4'/>
-    </div>
-    <div>
-      <p className='font-bold text-4xl'>Quality Assurance (QA)</p>
-      <p className='font-light text-sm  mt-6 mb-10 text-start md:w-[550px] '>Quality Assurance (QA) and software testing services are fundamental elements of our ecosystem. At pointzeroo, our proficient testers contribute to expedited releases without compromising quality. We conduct both manual and automated testing for various products and services, encompassing Functional, GUI, Usability, Security, Database testing, Cross-platform, Cross-browser, Accessibility, and more. Our QA specialists leverage DevOps tools and automated build testing methods to accelerate the delivery process.</p>
+      </section>
 
-<div className='flex justify-between md:w-[80%]'>
-<div>
-  <ul className='text-white marker:text-white list-outside list-disc mt-8'>
-    <li className='font-bold text-sm'>QA Documentation</li>
-    <li className='font-bold text-sm'>Manual QA Testing</li>
-    <li className='font-bold text-sm'>Web Testing Automation</li>
-    <li className='font-bold text-sm'>Mobile App Testing</li>
+      {/* Technologies Section */}
+      <section className="relative py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Technologies We{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Master
+              </span>
+            </h2>
+            <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
+              We work with the latest and most reliable technologies
+            </p>
+          </div>
 
-  </ul>
-</div>
-<div>
-  <ul className='text-white marker:text-white list-outside list-disc mt-8'>
-    <li className='font-bold text-sm'>Mobile Testing Automation</li>
-    <li className='font-bold text-sm'>Performance Testing</li>
-    <li className='font-bold text-sm'>API Testing Automation</li>
-    <li className='font-bold text-sm'>Expert QA Consultation</li>
-  </ul>
-</div>
-</div>
-<div className='flex items-center justify-start'>
-<div className='w-[250px] font-bold h-[40px] rounded-xl text-base mt-10 bg-[#0b6380] flex items-center justify-center text-white'>
-Hire QA Experts
-</div>
-</div>
-    </div>
-    
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {[
+              { name: 'React', color: '#61DAFB' },
+              { name: 'Next.js', color: '#ffffff' },
+              { name: 'Node.js', color: '#68A063' },
+              { name: 'Python', color: '#3776AB' },
+              { name: 'Flutter', color: '#02569B' },
+              { name: 'Swift', color: '#FA7343' },
+              { name: 'Kotlin', color: '#7F52FF' },
+              { name: 'AWS', color: '#FF9900' },
+              { name: 'Docker', color: '#2496ED' },
+              { name: 'MongoDB', color: '#47A248' },
+              { name: 'PostgreSQL', color: '#336791' },
+              { name: 'TypeScript', color: '#3178C6' },
+            ].map((tech, index) => (
+              <div
+                key={index}
+                className="group p-6 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl text-center transition-all duration-300 hover:border-white/20 hover:bg-gray-900/80 hover:-translate-y-1"
+              >
+                <div
+                  className="text-2xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
+                  style={{ color: tech.color }}
+                >
+                  {tech.name[0]}
+                </div>
+                <p className="text-gray-400 text-sm group-hover:text-white transition-colors">{tech.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <Footer/>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
+            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Ready to Build Something Amazing?
+              </h2>
+              <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+                Let's discuss your project and find the perfect solution for your business needs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105"
+                >
+                  Get Free Consultation
+                </button>
+                <button
+                  onClick={() => navigate("/project")}
+                  className="px-8 py-4 bg-white/5 border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10"
+                >
+                  View Our Work
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
-  )
+  );
 }

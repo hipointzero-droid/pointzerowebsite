@@ -1,27 +1,106 @@
-import React from 'react'
-import image from "../../../assets/2.png"
+import React from 'react';
+import image from "../../../assets/2.png";
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+
 export default function InnovateSection() {
   return (
-    <section className='bg-white lg:px-20 px-5 pt-14 pb-10  w-[100%] items-center flex lg:flex-row flex-col justify-between'>
-      <div className='lg:w-[40%] w-[100%]'>
-      <h1 className='lg:text-6xl text-3xl w-[100%] font-medium'>
-      Ignite Your Digital Journey with Point Zero!
-     </h1>
-     <p className='w-[100%] mt-10 font-medium'>
-     With Point Zero by your side, the possibilities are endless. Whether you need software testing
-and QA services to ensure flawless performance or DevOps solutions to streamline your
-operations, we&#39;ve got you covered. Let&#39;s ignite your digital journey together and unlock the full
-potential of your business!
-     </p>
-     <p className='w-[100%] mt-8 font-medium'>
-     We&#39;re not just another software development company – we&#39;re your partners in innovation,
-dedicated to propelling your business forward in the digital age. From captivating web designs
-to groundbreaking mobile apps, our team of experts is here to turn your ideas into reality.
-     </p>
+    <section className='relative bg-gradient-to-b from-gray-900 to-black py-24 overflow-hidden'>
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
       </div>
-     <div className='lg:w-[30%] lg:pt-0 pt-5'>
-<img src={image} alt="" />
-     </div>
+
+      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='flex flex-col lg:flex-row items-center gap-16'>
+
+          {/* Left Content */}
+          <div className='lg:w-1/2'>
+            {/* Section Tag */}
+            <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
+              <AutoAwesomeIcon className='w-4 h-4 text-cyan-400' />
+              <span className='text-sm font-medium text-cyan-400'>About Point Zero</span>
+            </div>
+
+            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight'>
+              Ignite Your Digital Journey with{' '}
+              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+                Point Zero
+              </span>
+            </h2>
+
+            <p className='mt-6 text-gray-400 text-lg leading-relaxed'>
+              With Point Zero by your side, the possibilities are endless. Whether you need software testing
+              and QA services to ensure flawless performance or DevOps solutions to streamline your
+              operations, we've got you covered.
+            </p>
+
+            <p className='mt-4 text-gray-400 text-lg leading-relaxed'>
+              We're not just another software development company – we're your partners in innovation,
+              dedicated to propelling your business forward in the digital age.
+            </p>
+
+            {/* Feature Points */}
+            <div className='mt-8 space-y-4'>
+              {[
+                { icon: <RocketLaunchIcon className='w-5 h-5' />, text: 'Cutting-edge technology solutions' },
+                { icon: <TrendingUpIcon className='w-5 h-5' />, text: 'Scalable and future-proof development' },
+                { icon: <AutoAwesomeIcon className='w-5 h-5' />, text: 'Dedicated team of experts' },
+              ].map((item, index) => (
+                <div key={index} className='flex items-center gap-4 group'>
+                  <div className='p-2.5 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg text-cyan-400 transition-all duration-300 group-hover:from-cyan-500/30 group-hover:to-blue-500/30'>
+                    {item.icon}
+                  </div>
+                  <span className='text-gray-300 font-medium'>{item.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <button className='mt-10 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105'>
+              Learn More About Us
+            </button>
+          </div>
+
+          {/* Right Content - Image */}
+          <div className='lg:w-1/2 relative'>
+            {/* Decorative Frame */}
+            <div className='relative'>
+              {/* Gradient Border */}
+              <div className='absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl opacity-20 blur-lg'></div>
+
+              {/* Image Container */}
+              <div className='relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-3xl border border-white/10'>
+                <img
+                  src={image}
+                  alt="Digital Innovation"
+                  className='w-full h-auto rounded-2xl'
+                />
+
+                {/* Floating Card */}
+                <div className='absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur-lg border border-white/10 rounded-2xl p-4 shadow-xl'>
+                  <div className='flex items-center gap-3'>
+                    <div className='p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl'>
+                      <RocketLaunchIcon className='w-6 h-6 text-white' />
+                    </div>
+                    <div>
+                      <p className='text-white font-semibold'>Innovation First</p>
+                      <p className='text-gray-400 text-sm'>Driving digital transformation</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Badge */}
+                <div className='absolute -top-4 -right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg'>
+                  Since 2019
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-  )
+  );
 }

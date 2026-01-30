@@ -1,107 +1,149 @@
-import React, { useState } from 'react'
-
-import developer from '../../../assets/developer.png'
-import developer1 from '../../../assets/developer1.png'
-import ServiceComponent from '../../../components/ServiceComponent';
+import React, { useState } from 'react';
+import developer from '../../../assets/developer.png';
+import developer1 from '../../../assets/developer1.png';
 import website from '../../../assets/website.png';
 import website1 from '../../../assets/website1.png';
-import ui from '../../../assets/ux.png';
-import ui1 from '../../../assets/ux1.png';
 import mobile from '../../../assets/mobile.png';
 import mboile1 from '../../../assets/mobile1.png';
-import './scroll.css'
-export default function OurServices() {
-  const [first, setfirst] = useState(false);
-  const [first1, setfirst1] = useState(false);
-  const [first2, setfirst2] = useState(false);
-  const [first3, setfirst3] = useState(false)
-    const items=[1,2,3,4,5];
-  return (
-    <section   className='bg-black text-white lg:p-14 pb-20'>
-    <h1 className='text-center pt-4  lg:text-5xl text-xl font-semibold'>
-      Our Core Services
-    </h1>
-    <div id='container'  className='flex gap-9 items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
-     
-     
-      {/* developer */}
-      <div className='flex-shrink-0 flex-grow-0'>
-      <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-yellow-200 transition duration-700 ease-in-out hover:text-black `}
-       onMouseEnter={()=>{
-        setfirst1(!first1);
-      }} onMouseLeave={()=>{
-        setfirst1(!first1)
-      }}>
-<img src={first1===false? developer:developer1} alt="" className='h-26 '/>
-<p className=' text-xl font-bold  mt-3 w-[100%]'>Hire Dedicated Developers</p>
-<p className=' font-semibold text-sm mt-1 w-[95%]'>Augment your team with our Hire Dedicated Developers service,
-where you gain access to seasoned professionals fully committed to bringing your projects to
-fruition. Whether you need additional expertise for a specific project or ongoing support for your
-development needs, our dedicated developers become an extension of your team, working
-closely with you to deliver high-quality solutions on time and within budget.</p>
-<p className={`mt-6 font-bold  ${first1===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
-      </div>
-      </div>
-      {/* App */}
-      <div className='flex-shrink-0 flex-grow-0'>
-      <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-orange-200 transition duration-700 ease-in-out hover:text-black `}
-       onMouseEnter={()=>{
-        setfirst3(!first3);
-      }} onMouseLeave={()=>{
-        setfirst3(!first3)
-      }}>
-<img src={first3===false? mobile:mboile1} alt="" className='h-26 '/>
-<p className=' text-xl font-bold  mt-3 w-[80%]'>Mobile Apps</p>
-<p className=' font-semibold text-sm mt-3 w-[95%]'>Our mission at Point Zero is simple: to empower businesses with the tools and technologies
-they need to thrive in the digital age. We are driven by a relentless pursuit of excellence and a
-commitment to delivering innovative solutions that exceed expectations. With a focus on quality,
-creativity, and customer satisfaction, we strive to be the go-to partner for businesses looking to
-harness the power of technology to achieve their goals and make a lasting impact in their
-industries.</p>
-<p className={`mt-6 font-bold  ${first3===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
-      </div>
-      </div>
-      {/* website */}
-      <div className='flex-shrink-0 flex-grow-0'>
-      <div className={`bg-[#242323] h-[500px] py-12 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-red-200 transition duration-700 ease-in-out hover:text-black `}
-       onMouseEnter={()=>{
-        setfirst2(!first2);
-      }} onMouseLeave={()=>{
-        setfirst2(!first2)
-      }}>
-<img src={first2===false? website:website1} alt="" className='h-26 '/>
-<p className=' text-xl font-bold  mt-3 w-[80%]'>Web Development</p>
-<p className=' font-semibold text-sm  mt-3 w-[95%]'>Our mission at Point Zero is simple: to empower businesses with the tools and technologies
-they need to thrive in the digital age. We are driven by a relentless pursuit of excellence and a
-commitment to delivering innovative solutions that exceed expectations. With a focus on quality,
-creativity, and customer satisfaction, we strive to be the go-to partner for businesses looking to
-harness the power of technology to achieve their goals and make a lasting impact in their
-industries.</p>
-<p className={`mt-6 font-bold  ${first2===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
-      </div>
-      </div>
-      {/* ui */}
-      <div className='flex-shrink-0 flex-grow-0'>
-       <div className={`bg-[#242323] h-[500px] py-16 px-8 rounded-xl text-white w-[354px] cursor-pointer hover:bg-blue-200 transition duration-700 ease-in-out hover:text-black `}
-       onMouseEnter={()=>{
-        setfirst(!first);
-      }} onMouseLeave={()=>{
-        setfirst(!first)
-      }}>
-<img src={first===false? ui:ui1} alt="" className='h-26 '/>
-<p className=' text-xl font-bold  mt-3 w-[80%]'>Infrastructure &amp; DevOps</p>
-<p className=' font-semibold text-sm  mt-3 w-[95%]'>In today&#39;s fast-paced digital landscape, having a reliable and efficient
-infrastructure is essential for success. Our Infrastructure &amp; DevOps service is geared towards
-architecting resilient infrastructure and implementing DevOps practices that enhance agility,
-scalability, and reliability. From cloud migration to continuous integration and deployment, we
-optimize your infrastructure to support your evolving business needs and drive innovation.</p>
-<p className={`mt-6 font-bold  ${first===false?"text-[#242323]":"text-red-600"}`}>Read More</p>
-      </div>
-      </div>
-    </div>
-  </section>
-  
-  
+import ui from '../../../assets/ux.png';
+import ui1 from '../../../assets/ux1.png';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 
-  )
+export default function OurServices() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const services = [
+    {
+      id: 0,
+      icon: developer,
+      iconHover: developer1,
+      title: 'Hire Dedicated Developers',
+      description: 'Augment your team with our Hire Dedicated Developers service, where you gain access to seasoned professionals fully committed to bringing your projects to fruition.',
+      gradient: 'from-yellow-500 to-amber-600',
+      hoverBg: 'hover:bg-gradient-to-br hover:from-yellow-500/10 hover:to-amber-500/10',
+      shadowColor: 'group-hover:shadow-yellow-500/20',
+    },
+    {
+      id: 1,
+      icon: mobile,
+      iconHover: mboile1,
+      title: 'Mobile Apps',
+      description: 'Our mission is to empower businesses with cutting-edge mobile applications. We create intuitive, high-performance apps that engage users and drive business growth.',
+      gradient: 'from-orange-500 to-red-600',
+      hoverBg: 'hover:bg-gradient-to-br hover:from-orange-500/10 hover:to-red-500/10',
+      shadowColor: 'group-hover:shadow-orange-500/20',
+    },
+    {
+      id: 2,
+      icon: website,
+      iconHover: website1,
+      title: 'Web Development',
+      description: 'We deliver innovative web solutions that exceed expectations. From responsive designs to complex web applications, we build digital experiences that make lasting impressions.',
+      gradient: 'from-red-500 to-pink-600',
+      hoverBg: 'hover:bg-gradient-to-br hover:from-red-500/10 hover:to-pink-500/10',
+      shadowColor: 'group-hover:shadow-red-500/20',
+    },
+    {
+      id: 3,
+      icon: ui,
+      iconHover: ui1,
+      title: 'Infrastructure & DevOps',
+      description: 'In today\'s fast-paced digital landscape, having reliable infrastructure is essential. We architect resilient systems and implement DevOps practices for maximum efficiency.',
+      gradient: 'from-blue-500 to-indigo-600',
+      hoverBg: 'hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-indigo-500/10',
+      shadowColor: 'group-hover:shadow-blue-500/20',
+    },
+  ];
+
+  return (
+    <section className='relative bg-gradient-to-b from-black to-gray-900 py-24 overflow-hidden'>
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        {/* Section Header */}
+        <div className='text-center mb-16'>
+          <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
+            <WorkspacePremiumIcon className='w-4 h-4 text-cyan-400' />
+            <span className='text-sm font-medium text-cyan-400'>Premium Solutions</span>
+          </div>
+          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
+            Our Core{' '}
+            <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+              Services
+            </span>
+          </h2>
+          <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
+            Discover our specialized service offerings designed to accelerate your digital transformation journey.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className={`group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl p-8 transition-all duration-500 hover:border-white/20 ${service.hoverBg} cursor-pointer`}
+              onMouseEnter={() => setHoveredCard(service.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* Gradient Border on Hover */}
+              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+
+              <div className='relative z-10 flex flex-col h-full'>
+                {/* Icon */}
+                <div className='mb-6'>
+                  <img
+                    src={hoveredCard === service.id ? service.iconHover : service.icon}
+                    alt={service.title}
+                    className='w-20 h-20 object-contain transition-transform duration-500 group-hover:scale-110'
+                  />
+                </div>
+
+                {/* Title */}
+                <h3 className='text-2xl font-bold text-white mb-4 group-hover:text-white transition-colors'>
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className='text-gray-400 leading-relaxed flex-grow group-hover:text-gray-300 transition-colors'>
+                  {service.description}
+                </p>
+
+                {/* Learn More Link */}
+                <div className='mt-6 flex items-center gap-2'>
+                  <span className={`font-semibold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                    Explore Service
+                  </span>
+                  <ArrowForwardIcon className={`w-5 h-5 text-gray-400 transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`} />
+                </div>
+              </div>
+
+              {/* Decorative Number */}
+              <div className='absolute top-6 right-6 text-7xl font-bold text-white/5 group-hover:text-white/10 transition-colors duration-500'>
+                0{service.id + 1}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className='mt-16 text-center'>
+          <div className='inline-flex flex-col sm:flex-row gap-4 items-center justify-center p-8 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-white/10 rounded-3xl'>
+            <div className='text-center sm:text-left'>
+              <p className='text-white font-semibold text-lg'>Ready to start your project?</p>
+              <p className='text-gray-400'>Let's discuss how we can help transform your ideas into reality.</p>
+            </div>
+            <button className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 whitespace-nowrap'>
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

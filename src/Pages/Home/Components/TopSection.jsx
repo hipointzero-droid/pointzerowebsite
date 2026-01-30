@@ -1,51 +1,137 @@
-import React from 'react'
+import React, { Suspense } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import backimage from "../../../assets/3.1.png";
-import frontimage from "../../../assets/10.png";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { useNavigate } from 'react-router-dom';
-import ComputerCanvas from '../../../components/Laptop';
+import StarsCanvas from '../../../components/Stars';
+import CodeAnimation from '../../../components/CodeAnimation';
+
 export default function TopSection() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+
   return (
-    <section className=' bg-black lg:px-20 px-5 lg:pt-14 pt-5 pb-7 flex md:flex-row flex-col-reverse justify-between'>
-        <div className='lg:w-[40%] w-[100%] text-white'>
-        {/* <p className=' font-bold text-xl'>PointZero</p> */}
-        <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl mt-8'>Your Trusted </h1>
-        <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl lg:-mt-2 -mt-1'>Development</h1>
-        <h1 className='font-semibold lg:text-7xl md:text-5xl text-3xl lg:-mt-2 -mt-1'>Partner</h1>
-        <p className='mt-10 font-serif'>At Point Zero, we specialize in bringing your digital dreams to life. With a team of passionate
-and experienced professionals, we offer a wide range of services tailored to meet your needs
-and exceed your expectations.</p>
-        <button className=' rounded-3xl lg:block hidden text-white bg-[#0b6380]  p-2  font-bold  px-7 mt-10'
-        onClick={()=>{
-          navigate("/contact")
-        }}
-        >CONTACT US</button>
-        <div className='flex gap-5 items-center mt-14'>
-            <p className='font-semibold text-sm'>GET SOCIAL</p>
-            <div className='h-[1px] w-20 bg-white'>
-          
+    <section className='relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden'>
+      {/* Three.js Stars Background */}
+      <Suspense fallback={null}>
+        <StarsCanvas />
+      </Suspense>
+
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-40 right-1/3 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '4s' }}></div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      </div>
+
+      {/* Content Container */}
+      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20'>
+        <div className='flex flex-col lg:flex-row items-center justify-between gap-12'>
+
+          {/* Left Content */}
+          <div className='lg:w-1/2 text-center lg:text-left'>
+            {/* Badge */}
+            <div className='inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8'>
+              <span className='w-2 h-2 bg-green-400 rounded-full animate-pulse'></span>
+              <span className='text-sm text-gray-300'>Available for new projects</span>
             </div>
-            <div className='flex gap-2 text-yellow-300'>
-             <FacebookIcon className='cursor-pointer'/>
-             <TwitterIcon className='cursor-pointer'/>
-             <InstagramIcon className='cursor-pointer'/>
 
-           </div>
-        </div>
-        </div>
-        <div className='md:w-[50%] w-full   flex-col items-start justify-start md:flex hidden '>
-        <ComputerCanvas/>
-        </div>
-     
-           {/* <div className=' lg:flex hidden items-center justify-center w-[50%] '>
-            <img src={backimage} alt="" className='relative h-[500px]'/>
+            {/* Main Heading */}
+            <h1 className='text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight'>
+              Your Trusted
+              <span className='block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent'>
+                Development
+              </span>
+              <span className='block mt-2'>Partner</span>
+            </h1>
 
-            <img src={frontimage} alt="" className='absolute top-[390px] left-[70%] transform -translate-x-1/2 -translate-y-1/2 h-80 rounded-full'/>
-           </div> */}
+            {/* Description */}
+            <p className='mt-8 text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed'>
+              At Point Zero, we specialize in bringing your digital dreams to life.
+              With a team of passionate and experienced professionals, we offer a wide
+              range of services tailored to meet your needs and exceed your expectations.
+            </p>
 
+            {/* CTA Buttons */}
+            <div className='mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
+              <button
+                onClick={() => navigate("/contact")}
+                className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105'
+              >
+                <span className='flex items-center justify-center gap-2'>
+                  Start Your Project
+                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </button>
+              <button
+                onClick={() => navigate("/project")}
+                className='px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30'
+              >
+                View Our Work
+              </button>
+            </div>
+
+            {/* Social Links */}
+            <div className='mt-12 flex items-center gap-6 justify-center lg:justify-start'>
+              <span className='text-sm text-gray-500 uppercase tracking-wider'>Follow Us</span>
+              <div className='w-12 h-px bg-gradient-to-r from-gray-500 to-transparent'></div>
+              <div className='flex gap-3'>
+                {[
+                  { icon: <FacebookIcon className='w-5 h-5' />, href: 'https://www.facebook.com/pointzero.com.np/' },
+                  { icon: <TwitterIcon className='w-5 h-5' />, href: '#' },
+                  { icon: <InstagramIcon className='w-5 h-5' />, href: 'https://www.instagram.com/pointzero.com.np/' },
+                  { icon: <LinkedInIcon className='w-5 h-5' />, href: '#' },
+                  { icon: <GitHubIcon className='w-5 h-5' />, href: '#' },
+                ].map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className='p-2.5 text-gray-400 bg-white/5 rounded-lg transition-all duration-300 hover:bg-cyan-500/20 hover:text-cyan-400 hover:scale-110'
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content - Code Animation */}
+          <div className='lg:w-1/2 w-full hidden md:block'>
+            <CodeAnimation />
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className='mt-20 grid grid-cols-2 md:grid-cols-4 gap-8'>
+          {[
+            { number: '50+', label: 'Projects Completed' },
+            { number: '30+', label: 'Happy Clients' },
+            { number: '5+', label: 'Years Experience' },
+            { number: '15+', label: 'Team Members' },
+          ].map((stat, index) => (
+            <div key={index} className='text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-cyan-500/30'>
+              <div className='text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+                {stat.number}
+              </div>
+              <div className='mt-2 text-sm text-gray-400'>{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 z-20'>
+        <span className='text-xs uppercase tracking-wider'>Scroll</span>
+        <div className='w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center'>
+          <div className='w-1.5 h-3 bg-gray-400 rounded-full mt-2 animate-bounce'></div>
+        </div>
+      </div>
     </section>
-  )
+  );
 }

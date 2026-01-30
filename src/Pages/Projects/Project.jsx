@@ -1,122 +1,495 @@
-import React from 'react'
-
-
-
-// import { EffectCoverflow, Pagination, Navigation } from 'swiper';
-import ImageSlider from './Imageslider'
-import image1 from '../../assets/image1.png';
-import image2 from '../../assets/image2.png'
-import './scroll.css'
-import image3 from '../../assets/image3.png'
-import porject2 from '../../assets/project2.png'
-import tunesevern from '../../assets/project/tuneseven.png'
-import bidesh from '../../assets/project/bidesh.png'
-import chatmandu from '../../assets/project/chatmandu.png'
-import epass from '../../assets/project/epass.png'
-import gigabion from '../../assets/project/Gigabion.png'
-import mcq from '../../assets/project/mcq.png'
-import nepaldental from '../../assets/project/Nepaldentalhome.png'
-import technery from '../../assets/project/Technergy.png'
-import medicity from '../../assets/project/2.png'
-import bideshapp from '../../assets/project/bideshapp.png'
-import gabionbox from '../../assets/project/5.png'
-import chatmanduapp from '../../assets/project/6.png'
-import epassapp from '../../assets/project/3.png'
-import ecommerceapp from '../../assets/project/4.png'
-import newsapp from '../../assets/project/1.png'
-
-import image4 from '../../assets/image4.png'
+import React, { useState, Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
-import OurProjects from './components/OurProjects';
-import MobileProject from './components/MobileProject';
+import StarsCanvas from '../../components/Stars';
+
+// Project Images - Web
+import porject2 from '../../assets/project2.png';
+import tunesevern from '../../assets/project/tuneseven.png';
+import bidesh from '../../assets/project/bidesh.png';
+import chatmandu from '../../assets/project/chatmandu.png';
+import epass from '../../assets/project/epass.png';
+import gigabion from '../../assets/project/Gigabion.png';
+import mcq from '../../assets/project/mcq.png';
+import nepaldental from '../../assets/project/Nepaldentalhome.png';
+import technery from '../../assets/project/Technergy.png';
+
+// Project Images - Mobile
+import medicity from '../../assets/project/2.png';
+import bideshapp from '../../assets/project/bideshapp.png';
+import gabionbox from '../../assets/project/5.png';
+import chatmanduapp from '../../assets/project/6.png';
+import epassapp from '../../assets/project/3.png';
+import ecommerceapp from '../../assets/project/4.png';
+import newsapp from '../../assets/project/1.png';
+
+// Icons
+import WebIcon from '@mui/icons-material/Web';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import FilterListIcon from '@mui/icons-material/FilterList';
+import { useNavigate } from 'react-router-dom';
 
 export default function Project() {
-    const images=[
-      {
-        id: 1,
-        src: image1,
-        alt: "Placeholder image",
-      },
-      {
-        id: 2,
-        src:image2,
-        alt: "Placeholder image",
-      },
-      {
-        id: 3,
-        src:image3,
-        alt: "Placeholder image",
-      },
-      {
-        id: 4,
-        src: image4,
-        alt: "Placeholder image",
-      },
-          
-    ]
+  const navigate = useNavigate();
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const webProjects = [
+    {
+      id: 1,
+      image: porject2,
+      title: 'Rozai.com.np',
+      subtitle: 'E-Commerce Platform',
+      description: 'Premier destination for quality goods in Nepal with seamless shopping experience.',
+      technologies: ['React', 'Django', 'PostgreSQL'],
+      gradient: 'from-orange-500 to-red-600',
+      link: '#',
+    },
+    {
+      id: 2,
+      image: tunesevern,
+      title: 'Neptunes.app',
+      subtitle: 'Music Platform',
+      description: 'Platform for creators to share their art and connect with audiences worldwide.',
+      technologies: ['React', 'Node.js', 'MongoDB'],
+      gradient: 'from-purple-500 to-pink-600',
+      link: '#',
+    },
+    {
+      id: 3,
+      image: bidesh,
+      title: 'Bidesh.online',
+      subtitle: 'Immigration Services',
+      description: 'Resources for individuals working abroad to thrive and succeed.',
+      technologies: ['Next.js', 'Tailwind', 'Flutter'],
+      gradient: 'from-cyan-500 to-blue-600',
+      link: '#',
+    },
+    {
+      id: 4,
+      image: gigabion,
+      title: 'Gigabion.com',
+      subtitle: 'Industrial Solutions',
+      description: 'GI wire production plant with skilled technical expertise.',
+      technologies: ['React', 'Django', 'AWS'],
+      gradient: 'from-green-500 to-emerald-600',
+      link: '#',
+    },
+    {
+      id: 5,
+      image: technery,
+      title: 'Technergy.com.np',
+      subtitle: 'Tech Agency',
+      description: 'Innovation through impactful design and dynamic websites.',
+      technologies: ['Tailwind CSS', 'GSAP', 'React'],
+      gradient: 'from-blue-500 to-indigo-600',
+      link: '#',
+    },
+    {
+      id: 6,
+      image: nepaldental,
+      title: 'Nepaldentalhome.com.np',
+      subtitle: 'Healthcare',
+      description: 'Celebrating the joy of happy smiles since 2016.',
+      technologies: ['Next.js', 'Tailwind', 'Strapi'],
+      gradient: 'from-teal-500 to-cyan-600',
+      link: '#',
+    },
+    {
+      id: 7,
+      image: chatmandu,
+      title: 'Chatmandu',
+      subtitle: 'Communication Platform',
+      description: 'Revolutionizing how people connect and interact online.',
+      technologies: ['Next.js', 'Socket.io', 'Redis'],
+      gradient: 'from-violet-500 to-purple-600',
+      link: '#',
+    },
+    {
+      id: 8,
+      image: epass,
+      title: 'Epass.com.np',
+      subtitle: 'Digital Permits',
+      description: 'Electronic passes for travel, permits, and permissions.',
+      technologies: ['React', 'Django', 'PostgreSQL'],
+      gradient: 'from-amber-500 to-orange-600',
+      link: '#',
+    },
+    {
+      id: 9,
+      image: mcq,
+      title: 'UBTTopikExam.com',
+      subtitle: 'Education Platform',
+      description: 'Effective learning tools for mastering MCQs across subjects.',
+      technologies: ['React', 'Django', 'ML'],
+      gradient: 'from-rose-500 to-pink-600',
+      link: '#',
+    },
+  ];
+
+  const mobileProjects = [
+    {
+      id: 1,
+      image: medicity,
+      title: 'Medicity',
+      subtitle: 'Fintech App',
+      description: 'Fully functional Fintech money transaction app with advanced admin panel.',
+      gradient: 'from-green-500 to-emerald-600',
+    },
+    {
+      id: 2,
+      image: newsapp,
+      title: 'News House Nepal',
+      subtitle: 'News Portal',
+      description: 'Trusted news portal with up-to-the-minute updates on Nepal.',
+      gradient: 'from-red-500 to-rose-600',
+    },
+    {
+      id: 3,
+      image: ecommerceapp,
+      title: 'E-Commerce App',
+      subtitle: 'Shopping Platform',
+      description: 'Product categorization, secure payments, and order tracking.',
+      gradient: 'from-purple-500 to-violet-600',
+    },
+    {
+      id: 4,
+      image: epassapp,
+      title: 'E-Pass App',
+      subtitle: 'Digital Permits',
+      description: 'Mobile access to digital pass services and permits.',
+      gradient: 'from-amber-500 to-yellow-600',
+    },
+    {
+      id: 5,
+      image: chatmanduapp,
+      title: 'Chatmandu App',
+      subtitle: 'Messaging',
+      description: 'Real-time conversations with friends and family worldwide.',
+      gradient: 'from-cyan-500 to-blue-600',
+    },
+    {
+      id: 6,
+      image: gabionbox,
+      title: 'Gabion Box Nepal',
+      subtitle: 'Construction',
+      description: 'Gabions and geotextile fabrics for construction projects.',
+      gradient: 'from-slate-500 to-gray-600',
+    },
+    {
+      id: 7,
+      image: bideshapp,
+      title: 'Bidesh App',
+      subtitle: 'Immigration',
+      description: 'Resources for individuals working abroad to succeed.',
+      gradient: 'from-blue-500 to-indigo-600',
+    },
+  ];
+
+  const stats = [
+    { value: '50+', label: 'Web Projects' },
+    { value: '30+', label: 'Mobile Apps' },
+    { value: '100%', label: 'Client Satisfaction' },
+    { value: '15+', label: 'Countries Served' },
+  ];
+
   return (
-    <div className='bg-black text-white'>
-        <Navbar/>
-        <div className='lg:w-[100%] w-[98%] px-1 h-[450.1px]  mt-10'>
-        <ImageSlider images={images}/>
-  
-        </div>
-        <p className='font-bold text-3xl text-white mt-10 text-center'>Web Development projects</p>
+    <div className="bg-black min-h-screen">
+      <Navbar />
 
-        <div className='lg:px-10 px-2'>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] overflow-hidden">
+        <Suspense fallback={null}>
+          <StarsCanvas />
+        </Suspense>
 
-       
-        <div id='container1'  className='flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
-        <OurProjects image={porject2} subtitle="Welcome to Rozai Traders - Your Premier Destination for Quality Goods in Nepal!"
-        title="Rozai.com.np" technology="React js  , Django "
-        />
-         <OurProjects image={tunesevern} subtitle="Our mission is to provide creators with a platform to share their art and to give everyone else the opportunity to experience it."
-        title="Neptunes.app" technology="React js  , Node js "
-        />
-        <OurProjects image={bidesh} subtitle="At Bidesh, we envision a world where individuals working abroad have the resources to thrive and succeed in their chosen paths."
-        title="Bidesh.online" technology="Tailwind CSS, React js , NextJs ,Flutter"
-        />
-         <OurProjects image={gigabion} subtitle="Our skilled and technical team are focused to provide GI wire production plant "
-        title="Gigabion.com" technology="React js , Django "
-        />
-         <OurProjects image={technery} subtitle="We bring innovation to life through impactful design. Our team specializes in creating dynamic websites. "
-        title="Technergy.com.np" technology="Tailwind CSS , GSAP "
-        />
-         <OurProjects image={nepaldental} subtitle="At Nepal Dental Home, we help you celebrate the joy of a happy smile. We started our practice in 2016 with the goal of reimagining the dental "
-        title="Nepaldentalhome.com.np" technology="Tailwind CSS , NextJs "
-        />
-         <OurProjects image={chatmandu} subtitle="Chatmandu is an innovative communication platform that revolutionizes the way people connect and interact online.
- "
-        title="Chatmandu" technology="Tailwind CSS , NextJs "
-        />
-         <OurProjects image={epass} subtitle="The ePass system is a digital platform designed to facilitate the electronic passes for various purposes, including travel, permits, and permissions. "
-        title="Epass.com.np" technology="React , Django  "
-        />
-        <OurProjects image={mcq} subtitle="At UbttopikExam, we understand the importance of effective learning tools in mastering multiple-choice questions (MCQs) across various subjects. "
-        title="ubttopikexam.com" technology="React , Django  "
-        />
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl"></div>
         </div>
-        </div>
-        <div className='lg:px-10 px-1'>
-        <div id='container1'  className='flex gap-10  items-start lg:p-0 p-5  justify-start mt-10 overflow-x-auto'>
-          <MobileProject image={medicity} title="Medicity" subtitle="Fast money is the running Fintech app in Nepal it is a Fully functional Fintech money transaction with advance admin panel and data base , full customizable by admin ."/>
-          <MobileProject image={newsapp} title="News House Nepal" subtitle="News House Nepal trusted news portal dedicated to bringing you up-to-the-minute updates on all things Nepal"/>
-          <MobileProject image={ecommerceapp} title="E-Commerce" subtitle="E-commerce typically features functionalities such as product categorization, search capabilities, secure payment gateways, order tracking, and customer support."/>
-          <MobileProject image={epassapp} title="E-pass" subtitle='This service is provided by Epass. To use and receive the Service (including access to this websiteand/or any mobile application, collectively "Site"), you must first accept and comply.'/>
-          <MobileProject image={chatmanduapp} title="Chatmandu" subtitle='With Chatmandu, users can engage in real-time conversations with friends, family, and colleagues, regardless of their geographical location.'/>
-          <MobileProject image={gabionbox} title="Gabion Box Nepal" subtitle='Gabion Box Nepal supplies gabions and geotextile fabrics related to the construction projects, especially the construction of bridges along road approaches and earthworks.'/>
-          <MobileProject image={bideshapp} title="Bidesh App" subtitle='At Bidesh, we envision a world where individuals working abroad have the resources to thrive and succeed in their chosen paths. Navigating the challenges and opportunities of working in a foreign country.'/>
 
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
+              <RocketLaunchIcon className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-gray-300">Our Portfolio</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+              Projects That{' '}
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                Define Excellence
+              </span>
+            </h1>
+
+            <p className="mt-8 text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Explore our portfolio of innovative web and mobile solutions that have helped
+              businesses transform their digital presence and achieve remarkable results.
+            </p>
+
+            {/* Stats */}
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center p-4">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="mt-1 text-sm text-gray-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Filter Buttons */}
+            <div className="mt-12 flex flex-wrap gap-4 justify-center">
+              {[
+                { id: 'all', label: 'All Projects', icon: <FilterListIcon className="w-4 h-4" /> },
+                { id: 'web', label: 'Web Development', icon: <WebIcon className="w-4 h-4" /> },
+                { id: 'mobile', label: 'Mobile Apps', icon: <PhoneIphoneIcon className="w-4 h-4" /> },
+              ].map((filter) => (
+                <button
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    activeFilter === filter.id
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/25'
+                      : 'bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10'
+                  }`}
+                >
+                  {filter.icon}
+                  {filter.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-       
-        <div className='md:px-20 px-2 mt-32 flex flex-col items-center justify-center'>
-        <img src={image1} alt="" className='w-[450px] mt-14'/>
-<p className='md:w-[70%] w-[90%] mt-8 mb-10 text-[#8A889C] font-bold'>STRATIS was contracted by multiple property owners to implement intelligent access solutions on their premises. This involved installing smart locks, developing a management app, and providing IoT integration services. To address challenges faced by property staff, STRATIS aimed to streamline the key management process and enhance the residents’ access control experience.</p>
+      </section>
 
+      {/* Web Projects Section */}
+      {(activeFilter === 'all' || activeFilter === 'web') && (
+        <section className="relative py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl">
+                <WebIcon className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Web Development</h2>
+                <p className="text-gray-400">Modern websites and web applications</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {webProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2"
+                >
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`}></div>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <button className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        View Project
+                        <OpenInNewIcon className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className={`text-sm font-medium bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
+                          {project.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-xs text-gray-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Mobile Projects Section */}
+      {(activeFilter === 'all' || activeFilter === 'mobile') && (
+        <section className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
+                <PhoneIphoneIcon className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-white">Mobile Applications</h2>
+                <p className="text-gray-400">iOS and Android apps that users love</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {mobileProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2"
+                >
+                  {/* Glow */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
+
+                  {/* Image */}
+                  <div className="relative h-56 overflow-hidden">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`}></div>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <button className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        View Details
+                        <OpenInNewIcon className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className={`text-sm font-medium bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
+                          {project.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-gray-400 text-sm line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Featured Case Study */}
+      <section className="relative py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl"></div>
+
+            <div className="relative bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="relative h-64 lg:h-auto">
+                  <img
+                    src={bidesh}
+                    alt="Featured Project"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
+                </div>
+
+                {/* Content */}
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <span className="text-cyan-400 text-sm font-semibold uppercase tracking-wider">Featured Case Study</span>
+                  <h3 className="mt-4 text-3xl lg:text-4xl font-bold text-white">Bidesh.online</h3>
+                  <p className="mt-2 text-lg text-gray-300">Immigration & Foreign Employment Platform</p>
+
+                  <p className="mt-6 text-gray-400 leading-relaxed">
+                    Bidesh is a comprehensive platform designed to help individuals working abroad thrive and succeed.
+                    We built a full-stack solution including web platform and mobile apps, serving thousands of users
+                    navigating international employment opportunities.
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {['Next.js', 'Flutter', 'Node.js', 'PostgreSQL', 'AWS'].map((tech) => (
+                      <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm text-gray-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap gap-4">
+                    <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl flex items-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
+                      View Case Study
+                      <ArrowForwardIcon className="w-5 h-5" />
+                    </button>
+                    <button className="px-6 py-3 bg-white/5 border border-white/20 text-white font-semibold rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all duration-300">
+                      Visit Website
+                      <OpenInNewIcon className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <Footer/>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
+            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Have a Project in Mind?
+              </h2>
+              <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+                Let's collaborate and bring your ideas to life. Our team is ready to create
+                something amazing for your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105"
+                >
+                  Start Your Project
+                </button>
+                <button
+                  onClick={() => navigate("/services")}
+                  className="px-8 py-4 bg-white/5 border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10"
+                >
+                  Explore Services
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
-  )
+  );
 }
