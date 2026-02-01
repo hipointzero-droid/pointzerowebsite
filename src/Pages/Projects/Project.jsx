@@ -2,6 +2,7 @@ import React, { useState, Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/Stars';
+import AnimateOnScroll from '../../components/AnimateOnScroll';
 
 // Project Images - Web
 import porject2 from '../../assets/project2.png';
@@ -206,12 +207,12 @@ export default function Project() {
         </Suspense>
 
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle"></div>
+          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-          <div className="text-center">
+          <AnimateOnScroll className="text-center" as="div" variant="up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
               <RocketLaunchIcon className="w-4 h-4 text-cyan-400" />
               <span className="text-sm text-gray-300">Our Portfolio</span>
@@ -219,7 +220,7 @@ export default function Project() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               Projects That{' '}
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
                 Define Excellence
               </span>
             </h1>
@@ -232,12 +233,14 @@ export default function Project() {
             {/* Stats */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center p-4">
+                <AnimateOnScroll key={index} as="div" variant="scale" delay={(index % 4) + 1}>
+                <div className="text-center p-4 transition-all duration-300 hover:scale-105">
                   <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
                     {stat.value}
                   </div>
                   <div className="mt-1 text-sm text-gray-400">{stat.label}</div>
                 </div>
+                </AnimateOnScroll>
               ))}
             </div>
 
@@ -262,7 +265,7 @@ export default function Project() {
                 </button>
               ))}
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -270,7 +273,7 @@ export default function Project() {
       {(activeFilter === 'all' || activeFilter === 'web') && (
         <section className="relative py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-4 mb-12">
+            <AnimateOnScroll className="flex items-center gap-4 mb-12" as="div" variant="left">
               <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl">
                 <WebIcon className="w-6 h-6 text-white" />
               </div>
@@ -278,13 +281,13 @@ export default function Project() {
                 <h2 className="text-3xl font-bold text-white">Web Development</h2>
                 <p className="text-gray-400">Modern websites and web applications</p>
               </div>
-            </div>
+            </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {webProjects.map((project) => (
+              {webProjects.map((project, index) => (
+                <AnimateOnScroll key={project.id} as="div" variant="scale" delay={index % 6}>
                 <div
-                  key={project.id}
-                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2"
+                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 shine-wrap"
                 >
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
@@ -333,6 +336,7 @@ export default function Project() {
                     </div>
                   </div>
                 </div>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>
@@ -343,7 +347,7 @@ export default function Project() {
       {(activeFilter === 'all' || activeFilter === 'mobile') && (
         <section className="relative py-20 bg-gradient-to-b from-black to-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-4 mb-12">
+            <AnimateOnScroll className="flex items-center gap-4 mb-12" as="div" variant="right">
               <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
                 <PhoneIphoneIcon className="w-6 h-6 text-white" />
               </div>
@@ -351,13 +355,13 @@ export default function Project() {
                 <h2 className="text-3xl font-bold text-white">Mobile Applications</h2>
                 <p className="text-gray-400">iOS and Android apps that users love</p>
               </div>
-            </div>
+            </AnimateOnScroll>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {mobileProjects.map((project) => (
+              {mobileProjects.map((project, index) => (
+                <AnimateOnScroll key={project.id} as="div" variant="scale" delay={index % 6}>
                 <div
-                  key={project.id}
-                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2"
+                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/5 shine-wrap"
                 >
                   {/* Glow */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
@@ -396,6 +400,7 @@ export default function Project() {
                     </p>
                   </div>
                 </div>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>
@@ -405,7 +410,7 @@ export default function Project() {
       {/* Featured Case Study */}
       <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative">
+          <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
             <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl"></div>
 
             <div className="relative bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden">
@@ -453,16 +458,16 @@ export default function Project() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="relative py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="relative">
+          <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
             <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
-            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl">
+            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl transition-all duration-300 hover:border-cyan-500/20">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Have a Project in Mind?
               </h2>
@@ -485,7 +490,7 @@ export default function Project() {
                 </button>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 

@@ -9,6 +9,7 @@ import ui from '../../../assets/ux.png';
 import ui1 from '../../../assets/ux1.png';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import AnimateOnScroll from '../../../components/AnimateOnScroll';
 
 export default function OurServices() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -66,28 +67,28 @@ export default function OurServices() {
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
-        <div className='text-center mb-16'>
+        <AnimateOnScroll className='text-center mb-16' as="div">
           <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
             <WorkspacePremiumIcon className='w-4 h-4 text-cyan-400' />
             <span className='text-sm font-medium text-cyan-400'>Premium Solutions</span>
           </div>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
             Our Core{' '}
-            <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+            <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
               Services
             </span>
           </h2>
           <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
             Discover our specialized service offerings designed to accelerate your digital transformation journey.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Services Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           {services.map((service) => (
+            <AnimateOnScroll key={service.id} delay={service.id % 5} as="div" variant="scale">
             <div
-              key={service.id}
-              className={`group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl p-8 transition-all duration-500 hover:border-white/20 ${service.hoverBg} cursor-pointer`}
+              className={`group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl p-8 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 hover:shadow-xl hover:scale-[1.02] shine-wrap ${service.hoverBg} cursor-pointer`}
               onMouseEnter={() => setHoveredCard(service.id)}
               onMouseLeave={() => setHoveredCard(null)}
             >
@@ -128,21 +129,22 @@ export default function OurServices() {
                 0{service.id + 1}
               </div>
             </div>
+            </AnimateOnScroll>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className='mt-16 text-center'>
-          <div className='inline-flex flex-col sm:flex-row gap-4 items-center justify-center p-8 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-white/10 rounded-3xl'>
+        <AnimateOnScroll className='mt-16 text-center' delay={2} as="div">
+          <div className='inline-flex flex-col sm:flex-row gap-4 items-center justify-center p-8 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-white/10 rounded-3xl transition-all duration-300 hover:border-cyan-500/20'>
             <div className='text-center sm:text-left'>
               <p className='text-white font-semibold text-lg'>Ready to start your project?</p>
               <p className='text-gray-400'>Let's discuss how we can help transform your ideas into reality.</p>
             </div>
-            <button className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 whitespace-nowrap'>
+            <button className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'>
               Get Started
             </button>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

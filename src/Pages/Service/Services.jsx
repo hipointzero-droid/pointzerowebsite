@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/Stars';
+import AnimateOnScroll from '../../components/AnimateOnScroll';
 
 // Images
 import mobileImg from '../../assets/image 4.png';
@@ -199,7 +200,7 @@ export default function Services() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <div className="text-center">
+          <AnimateOnScroll className="text-center" as="div" variant="up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
               <RocketLaunchIcon className="w-4 h-4 text-cyan-400" />
               <span className="text-sm text-gray-300">World-Class Development Services</span>
@@ -207,7 +208,7 @@ export default function Services() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               Hire Specialized{' '}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
                 Web & Mobile
               </span>
               <br />
@@ -236,11 +237,12 @@ export default function Services() {
                 Explore Services
               </button>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl">
+              <AnimateOnScroll key={index} as="div" variant="scale" delay={(index % 4) + 1}>
+              <div className="text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl transition-all duration-300 hover:border-cyan-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10">
                 <div className="inline-flex p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl text-cyan-400 mb-4">
                   {stat.icon}
                 </div>
@@ -249,6 +251,7 @@ export default function Services() {
                 </div>
                 <div className="mt-1 text-sm text-gray-400">{stat.label}</div>
               </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -257,24 +260,27 @@ export default function Services() {
       {/* Services Section */}
       <section id="services" className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+          <AnimateOnScroll className="text-center mb-20" as="div">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
               Our{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
                 Services
               </span>
             </h2>
             <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
               Comprehensive digital solutions tailored to transform your business
             </p>
-          </div>
+          </AnimateOnScroll>
 
           <div className="space-y-40">
             {services.map((service, index) => (
-              <div
+              <AnimateOnScroll
                 key={service.id}
-                id={service.id}
+                as="div"
+                variant={index % 2 === 0 ? 'left' : 'right'}
+                delay={index % 3}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}
+                id={service.id}
               >
                 {/* Image Side */}
                 <div className="lg:w-1/2 w-full">
@@ -356,7 +362,7 @@ export default function Services() {
                     </span>
                   </button>
                 </div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -365,17 +371,17 @@ export default function Services() {
       {/* Process Section */}
       <section className="relative py-24 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <AnimateOnScroll className="text-center mb-16" as="div">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
               Our{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
                 Process
               </span>
             </h2>
             <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
               A proven methodology that delivers results
             </p>
-          </div>
+          </AnimateOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -384,8 +390,8 @@ export default function Services() {
               { step: '03', title: 'Development', desc: 'Agile development with regular updates', icon: '⚡' },
               { step: '04', title: 'Delivery', desc: 'Testing, deployment, and ongoing support', icon: '🚀' },
             ].map((item, index) => (
-              <div key={index} className="relative group">
-                <div className="h-full p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30 hover:bg-gray-900/80 hover:-translate-y-2">
+              <AnimateOnScroll key={index} as="div" variant="scale" delay={index % 4} className="relative group">
+                <div className="h-full p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30 hover:bg-gray-900/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 shine-wrap">
                   <div className="text-4xl mb-4">{item.icon}</div>
                   <span className="text-5xl font-bold bg-gradient-to-r from-cyan-400/30 to-blue-500/30 bg-clip-text text-transparent">
                     {item.step}
@@ -396,7 +402,7 @@ export default function Services() {
                 {index < 3 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-cyan-500/50 to-transparent"></div>
                 )}
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -405,17 +411,17 @@ export default function Services() {
       {/* Technologies Section */}
       <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <AnimateOnScroll className="text-center mb-16" as="div">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
               Technologies We{' '}
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
                 Master
               </span>
             </h2>
             <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
               We work with the latest and most reliable technologies
             </p>
-          </div>
+          </AnimateOnScroll>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
@@ -432,18 +438,18 @@ export default function Services() {
               { name: 'PostgreSQL', color: '#336791' },
               { name: 'TypeScript', color: '#3178C6' },
             ].map((tech, index) => (
+              <AnimateOnScroll key={index} as="div" variant="scale" delay={index % 6}>
               <div
-                key={index}
-                className="group p-6 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl text-center transition-all duration-300 hover:border-white/20 hover:bg-gray-900/80 hover:-translate-y-1"
+                className="group p-4 sm:p-6 bg-gray-800/50 border border-white/5 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:border-cyan-500/30 hover:bg-gray-800/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/15 hover:scale-[1.02]"
               >
-                <div
-                  className="text-2xl font-bold mb-2 transition-transform duration-300 group-hover:scale-110"
-                  style={{ color: tech.color }}
-                >
-                  {tech.name[0]}
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <span className="text-2xl font-bold" style={{ color: tech.color }}>
+                    {tech.name[0]}
+                  </span>
                 </div>
-                <p className="text-gray-400 text-sm group-hover:text-white transition-colors">{tech.name}</p>
+                <p className="text-gray-400 text-xs sm:text-sm font-medium text-center group-hover:text-white transition-colors">{tech.name}</p>
               </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -452,9 +458,9 @@ export default function Services() {
       {/* CTA Section */}
       <section className="relative py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="relative">
+          <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
             <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
-            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl">
+            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl transition-all duration-300 hover:border-cyan-500/20">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Ready to Build Something Amazing?
               </h2>
@@ -476,7 +482,7 @@ export default function Services() {
                 </button>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 

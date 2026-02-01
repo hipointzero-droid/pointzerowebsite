@@ -21,10 +21,11 @@ const RightSide = ({ selected, tech }) => {
           className="group p-4 sm:p-6 bg-gray-800/50 border border-white/5 rounded-2xl
                      flex flex-col items-center justify-center gap-3
                      transition-all duration-300 hover:border-cyan-500/30
-                     hover:bg-gray-800/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10"
+                     hover:bg-gray-800/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/15
+                     hover:scale-[1.02]"
         >
-          <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center
-                          transition-transform duration-300 group-hover:scale-110">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black flex items-center justify-center
+                          transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
             <img
               src={ImageReturn(techName, logoName)}
               alt={logoName}
@@ -32,7 +33,7 @@ const RightSide = ({ selected, tech }) => {
             />
           </div>
           <p className="text-gray-400 text-xs sm:text-sm font-medium text-center
-                        group-hover:text-white transition-colors">
+                        group-hover:text-white transition-colors duration-300">
             {formatName(logoName)}
           </p>
         </div>

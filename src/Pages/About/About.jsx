@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
+import AnimateOnScroll from '../../components/AnimateOnScroll';
 import img1 from '../../assets/about1.png';
 import img2 from '../../assets/about2.png';
 import rectang1 from '../../assets/about/Rectangle 7.png';
@@ -48,14 +49,14 @@ export default function About() {
 
         {/* Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle"></div>
+          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20'>
           <div className='flex flex-col lg:flex-row items-center gap-12'>
             {/* Left Content */}
-            <div className='lg:w-1/2 text-center lg:text-left'>
+            <AnimateOnScroll className='lg:w-1/2 text-center lg:text-left' as="div" variant="left">
               {/* Badge */}
               <div className='inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8'>
                 <RocketLaunchIcon className='w-4 h-4 text-cyan-400' />
@@ -64,7 +65,7 @@ export default function About() {
 
               <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight'>
                 Our Treasure Comprises Our{' '}
-                <span className='bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent'>
+                <span className='bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
                   People, Vision & Values
                 </span>
               </h1>
@@ -88,10 +89,10 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
+            </AnimateOnScroll>
 
             {/* Right Content - 3D Earth */}
-            <div className='lg:w-1/2 h-[400px] lg:h-[500px] w-full'>
+            <AnimateOnScroll className='lg:w-1/2 h-[400px] lg:h-[500px] w-full' as="div" variant="right" delay={1}>
               <div className='relative w-full h-full'>
                 <div className='absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl scale-75'></div>
                 <Suspense fallback={
@@ -102,7 +103,7 @@ export default function About() {
                   <EarthCanvas />
                 </Suspense>
               </div>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -112,17 +113,14 @@ export default function About() {
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='flex gap-4 overflow-x-auto pb-4 scrollbar-hide justify-center'>
             {galleryImages.map((img, index) => (
-              <div
-                key={index}
-                className='flex-shrink-0 group relative overflow-hidden rounded-2xl'
-              >
+              <AnimateOnScroll key={index} delay={index % 5} as="div" variant="scale" className='flex-shrink-0 group relative overflow-hidden rounded-2xl'>
                 <img
                   src={img}
                   alt={`Gallery ${index + 1}`}
                   className='w-40 h-40 md:w-48 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -138,7 +136,7 @@ export default function About() {
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid md:grid-cols-2 gap-12'>
             {/* Who We Are */}
-            <div className='group p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30'>
+            <AnimateOnScroll as="div" variant="left" className='group p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30 shine-wrap'>
               <div className='p-4 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl w-fit mb-6'>
                 <GroupsIcon className='w-8 h-8 text-white' />
               </div>
@@ -149,10 +147,10 @@ export default function About() {
                 expertise and a shared commitment to pushing the boundaries of what's possible in the digital
                 realm. At Point Zero, creativity, collaboration, and integrity are at the core of everything we do.
               </p>
-            </div>
+            </AnimateOnScroll>
 
             {/* What We Do */}
-            <div className='group p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-purple-500/30'>
+            <AnimateOnScroll as="div" variant="right" delay={1} className='group p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-purple-500/30 shine-wrap'>
               <div className='p-4 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl w-fit mb-6'>
                 <VisibilityIcon className='w-8 h-8 text-white' />
               </div>
@@ -164,7 +162,7 @@ export default function About() {
                 presence. We offer tailored software solutions, cutting-edge technology integration, and expert
                 consultation.
               </p>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -173,22 +171,22 @@ export default function About() {
       <section className='relative py-24 bg-gradient-to-b from-black to-gray-900'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Section Header */}
-          <div className='text-center mb-16'>
+          <AnimateOnScroll className='text-center mb-16' as="div">
             <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
               <FavoriteIcon className='w-4 h-4 text-cyan-400' />
               <span className='text-sm font-medium text-cyan-400'>Our Core Values</span>
             </div>
             <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
               Belief of Every{' '}
-              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
                 Pointzeroian
               </span>
             </h2>
-          </div>
+          </AnimateOnScroll>
 
           <div className='grid md:grid-cols-2 gap-8'>
             {/* Client-centric */}
-            <div className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-cyan-500/30'>
+            <AnimateOnScroll as="div" variant="scale" delay={1} className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-cyan-500/30 shine-wrap'>
               <div className='absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2'></div>
               <div className='relative p-8'>
                 <img src={img1} alt="Client-centric" className='w-20 h-20 mb-6' />
@@ -205,10 +203,10 @@ export default function About() {
                   customized solutions that address their specific requirements and deliver measurable results.
                 </p>
               </div>
-            </div>
+            </AnimateOnScroll>
 
             {/* Quality */}
-            <div className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-purple-500/30'>
+            <AnimateOnScroll as="div" variant="scale" delay={2} className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-purple-500/30 shine-wrap'>
               <div className='absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2'></div>
               <div className='relative p-8'>
                 <img src={img2} alt="Quality" className='w-20 h-20 mb-6' />
@@ -225,7 +223,7 @@ export default function About() {
                   creativity, and customer satisfaction, we strive to be the go-to partner for businesses.
                 </p>
               </div>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -237,12 +235,12 @@ export default function About() {
         </div>
 
         <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='text-center mb-12'>
+          <AnimateOnScroll className='text-center mb-12' as="div">
             <p className='text-xl text-gray-300 max-w-2xl mx-auto'>
               We've helped businesses increase their revenue on an average by{' '}
               <span className='text-cyan-400 font-bold'>90%</span> in their first year with us!
             </p>
-          </div>
+          </AnimateOnScroll>
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
             {[
@@ -250,9 +248,9 @@ export default function About() {
               { endValue: 700, label: 'Projects Delivered Successfully', icon: <WorkIcon className='w-8 h-8' /> },
               { endValue: 100, label: 'Experts Under the Same Roof', icon: <PeopleIcon className='w-8 h-8' /> },
             ].map((stat, index) => (
+              <AnimateOnScroll key={index} as="div" variant="scale" delay={index % 3}>
               <div
-                key={index}
-                className='text-center p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30 hover:bg-gray-900/80'
+                className='text-center p-8 bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl transition-all duration-500 hover:border-cyan-500/30 hover:bg-gray-900/80 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10'
               >
                 <div className='inline-flex p-4 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl text-cyan-400 mb-6'>
                   {stat.icon}
@@ -262,6 +260,7 @@ export default function About() {
                 </div>
                 <p className='mt-4 text-gray-400'>{stat.label}</p>
               </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -271,29 +270,26 @@ export default function About() {
       <section className='relative py-24 bg-gradient-to-b from-gray-900 to-black'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           {/* Section Header */}
-          <div className='text-center mb-16'>
+          <AnimateOnScroll className='text-center mb-16' as="div">
             <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
               <GroupsIcon className='w-4 h-4 text-cyan-400' />
               <span className='text-sm font-medium text-cyan-400'>Meet the Team</span>
             </div>
             <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
               Our{' '}
-              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
                 Amazing Team
               </span>
             </h2>
             <p className='mt-4 text-gray-400 max-w-2xl mx-auto'>
               Meet the talented individuals who make Point Zero a success.
             </p>
-          </div>
+          </AnimateOnScroll>
 
           {/* Team Grid */}
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto'>
             {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className='group relative'
-              >
+              <AnimateOnScroll key={index} as="div" variant="scale" delay={index % 3} className='group relative'>
                 <div className='relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-4 transition-all duration-500 hover:border-cyan-500/30 hover:-translate-y-2'>
                   {/* Image */}
                   <div className='relative overflow-hidden rounded-xl mb-4'>
@@ -319,7 +315,7 @@ export default function About() {
                   <h4 className='text-white font-semibold text-sm truncate'>{member.name}</h4>
                   <p className='text-gray-500 text-xs mt-1'>{member.role}</p>
                 </div>
-              </div>
+            </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -328,7 +324,7 @@ export default function About() {
       {/* CTA Section */}
       <section className='relative py-24'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <div className='p-12 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-3xl'>
+          <AnimateOnScroll as="div" variant="scale" className='p-12 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-3xl shine-wrap transition-all duration-300 hover:border-cyan-500/20'>
             <h2 className='text-3xl sm:text-4xl font-bold text-white mb-4'>
               Ready to Work Together?
             </h2>
@@ -337,11 +333,11 @@ export default function About() {
             </p>
             <button
               onClick={() => window.location.href = '/contact'}
-              className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105'
+              className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'
             >
               Get in Touch
             </button>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 

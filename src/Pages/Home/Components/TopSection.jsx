@@ -20,9 +20,9 @@ export default function TopSection() {
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-40 right-1/3 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle"></div>
+        <div className="absolute top-1/2 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-40 right-1/3 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle" style={{ animationDelay: '4s' }}></div>
 
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
@@ -35,32 +35,32 @@ export default function TopSection() {
           {/* Left Content */}
           <div className='lg:w-1/2 text-center lg:text-left'>
             {/* Badge */}
-            <div className='inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8'>
+            <div className='hero-line inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8'>
               <span className='w-2 h-2 bg-green-400 rounded-full animate-pulse'></span>
               <span className='text-sm text-gray-300'>Available for new projects</span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className='text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight'>
-              Your Trusted
-              <span className='block mt-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent'>
+            {/* Main Heading - single line */}
+            <h1 className='hero-line text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight'>
+              Your Trusted{' '}
+              <span className='bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
                 Development
-              </span>
-              <span className='block mt-2'>Partner</span>
+              </span>{' '}
+              Partner
             </h1>
 
             {/* Description */}
-            <p className='mt-8 text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed'>
+            <p className='hero-line mt-8 text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed' style={{ animationDelay: '1s' }}>
               At Point Zero, we specialize in bringing your digital dreams to life.
               With a team of passionate and experienced professionals, we offer a wide
               range of services tailored to meet your needs and exceed your expectations.
             </p>
 
             {/* CTA Buttons */}
-            <div className='mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
+            <div className='hero-line mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start' style={{ animationDelay: '1.15s' }}>
               <button
                 onClick={() => navigate("/contact")}
-                className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105'
+                className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
               >
                 <span className='flex items-center justify-center gap-2'>
                   Start Your Project
@@ -71,14 +71,14 @@ export default function TopSection() {
               </button>
               <button
                 onClick={() => navigate("/project")}
-                className='px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30'
+                className='px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
               >
                 View Our Work
               </button>
             </div>
 
             {/* Social Links */}
-            <div className='mt-12 flex items-center gap-6 justify-center lg:justify-start'>
+            <div className='hero-line mt-12 flex items-center gap-6 justify-center lg:justify-start' style={{ animationDelay: '1.3s' }}>
               <span className='text-sm text-gray-500 uppercase tracking-wider'>Follow Us</span>
               <div className='w-12 h-px bg-gradient-to-r from-gray-500 to-transparent'></div>
               <div className='flex gap-3'>
@@ -115,7 +115,7 @@ export default function TopSection() {
             { number: '5+', label: 'Years Experience' },
             { number: '15+', label: 'Team Members' },
           ].map((stat, index) => (
-            <div key={index} className='text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-cyan-500/30'>
+            <div key={index} className='hero-line text-center p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-cyan-500/30 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10' style={{ animationDelay: `${1.4 + index * 0.08}s` }}>
               <div className='text-3xl lg:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
                 {stat.number}
               </div>
@@ -128,8 +128,8 @@ export default function TopSection() {
       {/* Scroll Indicator */}
       <div className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 z-20'>
         <span className='text-xs uppercase tracking-wider'>Scroll</span>
-        <div className='w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center'>
-          <div className='w-1.5 h-3 bg-gray-400 rounded-full mt-2 animate-bounce'></div>
+        <div className='w-6 h-10 border-2 border-gray-400/80 rounded-full flex justify-center pt-2'>
+          <div className='w-1.5 h-3 bg-cyan-400/80 rounded-full animate-scroll-bounce'></div>
         </div>
       </div>
     </section>

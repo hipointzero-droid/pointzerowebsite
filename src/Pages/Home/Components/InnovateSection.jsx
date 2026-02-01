@@ -3,6 +3,7 @@ import image from "../../../assets/2.png";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import AnimateOnScroll from '../../../components/AnimateOnScroll';
 
 export default function InnovateSection() {
   return (
@@ -17,7 +18,7 @@ export default function InnovateSection() {
         <div className='flex flex-col lg:flex-row items-center gap-16'>
 
           {/* Left Content */}
-          <div className='lg:w-1/2'>
+          <AnimateOnScroll className='lg:w-1/2' as="div" variant="left">
             {/* Section Tag */}
             <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
               <AutoAwesomeIcon className='w-4 h-4 text-cyan-400' />
@@ -26,7 +27,7 @@ export default function InnovateSection() {
 
             <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight'>
               Ignite Your Digital Journey with{' '}
-              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
                 Point Zero
               </span>
             </h2>
@@ -59,24 +60,24 @@ export default function InnovateSection() {
             </div>
 
             {/* CTA */}
-            <button className='mt-10 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105'>
+            <button className='mt-10 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'>
               Learn More About Us
             </button>
-          </div>
+          </AnimateOnScroll>
 
           {/* Right Content - Image */}
-          <div className='lg:w-1/2 relative'>
+          <AnimateOnScroll className='lg:w-1/2 relative' delay={1} as="div" variant="right">
             {/* Decorative Frame */}
             <div className='relative'>
               {/* Gradient Border */}
               <div className='absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl opacity-20 blur-lg'></div>
 
               {/* Image Container */}
-              <div className='relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-3xl border border-white/10'>
+              <div className='relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-3xl border border-white/10 transition-all duration-300 hover:border-cyan-500/20 hover:shadow-xl hover:shadow-cyan-500/5'>
                 <img
                   src={image}
                   alt="Digital Innovation"
-                  className='w-full h-auto rounded-2xl'
+                  className='w-full h-auto rounded-2xl transition-transform duration-500 hover:scale-[1.02]'
                 />
 
                 {/* Floating Card */}
@@ -98,7 +99,7 @@ export default function InnovateSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

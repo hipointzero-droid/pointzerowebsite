@@ -10,6 +10,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate, Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
+import AnimateOnScroll from '../../../components/AnimateOnScroll';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ export default function Footer() {
       {/* Newsletter Section */}
       <div className='relative z-10 border-b border-white/10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
-          <div className='flex flex-col lg:flex-row items-center justify-between gap-8 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12'>
+          <AnimateOnScroll className='flex flex-col lg:flex-row items-center justify-between gap-8 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 shine-wrap transition-all duration-300 hover:border-cyan-500/20' as="div" variant="scale">
             <div className='text-center lg:text-left'>
               <h3 className='text-2xl lg:text-3xl font-bold text-white'>
                 Ready to Start Your Project?
@@ -58,12 +59,12 @@ export default function Footer() {
             </div>
             <button
               onClick={() => navigate("/contact")}
-              className='group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105'
+              className='group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950'
             >
               <span>Get Free Estimation</span>
               <ArrowForwardIcon className='w-5 h-5 transition-transform group-hover:translate-x-1' />
             </button>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
 

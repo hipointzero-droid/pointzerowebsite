@@ -5,6 +5,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import CloudIcon from '@mui/icons-material/Cloud';
 import GroupsIcon from '@mui/icons-material/Groups';
+import AnimateOnScroll from '../../../components/AnimateOnScroll';
 
 export default function Features() {
   const services = [
@@ -62,28 +63,28 @@ export default function Features() {
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Section Header */}
-        <div className='text-center mb-16'>
+        <AnimateOnScroll className='text-center mb-16' as="div">
           <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
             <CodeIcon className='w-4 h-4 text-cyan-400' />
             <span className='text-sm font-medium text-cyan-400'>What We Offer</span>
           </div>
           <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
             Our{' '}
-            <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent'>
+            <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
               Services
             </span>
           </h2>
           <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
             Comprehensive digital solutions designed to transform your business and drive growth in the digital age.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Services Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {services.map((service, index) => (
+            <AnimateOnScroll key={index} delay={index % 6} as="div" variant="scale">
             <div
-              key={index}
-              className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 transition-all duration-500 hover:border-white/20 hover:bg-gray-900/80 hover:-translate-y-2'
+              className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 transition-all duration-500 hover:border-white/20 hover:bg-gray-900/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 shine-wrap'
             >
               {/* Gradient Glow on Hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
@@ -91,7 +92,7 @@ export default function Features() {
               {/* Content */}
               <div className='relative z-10'>
                 {/* Icon */}
-                <div className={`inline-flex p-4 bg-gradient-to-br ${service.gradient} rounded-xl text-white shadow-lg mb-6`}>
+                <div className={`inline-flex p-4 bg-gradient-to-br ${service.gradient} rounded-xl text-white shadow-lg mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
                   {service.icon}
                 </div>
 
@@ -114,16 +115,17 @@ export default function Features() {
                 </div>
               </div>
             </div>
+            </AnimateOnScroll>
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className='mt-16 text-center'>
+        <AnimateOnScroll className='mt-16 text-center' delay={2} as="div">
           <p className='text-gray-400 mb-6'>Need a custom solution? We've got you covered.</p>
-          <button className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105'>
+          <button className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'>
             Discuss Your Project
           </button>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
