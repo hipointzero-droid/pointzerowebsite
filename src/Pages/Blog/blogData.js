@@ -11,6 +11,11 @@ import chatmandu from '../../assets/project/chatmandu.png';
 import porject2 from '../../assets/project2.png';
 import bidesh from '../../assets/project/bidesh.png';
 import epass from '../../assets/project/epass.png';
+import gigabion from '../../assets/project/Gigabion.png';
+import technery from '../../assets/project/Technergy.png';
+import nepaldental from '../../assets/project/Nepaldentalhome.png';
+import mcq from '../../assets/project/mcq.png';
+import medicity from '../../assets/project/2.png';
 
 export const blogPosts = [
   {
@@ -493,6 +498,512 @@ export const blogPosts = [
         text: 'The day we watched a checkpoint officer scan a QR code on a traveler\'s phone and instantly verify their permit — instead of calling the district office — was the moment it all clicked. Technology works when it makes people\'s lives tangibly easier. That\'s the bar we set for every project.'
       }
     ]
+  },
+  {
+    id: 'gigabion-b2b-manufacturing',
+    slug: 'gigabion-b2b-manufacturing-digital-transformation-nepal',
+    title: 'Gigabion: Driving B2B Digital Transformation in Hardware Manufacturing',
+    excerpt: 'How we built a comprehensive digital presence for a heavy industrial manufacturer, balancing technical specifications with B2B lead generation.',
+    category: 'B2B Platform',
+    tags: ['React', 'Django', 'AWS', 'B2B', 'Manufacturing', 'SEO'],
+    date: '2025-11-20',
+    readTime: '6 min read',
+    author: 'Point Zero Team',
+    image: gigabion,
+    thumbnail: gigabion,
+    gradient: 'from-green-500 to-emerald-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Industrial manufacturing often relies on old-school lead generation: cold calling, trade shows, and word-of-mouth. When Gigabion, a leading GI wire production plant, partnered with Point Zero, the goal was ambitious: digitize their B2B sales pipeline while showcasing their massive technical capabilities.'
+      },
+      {
+        type: 'heading',
+        text: 'The Search Engine Optimization Play'
+      },
+      {
+        type: 'paragraph',
+        text: 'In the B2B hardware space, buyers are searching for extremely specific terms like "hot-dip galvanized GI wire specifications Nepal". We engineered the site architecture completely around high-intent long-tail keywords. The site renders instantly on SSR via React to ensure maximum crawlability and indexing speed.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Server-Side Rendering (SSR) for blazing-fast SEO indexing',
+          'Dynamic schema markup for industrial products',
+          'Automated quotation request generation',
+          'Secure client portal for bulk order tracking'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Results That Drive Revenue'
+      },
+      {
+        type: 'paragraph',
+        text: 'By treating the website not just as a brochure but as an automated sales representative, Gigabion saw a massive uptick in inbound qualified leads from construction firms across the country.'
+      }
+    ]
+  },
+  {
+    id: 'technergy-web-agency',
+    slug: 'technergy-gsap-animations-creative-web-design',
+    title: 'Technergy: Pushing the Limits of Browser Animation with GSAP',
+    excerpt: 'Creative agencies need websites that prove their creativity. Here is how we used GSAP and React to build a dynamic, buttery-smooth portfolio experience.',
+    category: 'Engineering',
+    tags: ['GSAP', 'React', 'Tailwind', 'Animations', 'UI/UX'],
+    date: '2025-10-12',
+    readTime: '8 min read',
+    author: 'Point Zero Team',
+    image: technery,
+    thumbnail: technery,
+    gradient: 'from-blue-500 to-indigo-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'When building a digital presence for an innovative tech agency like Technergy, a standard template won\'t cut it. The goal was simple: make the user say "Wow" in the first 3 seconds of page load.'
+      },
+      {
+        type: 'heading',
+        text: 'Choreographing the DOM'
+      },
+      {
+        type: 'paragraph',
+        text: 'We heavily utilized GSAP ScrollTrigger to orchestrate complex timeline animations tied to the user\'s scroll position. Elements don\'t just appear; they perform. Parallax backgrounds, text reveals, and SVG path drawing were carefully optimized to run flawlessly at 60 FPS without dropping frames on mobile.'
+      },
+      {
+        type: 'list',
+        items: [
+          'GSAP for complex, timeline-based animation sequences',
+          'React component lazy loading to maintain fast initial paint',
+          'Custom CSS cursors with magnetic snapping',
+          'Responsive animation scaling for mobile devices'
+        ]
+      },
+      {
+        type: 'quote',
+        text: 'Animation should feel like a natural extension of the user\'s interaction, not a roadblock to content.',
+        author: 'Point Zero UI/UX Team'
+      }
+    ]
+  },
+  {
+    id: 'nepaldentalhome-healthcare',
+    slug: 'nepaldentalhome-booking-platform-healthcare-seo',
+    title: 'Nepal Dental Home: Digitizing Healthcare Patient Acquisition',
+    excerpt: 'From messy phone bookings to an automated appointment scheduling system. How we modernized a premier dental clinic\'s digital presence.',
+    category: 'Healthcare Tech',
+    tags: ['Next.js', 'Strapi', 'Healthcare', 'SEO', 'Booking System'],
+    date: '2025-09-05',
+    readTime: '7 min read',
+    author: 'Point Zero Team',
+    image: nepaldental,
+    thumbnail: nepaldental,
+    gradient: 'from-teal-500 to-cyan-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Nepal Dental Home has been celebrating happy smiles since 2016. However, their digital infrastructure hadn\'t kept up with their clinical excellence. We were brought in to completely revamp their online patient acquisition funnel.'
+      },
+      {
+        type: 'heading',
+        text: 'Local SEO is King'
+      },
+      {
+        type: 'paragraph',
+        text: 'For medical clinics, "Near Me" searches are the lifeblood of new business. We implemented aggressive Local SEO strategies, structured data for medical organizations, and location-specific landing pages that resulted in a top 3 map pack ranking for the most competitive dental keywords.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Headless CMS (Strapi) allowing staff to easily publish oral health blogs',
+          'Integrated SMS confirmation for appointment bookings',
+          'Medical structured data schema for powerful Rich Snippets',
+          'Highly optimized Core Web Vitals to satisfy the Google algorithm'
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'The result was a completely streamlined front desk, fewer no-shows due to automated SMS reminders, and a significant boost in organic patient acquisition.'
+      }
+    ]
+  },
+  {
+    id: 'ubt-topik-exam',
+    slug: 'ubt-topik-mcq-engine-machine-learning-education',
+    title: 'UBT Topik Exam: Handling 10,000+ Concurrent Students',
+    excerpt: 'Building a massively scalable MCQ engine for language learners in Nepal. An architecture deep dive into real-time exam tracking.',
+    category: 'EdTech',
+    tags: ['React', 'Django', 'ML', 'Education', 'Scaling'],
+    date: '2025-08-14',
+    readTime: '9 min read',
+    author: 'Point Zero Team',
+    image: mcq,
+    thumbnail: mcq,
+    gradient: 'from-rose-500 to-pink-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The EPS Topik exam is highly competitive for Nepalis seeking employment in South Korea. The UBT Topik Exam platform needed to simulate the exact computer-based testing environment they would face, under the pressure of handling thousands of concurrent mock tests.'
+      },
+      {
+        type: 'heading',
+        text: 'The Concurrent Payload Problem'
+      },
+      {
+        type: 'paragraph',
+        text: 'When thousands of students are hitting "Next Question" simultaneously, traditional synchronous databases crumble. We introduced a Redis-backed queue system to batch incoming MCQ answers, only writing to the primary PostgreSQL database periodically to prevent deadlocks.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Redis message queuing for high-throughput answer submission',
+          'Machine Learning-driven analytics to identify student weak points',
+          'Audio-responsive listening tests with no buffering latency',
+          'Robust anti-cheating mechanisms tracking browser focus'
+        ]
+      },
+      {
+        type: 'quote',
+        text: 'To scale in EdTech, you must anticipate traffic spikes exactly when exams draw near. Your infrastructure must expand horizontally in milliseconds.',
+        author: 'Point Zero Backend Engineers'
+      }
+    ]
+  },
+  {
+    id: 'medicity-fintech',
+    slug: 'medicity-fintech-app-security-architecture',
+    title: 'Medicity: Security First in Mobile Fintech Development',
+    excerpt: 'Building a money transaction mobile app demands absolute security. From biometric auth to encrypted local storage, here is the Medicity story.',
+    category: 'Fintech',
+    tags: ['Flutter', 'Fintech', 'Security', 'Mobile App', 'Encryption'],
+    date: '2025-07-22',
+    readTime: '8 min read',
+    author: 'Point Zero Team',
+    image: medicity,
+    thumbnail: medicity,
+    gradient: 'from-green-500 to-emerald-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'When you are moving money, "move fast and break things" is the worst possible philosophy. Medicity required us to rethink our standard development process to insert security reviews at every single stage of the deployment pipeline.'
+      },
+      {
+        type: 'heading',
+        text: 'Defense in Depth Architecture'
+      },
+      {
+        type: 'paragraph',
+        text: 'We implemented a multi-layered security wrapper in the Flutter app. Rooted/Jailbroken device detection instantly blocks deployment. All API communications undergo certificate pinning to prevent Man-in-the-Middle (MITM) attacks, and sensitive tokens are locked inside the iOS Secure Enclave and Android Keystore.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Biometric authentication strictly enforced for major transactions',
+          'End-to-End Encryption (E2EE) payloads for financial data',
+          'Memory obfuscation preventing RAM scraping attacks',
+          'Advanced admin panel with strict audit trailing functionality'
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'The result is a fast, smooth fintech experience that passes rigorous compliance requirements without sacrificing user experience.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-web3',
+    slug: 'future-web-development-web3-integration',
+    title: 'The Future of Web Development: Web3 Integration & Smart Contracts',
+    excerpt: 'Explore how decentralized technologies are reshaping modern web architecture and what developers need to know to stay ahead.',
+    category: 'Engineering',
+    tags: ['Web3', 'Blockchain', 'Engineering', 'Architecture', 'Future'],
+    date: '2025-06-15',
+    readTime: '6 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/blockchain,technology',
+    thumbnail: 'https://loremflickr.com/800/600/blockchain,technology',
+    gradient: 'from-blue-600 to-indigo-800',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The web is transitioning from a centralized data model to a decentralized, trustless architecture. Integrating Web3 into conventional web apps is no longer just an experiment—it is becoming a requirement for certain high-security financial systems.'
+      },
+      {
+        type: 'heading',
+        text: 'Why Web3 Matters'
+      },
+      {
+        type: 'paragraph',
+        text: 'Smart contracts eliminate the need for middlemen in digital transactions. By developing frontends that securely interact with the blockchain via Ethereum nodes, we ensure transparency and immutability.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-headless',
+    slug: 'headless-cms-architecture-2026-guide',
+    title: 'Why You Need a Headless CMS in Modern Architecture',
+    excerpt: 'Decoupling your backend from your frontend presentation layer is the key to scalability and omnichannel content delivery.',
+    category: 'Web Platform',
+    tags: ['CMS', 'Headless', 'Strapi', 'Next.js', 'Scalability'],
+    date: '2025-05-30',
+    readTime: '5 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/server,cloud',
+    thumbnail: 'https://loremflickr.com/800/600/server,cloud',
+    gradient: 'from-gray-700 to-gray-900',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Traditional monolithic CMS platforms like WordPress tie your presentation layer to the database. Moving to a headless CMS like Strapi or Sanity frees your development team to build lightning-fast React interfaces.'
+      },
+      {
+        type: 'heading',
+        text: 'Omnichannel Delivery'
+      },
+      {
+        type: 'paragraph',
+        text: 'With content exposed entirely via robust REST or GraphQL APIs, you write once and deploy everywhere—to your website, mobile app, and even smart IoT devices.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-react-server',
+    slug: 'mastering-react-server-components-ecommerce',
+    title: 'Mastering React Server Components for E-Commerce',
+    excerpt: 'Shipping zero JavaScript to the client is now possible. Learn how RSCs are fundamentally changing the frontend ecosystem.',
+    category: 'Engineering',
+    tags: ['React', 'NextJS', 'Frontend', 'Performance'],
+    date: '2025-05-12',
+    readTime: '7 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/coding,monitor',
+    thumbnail: 'https://loremflickr.com/800/600/coding,monitor',
+    gradient: 'from-cyan-500 to-blue-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'React Server Components (RSCs) allow us to render UI on the server natively, pushing heavy dependencies back where they belong and sending only the resulting HTML output down the wire.'
+      },
+      {
+        type: 'heading',
+        text: 'Radically Smaller Bundles'
+      },
+      {
+        type: 'paragraph',
+        text: 'By keeping utility libraries like date-fns or large markdown parsers strictly on the server, mobile devices save battery, data, and time. E-commerce platforms specifically see massive Core Web Vitals improvements.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-ai-uiux',
+    slug: 'impact-ai-ui-ux-design',
+    title: 'Generative AI and the Future of UI/UX',
+    excerpt: 'AI is no longer just for generating text. See how it is radically automating and improving user experience design.',
+    category: 'AI / Mobile',
+    tags: ['AI', 'Design', 'UI/UX', 'Figma', 'Generative'],
+    date: '2025-04-28',
+    readTime: '5 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/ai,design',
+    thumbnail: 'https://loremflickr.com/800/600/ai,design',
+    gradient: 'from-violet-500 to-fuchsia-600',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'From AI-generated wireframes to predictive layout optimizations, the design phase of software development is shrinking rapidly while quality continues to go up.'
+      },
+      {
+        type: 'heading',
+        text: 'Data-Driven Empathy'
+      },
+      {
+        type: 'paragraph',
+        text: 'By analyzing millions of user interaction heatmaps, AI tools can now dynamically suggest button placements and contrasting colors to guarantee accessibility standards are met on the first draft.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-pwa',
+    slug: 'building-offline-first-pwa-applications',
+    title: 'Building Offline-First Applications with PWA Technology',
+    excerpt: 'Progressive Web Apps offer app-like experiences directly from the browser. Here is how to nail the offline strategy.',
+    category: 'Mobile App',
+    tags: ['PWA', 'Javascript', 'Offline', 'Service Workers'],
+    date: '2025-04-10',
+    readTime: '6 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/smartphone,app',
+    thumbnail: 'https://loremflickr.com/800/600/smartphone,app',
+    gradient: 'from-orange-500 to-red-500',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Unstable connections shouldn\'t mean broken apps. Leveraging service workers allows us to cache critical CSS and JS assets so a site functions flawlessly even when the user enters a tunnel.'
+      },
+      {
+        type: 'heading',
+        text: 'IndexDB and Background Sync'
+      },
+      {
+        type: 'paragraph',
+        text: 'When users perform actions offline (like sending a message), we store the action in IndexDB and use the Background Sync API to automatically push the data to the server the moment connectivity is restored.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-micro-frontends',
+    slug: 'guide-to-micro-frontends-architecture',
+    title: 'A Definitive Guide to Micro-Frontends Architecture',
+    excerpt: 'Learn how to split your massive frontend monolith into manageable, independently deployable micro-applications.',
+    category: 'Engineering',
+    tags: ['Architecture', 'Webpack', 'Module Federation', 'Scaling'],
+    date: '2025-03-25',
+    readTime: '8 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/blocks,architecture',
+    thumbnail: 'https://loremflickr.com/800/600/blocks,architecture',
+    gradient: 'from-emerald-600 to-green-800',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Just like micro-services revolutionized the backend, micro-frontends are tackling the problem of giant monolithic React applications. By leveraging Webpack Module Federation, different teams can own entirely isolated pieces of a single web app.'
+      },
+      {
+        type: 'heading',
+        text: 'Independent Deployments'
+      },
+      {
+        type: 'paragraph',
+        text: 'The checkout team can deploy an update to the payment component without coordinating with the search team. This isolation vastly reduces CI/CD bottlenecks and testing overhead.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-django-nextjs',
+    slug: 'django-vs-nextjs-api-routes',
+    title: 'Django REST Framework vs Next.js API Routes: Which to Choose?',
+    excerpt: 'An objective look at building robust backend services in Python vs utilizing serverless functions in a full-stack Next.js project.',
+    category: 'Engineering',
+    tags: ['Django', 'Python', 'NextJS', 'Backend'],
+    date: '2025-03-05',
+    readTime: '7 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/programming,python',
+    thumbnail: 'https://loremflickr.com/800/600/programming,python',
+    gradient: 'from-purple-600 to-pink-700',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Choosing a backend framework determines your stack velocity for years to come. Next.js API Routes handle lightweight operations phenomenally well thanks to Vercel\'s edge network, but when heavy relational modeling comes into play, Django remains unmatched.'
+      },
+      {
+        type: 'heading',
+        text: 'The ORM Advantage'
+      },
+      {
+        type: 'paragraph',
+        text: 'Django\'s ORM provides built-in query optimization, complex migrations, and battle-tested security standards. For a startup creating an MVP, Next.js routes are easy. For an enterprise handling deep relationships, Django wins.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-jwt-security',
+    slug: 'demystifying-jwt-authentication-security',
+    title: 'Demystifying JWT Authentication & Security Flaws',
+    excerpt: 'Stop storing tokens in localStorage. Learn how to securely implement JWTs in your Single Page Applications.',
+    category: 'Engineering',
+    tags: ['Security', 'JWT', 'Auth', 'Cybersecurity'],
+    date: '2025-02-18',
+    readTime: '9 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/cybersecurity,lock',
+    thumbnail: 'https://loremflickr.com/800/600/cybersecurity,lock',
+    gradient: 'from-red-600 to-rose-800',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'JSON Web Tokens are everywhere, yet incredibly misunderstood. When implementing them, the primary mistake developers make is storing them in vulnerable storage areas.'
+      },
+      {
+        type: 'heading',
+        text: 'HttpOnly Secure Cookies'
+      },
+      {
+        type: 'paragraph',
+        text: 'To avoid XSS (Cross-Site Scripting) attacks extracting valid session tokens, you must issue JWTs inside HttpOnly cookies. This blocks JavaScript directly from reading the token while the browser automatically attaches it securely to all backend requests.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-db-migrations',
+    slug: 'strategies-zero-downtime-database-migrations',
+    title: 'Strategies for Zero-Downtime Database Migrations',
+    excerpt: 'Dropping a column on a live database can be catastrophic. Learn the multi-step process for making schema changes invisible to the end user.',
+    category: 'Engineering',
+    tags: ['Database', 'PostgreSQL', 'DevOps', 'Scaling'],
+    date: '2025-02-01',
+    readTime: '6 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/database,data',
+    thumbnail: 'https://loremflickr.com/800/600/database,data',
+    gradient: 'from-indigo-600 to-purple-800',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Database schema changes are the scariest part of deploying high-scale applications. Writing a data migration that locks an entire table for five minutes natively results in an immediate 5-minute global outage.'
+      },
+      {
+        type: 'heading',
+        text: 'The Expand-Contract Pattern'
+      },
+      {
+        type: 'paragraph',
+        text: 'First you add the new column (expand). You deploy code to write to both the old and new columns. Then you migrate old data over. Finally, you modify code to only read from the new column, and cleanly delete the old one later (contract). Zero downtime.'
+      }
+    ]
+  },
+  {
+    id: 'random-seo-edge-computing',
+    slug: 'rise-of-edge-computing-modern-architecture',
+    title: 'The Rise of Edge Computing in Modern Web Architecture',
+    excerpt: 'Pushing code aggressively to CDN nodes to reduce latency down to single-digit milliseconds globally.',
+    category: 'Web Platform',
+    tags: ['Edge', 'AWS', 'Vercel', 'Cloudflare', 'Performance'],
+    date: '2025-01-15',
+    readTime: '5 min read',
+    author: 'Point Zero Tech Content',
+    image: 'https://loremflickr.com/800/600/network,globe',
+    thumbnail: 'https://loremflickr.com/800/600/network,globe',
+    gradient: 'from-zinc-700 to-black',
+    featured: false,
+    content: [
+      {
+        type: 'paragraph',
+        text: 'We are moving compute code, not just cached static files, to the very edge of the network. Cloudflare Workers and Fastly Compute allow running business logic extremely close to the user.'
+      },
+      {
+        type: 'heading',
+        text: 'The End of the Region Concept'
+      },
+      {
+        type: 'paragraph',
+        text: 'Deploying to us-east-1 hurts users in Tokyo. Edge computing fundamentally fixes this by deploying a lightweight runtime across hundreds of global global data centers simultaneously.'
+      }
+    ]
   }
 ];
 
@@ -505,5 +1016,9 @@ export const blogCategories = [
   'Engineering',
   'E-Commerce',
   'Social Impact',
-  'GovTech'
+  'GovTech',
+  'B2B Platform',
+  'Healthcare Tech',
+  'EdTech',
+  'Fintech'
 ];
