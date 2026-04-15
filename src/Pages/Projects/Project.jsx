@@ -14,6 +14,10 @@ import gigabion from '../../assets/project/Gigabion.png';
 import mcq from '../../assets/project/mcq.png';
 import nepaldental from '../../assets/project/Nepaldentalhome.png';
 import technery from '../../assets/project/Technergy.png';
+import sajilodera from '../../assets/project/sajilodera.png';
+import sajiloderaCaseStudy from '../../assets/project/sajilodera-case-study.png';
+import bachelorQuestionBank from '../../assets/project/bachelor-question-bank.png';
+import pymentor from '../../assets/project/pymentor.png';
 
 // Project Images - Mobile
 import medicity from '../../assets/project/2.png';
@@ -38,6 +42,16 @@ export default function Project() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const webProjects = [
+    {
+      id: 0,
+      image: sajilodera,
+      title: 'Sajilodera.org',
+      subtitle: 'Property & Transport Platform',
+      description: 'Modern websites and web applications for property rentals and transport—built for speed, clarity, and conversions.',
+      technologies: ['React', 'Tailwind CSS', 'Vite'],
+      gradient: 'from-emerald-500 to-green-600',
+      link: 'https://sajilodera.org',
+    },
     {
       id: 1,
       image: porject2,
@@ -131,6 +145,24 @@ export default function Project() {
   ];
 
   const mobileProjects = [
+    {
+      id: 0,
+      image: bachelorQuestionBank,
+      title: 'Bachelor Question Bank',
+      subtitle: 'Education App (Nepal)',
+      description: 'The ultimate companion for Bachelor-level students in Nepal—old question papers, solutions, notes & books, subject-wise browsing, and offline access.',
+      gradient: 'from-red-500 to-orange-600',
+      link: 'https://play.google.com/store/apps/details?id=com.bachelorquestion.nepali',
+    },
+    {
+      id: 0.5,
+      image: pymentor,
+      title: 'PyMentor AI Interview',
+      subtitle: 'Python Interview Prep',
+      description: 'AI-powered mock interviews with real-time feedback, plus an interactive Python code playground to write, run, and debug solutions as you prepare for technical interviews.',
+      gradient: 'from-indigo-500 to-purple-600',
+      link: 'https://play.google.com/store/apps/details?id=com.pymentor.pymentor',
+    },
     {
       id: 1,
       image: medicity,
@@ -283,6 +315,64 @@ export default function Project() {
               </div>
             </AnimateOnScroll>
 
+            {/* Featured Case Study */}
+            <section className="relative pb-16">
+              <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
+                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl"></div>
+
+                <div className="relative bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden">
+                  <div className="grid lg:grid-cols-2 gap-0">
+                    {/* Image */}
+                    <div className="relative h-64 lg:h-auto">
+                      <img
+                        src={sajiloderaCaseStudy}
+                        alt="SajiloDera case study"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-8 lg:p-12 flex flex-col justify-center">
+                      <span className="text-cyan-400 text-sm font-semibold uppercase tracking-wider">Featured Case Study</span>
+                      <h3 className="mt-4 text-3xl lg:text-4xl font-bold text-white">SajiloDera</h3>
+                      <p className="mt-2 text-lg text-gray-300">Rooms & Transport in One App</p>
+
+                      <p className="mt-6 text-gray-400 leading-relaxed">
+                        SajiloDera is an all-in-one Nepali home and transport solution. We designed and developed a modern,
+                        conversion-focused web experience to showcase the product and make it easy for users to learn,
+                        explore, and take action.
+                      </p>
+
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        {['React', 'Tailwind CSS', 'Vite'].map((tech) => (
+                          <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm text-gray-300">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-8 flex flex-wrap gap-4">
+                        <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl flex items-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
+                          View Case Study
+                          <ArrowForwardIcon className="w-5 h-5" />
+                        </button>
+                        <a
+                          href="https://sajilodera.org"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-6 py-3 bg-white/5 border border-white/20 text-white font-semibold rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all duration-300"
+                        >
+                          Visit Website
+                          <OpenInNewIcon className="w-5 h-5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            </section>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {webProjects.map((project, index) => (
                 <AnimateOnScroll key={project.id} as="div" variant="scale" delay={index % 6}>
@@ -299,10 +389,19 @@ export default function Project() {
                     />
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <button className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                        onClick={(e) => {
+                          if (!project.link || project.link === '#') e.preventDefault();
+                        }}
+                        aria-disabled={!project.link || project.link === '#'}
+                      >
                         View Project
                         <OpenInNewIcon className="w-4 h-4" />
-                      </button>
+                      </a>
                     </div>
                   </div>
 
@@ -376,10 +475,19 @@ export default function Project() {
                     />
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <button className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                        onClick={(e) => {
+                          if (!project.link || project.link === '#') e.preventDefault();
+                        }}
+                        aria-disabled={!project.link || project.link === '#'}
+                      >
                         View Details
                         <OpenInNewIcon className="w-4 h-4" />
-                      </button>
+                      </a>
                     </div>
                   </div>
 
@@ -406,61 +514,6 @@ export default function Project() {
           </div>
         </section>
       )}
-
-      {/* Featured Case Study */}
-      <section className="relative py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
-            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl"></div>
-
-            <div className="relative bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden">
-              <div className="grid lg:grid-cols-2 gap-0">
-                {/* Image */}
-                <div className="relative h-64 lg:h-auto">
-                  <img
-                    src={bidesh}
-                    alt="Featured Project"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <span className="text-cyan-400 text-sm font-semibold uppercase tracking-wider">Featured Case Study</span>
-                  <h3 className="mt-4 text-3xl lg:text-4xl font-bold text-white">Bidesh.online</h3>
-                  <p className="mt-2 text-lg text-gray-300">Immigration & Foreign Employment Platform</p>
-
-                  <p className="mt-6 text-gray-400 leading-relaxed">
-                    Bidesh is a comprehensive platform designed to help individuals working abroad thrive and succeed.
-                    We built a full-stack solution including web platform and mobile apps, serving thousands of users
-                    navigating international employment opportunities.
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    {['Next.js', 'Flutter', 'Node.js', 'PostgreSQL', 'AWS'].map((tech) => (
-                      <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm text-gray-300">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap gap-4">
-                    <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl flex items-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
-                      View Case Study
-                      <ArrowForwardIcon className="w-5 h-5" />
-                    </button>
-                    <button className="px-6 py-3 bg-white/5 border border-white/20 text-white font-semibold rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all duration-300">
-                      Visit Website
-                      <OpenInNewIcon className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimateOnScroll>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="relative py-24">

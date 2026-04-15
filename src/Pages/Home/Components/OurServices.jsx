@@ -40,7 +40,7 @@ export default function OurServices() {
       icon: website,
       iconHover: website1,
       title: 'Web Development',
-      description: 'We deliver innovative web solutions that exceed expectations. From responsive designs to complex web applications, we build digital experiences that make lasting impressions.',
+      description: 'We deliver innovative web solutions that exceed expectations. Modern websites and web applications, from responsive designs to complex platforms, built to make lasting impressions.',
       gradient: 'from-red-500 to-pink-600',
       hoverBg: 'hover:bg-gradient-to-br hover:from-red-500/10 hover:to-pink-500/10',
       shadowColor: 'group-hover:shadow-red-500/20',

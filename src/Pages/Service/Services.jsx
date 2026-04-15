@@ -64,6 +64,7 @@ export default function Services() {
       gradient: 'from-cyan-500 to-blue-600',
       image: webImg,
       features: [
+        'Modern websites and web applications',
         'Custom Website Development',
         'Web Application Development',
         'eCommerce Solutions',

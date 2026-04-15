@@ -12,7 +12,7 @@ export default function Features() {
     {
       icon: <WebIcon className='w-8 h-8' />,
       title: 'Web Development',
-      description: 'From sleek designs to seamless functionality, we bring your online presence to life with precision and style.',
+      description: 'Modern websites and web applications—bringing your online presence to life with sleek design and seamless functionality.',
       gradient: 'from-cyan-500 to-blue-600',
       bgGradient: 'from-cyan-500/10 to-blue-500/10',
     },
