@@ -12,7 +12,6 @@ import porject2 from '../../assets/project2.png';
 import bidesh from '../../assets/project/bidesh.png';
 import epass from '../../assets/project/epass.png';
 import gigabion from '../../assets/project/Gigabion.png';
-import technery from '../../assets/project/Technergy.png';
 import nepaldental from '../../assets/project/Nepaldentalhome.png';
 import mcq from '../../assets/project/mcq.png';
 import medicity from '../../assets/project/2.png';
@@ -542,49 +541,6 @@ export const blogPosts = [
       {
         type: 'paragraph',
         text: 'By treating the website not just as a brochure but as an automated sales representative, Gigabion saw a massive uptick in inbound qualified leads from construction firms across the country.'
-      }
-    ]
-  },
-  {
-    id: 'technergy-web-agency',
-    slug: 'technergy-gsap-animations-creative-web-design',
-    title: 'Technergy: Pushing the Limits of Browser Animation with GSAP',
-    excerpt: 'Creative agencies need websites that prove their creativity. Here is how we used GSAP and React to build a dynamic, buttery-smooth portfolio experience.',
-    category: 'Engineering',
-    tags: ['GSAP', 'React', 'Tailwind', 'Animations', 'UI/UX'],
-    date: '2025-10-12',
-    readTime: '8 min read',
-    author: 'Point Zero Team',
-    image: technery,
-    thumbnail: technery,
-    gradient: 'from-blue-500 to-indigo-600',
-    featured: false,
-    content: [
-      {
-        type: 'paragraph',
-        text: 'When building a digital presence for an innovative tech agency like Technergy, a standard template won\'t cut it. The goal was simple: make the user say "Wow" in the first 3 seconds of page load.'
-      },
-      {
-        type: 'heading',
-        text: 'Choreographing the DOM'
-      },
-      {
-        type: 'paragraph',
-        text: 'We heavily utilized GSAP ScrollTrigger to orchestrate complex timeline animations tied to the user\'s scroll position. Elements don\'t just appear; they perform. Parallax backgrounds, text reveals, and SVG path drawing were carefully optimized to run flawlessly at 60 FPS without dropping frames on mobile.'
-      },
-      {
-        type: 'list',
-        items: [
-          'GSAP for complex, timeline-based animation sequences',
-          'React component lazy loading to maintain fast initial paint',
-          'Custom CSS cursors with magnetic snapping',
-          'Responsive animation scaling for mobile devices'
-        ]
-      },
-      {
-        type: 'quote',
-        text: 'Animation should feel like a natural extension of the user\'s interaction, not a roadblock to content.',
-        author: 'Point Zero UI/UX Team'
       }
     ]
   },

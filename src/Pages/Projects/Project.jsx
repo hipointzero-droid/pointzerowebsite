@@ -13,10 +13,10 @@ import epass from '../../assets/project/epass.png';
 import gigabion from '../../assets/project/Gigabion.png';
 import mcq from '../../assets/project/mcq.png';
 import nepaldental from '../../assets/project/Nepaldentalhome.png';
-import technery from '../../assets/project/Technergy.png';
 import sajilodera from '../../assets/project/sajilodera.png';
 import sajiloderaCaseStudy from '../../assets/project/sajilodera-case-study.png';
 import bachelorQuestionBank from '../../assets/project/bachelor-question-bank.png';
+import bachelorQuestionBankCaseStudy from '../../assets/project/bachelor-question-bank-case-study.png';
 import pymentor from '../../assets/project/pymentor.png';
 
 // Project Images - Mobile
@@ -90,16 +90,6 @@ export default function Project() {
       description: 'GI wire production plant with skilled technical expertise.',
       technologies: ['React', 'Django', 'AWS'],
       gradient: 'from-green-500 to-emerald-600',
-      link: '#',
-    },
-    {
-      id: 5,
-      image: technery,
-      title: 'Technergy.com.np',
-      subtitle: 'Tech Agency',
-      description: 'Innovation through impactful design and dynamic websites.',
-      technologies: ['Tailwind CSS', 'GSAP', 'React'],
-      gradient: 'from-blue-500 to-indigo-600',
       link: '#',
     },
     {
@@ -373,6 +363,84 @@ export default function Project() {
               </AnimateOnScroll>
             </section>
 
+            {/* Featured Case Study — Bachelor Question Bank (same layout as above) */}
+            <section className="relative pb-16">
+              <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
+                <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 via-rose-500/20 to-orange-500/20 rounded-3xl blur-2xl"></div>
+
+                <div className="relative bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden">
+                  <div className="grid lg:grid-cols-2 gap-0">
+                    {/* Image */}
+                    <div className="relative h-64 lg:h-auto lg:min-h-[22rem]">
+                      <img
+                        src={bachelorQuestionBankCaseStudy}
+                        alt="Bachelor Question Bank app — home, notices, bookmarks, and question papers"
+                        className="w-full h-full object-cover object-top"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-8 lg:p-12 flex flex-col justify-center">
+                      <span className="text-rose-400 text-sm font-semibold uppercase tracking-wider">Featured Case Study</span>
+                      <h3 className="mt-4 text-3xl lg:text-4xl font-bold text-white">Bachelor Question Bank</h3>
+                      <p className="mt-2 text-lg text-gray-300">Your ultimate Bachelor study partner</p>
+
+                      <p className="mt-6 text-gray-400 leading-relaxed">
+                        A polished mobile experience for Tribhuvan University and Nepali Bachelor students: notices on the home
+                        feed, bookmarked PDFs and notes, and a hero entry point to 1000+ past papers—clear hierarchy, strong CTAs,
+                        and a red-and-white brand system that feels fast and trustworthy.
+                      </p>
+
+                      <ul className="mt-4 space-y-2 text-sm text-gray-400">
+                        <li className="flex gap-2">
+                          <span className="text-rose-400 shrink-0">•</span>
+                          <span>Latest notices, bookmarks, and subject-wise question banks in one scrollable home.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="text-rose-400 shrink-0">•</span>
+                          <span>Glass-style featured card for question papers with explore flow and bottom navigation for core tasks.</span>
+                        </li>
+                      </ul>
+
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        {['Mobile app', 'PDF & notices', 'Student UX'].map((tech) => (
+                          <span key={tech} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm text-gray-300">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-8 flex flex-wrap gap-4">
+                        <a
+                          href="https://play.google.com/store/apps/details?id=com.bachelorquestion.nepali"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-6 py-3 bg-gradient-to-r from-red-500 to-orange-600 text-white font-semibold rounded-xl flex items-center gap-2 hover:shadow-lg hover:shadow-red-500/25 transition-all duration-300"
+                        >
+                          Get on Google Play
+                          <ArrowForwardIcon className="w-5 h-5" />
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setActiveFilter('mobile');
+                            setTimeout(() => {
+                              document.getElementById('mobile-apps-section')?.scrollIntoView({ behavior: 'smooth' });
+                            }, 80);
+                          }}
+                          className="px-6 py-3 bg-white/5 border border-white/20 text-white font-semibold rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all duration-300"
+                        >
+                          More mobile apps
+                          <OpenInNewIcon className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            </section>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {webProjects.map((project, index) => (
                 <AnimateOnScroll key={project.id} as="div" variant="scale" delay={index % 6}>
@@ -444,7 +512,7 @@ export default function Project() {
 
       {/* Mobile Projects Section */}
       {(activeFilter === 'all' || activeFilter === 'mobile') && (
-        <section className="relative py-20 bg-gradient-to-b from-black to-gray-900">
+        <section id="mobile-apps-section" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimateOnScroll className="flex items-center gap-4 mb-12" as="div" variant="right">
               <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
