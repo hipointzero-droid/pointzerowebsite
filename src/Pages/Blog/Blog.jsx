@@ -17,6 +17,7 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import CloseIcon from '@mui/icons-material/Close';
+import Seo from '../../components/Seo';
 
 export default function Blog() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -359,6 +360,23 @@ export default function Blog() {
   // ──────────────────────────────────────────────
   return (
     <div className="bg-black min-h-screen">
+      <Seo
+        title="Blog — Insights on Web, Mobile & Product | Pointzero"
+        description="Articles and case studies from the Pointzero team on web development, mobile apps, design and shipping great digital products."
+        keywords="Pointzero blog, web development insights, mobile app insights, software engineering Nepal, product design articles"
+        path="/blog"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Blog', path: '/blog' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          name: 'Pointzero Blog',
+          url: 'https://pointzero.com.np/blog',
+          publisher: { '@type': 'Organization', name: 'Pointzero' },
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}

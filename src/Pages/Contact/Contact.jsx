@@ -2,6 +2,7 @@ import React, { useState, Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/Stars';
+import Seo from '../../components/Seo';
 
 // Icons
 import EmailIcon from '@mui/icons-material/Email';
@@ -82,6 +83,41 @@ export default function Contact() {
 
   return (
     <div className="bg-black min-h-screen">
+      <Seo
+        title="Contact Pointzero — Start Your Project Today"
+        description="Get in touch with Pointzero. Tell us about your web, mobile or software project and our team will respond within one business day."
+        keywords="contact Pointzero, hire web developers Nepal, hire app developers Nepal, software agency contact"
+        path="/contact"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: 'Contact Pointzero',
+          url: 'https://pointzero.com.np/contact',
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'Pointzero',
+            email: 'hi.pointzero@gmail.com',
+            telephone: '+977-9860486269',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Kathmandu',
+              addressCountry: 'NP',
+            },
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'sales',
+              email: 'hi.pointzero@gmail.com',
+              telephone: '+977-9860486269',
+              areaServed: 'Worldwide',
+              availableLanguage: ['English', 'Nepali'],
+            },
+          },
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}

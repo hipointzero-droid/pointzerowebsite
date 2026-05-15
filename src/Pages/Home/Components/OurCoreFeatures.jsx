@@ -31,9 +31,9 @@ export default function OurCoreFeatures() {
   ];
 
   return (
-    <section className='relative bg-gradient-to-b from-gray-900 to-black py-24 overflow-hidden'>
+    <section aria-labelledby="why-choose-heading" className='relative bg-gradient-to-b from-gray-900 to-black py-24 overflow-hidden'>
       {/* Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl transform -translate-y-1/2"></div>
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl transform -translate-y-1/2"></div>
       </div>
@@ -45,14 +45,14 @@ export default function OurCoreFeatures() {
             <StarIcon className='w-4 h-4 text-cyan-400' />
             <span className='text-sm font-medium text-cyan-400'>Why Choose Us</span>
           </div>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
-            Our Core{' '}
+          <h2 id="why-choose-heading" className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
+            Why teams choose{' '}
             <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-              Features
+              Pointzero
             </span>
           </h2>
           <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
-            What sets us apart in delivering exceptional digital solutions for your business.
+            Three reasons clients pick us—and stick with us—for their most important digital work.
           </p>
         </AnimateOnScroll>
 

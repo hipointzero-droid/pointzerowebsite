@@ -1,9 +1,6 @@
 import React from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -16,18 +13,18 @@ export default function Footer() {
   const navigate = useNavigate();
 
   const services = [
-    { name: 'Android App Development', path: '/services' },
-    { name: 'iOS App Development', path: '/services' },
+    { name: 'AI & RAG Software', path: '/services' },
     { name: 'Web Development', path: '/services' },
+    { name: 'Mobile App Development', path: '/services' },
     { name: 'UI/UX Design', path: '/services' },
     { name: 'Quality Assurance', path: '/services' },
   ];
 
   const hireTeam = [
+    { name: 'AI / LLM Engineers', path: '/services' },
     { name: 'Mobile Developers', path: '/services' },
     { name: 'Web Developers', path: '/services' },
     { name: 'UI/UX Designers', path: '/services' },
-    { name: 'QA Engineers', path: '/services' },
     { name: 'DevOps Engineers', path: '/services' },
   ];
 
@@ -75,33 +72,34 @@ export default function Footer() {
 
           {/* Company Info */}
           <div className='lg:col-span-1'>
-            <Link to="/" className='inline-block'>
-              <img src={logo} alt="Point Zero" className='h-14' />
+            <Link to="/" className='inline-block' aria-label="Pointzero — Home">
+              <img src={logo} alt="Pointzero logo" className='h-14' width="140" height="56" loading="lazy" />
             </Link>
             <p className='mt-6 text-gray-400 leading-relaxed'>
-              Your trusted development partner. We specialize in bringing your digital dreams to life with cutting-edge solutions.
+              Pointzero is a digital product studio in Nepal. We design and ship modern websites,
+              mobile apps and custom software for ambitious teams.
             </p>
 
             {/* Contact Info */}
-            <div className='mt-8 space-y-4'>
+            <address className='not-italic mt-8 space-y-4'>
               <a href="mailto:hi.pointzero@gmail.com" className='flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors'>
-                <EmailIcon className='w-5 h-5' />
+                <EmailIcon className='w-5 h-5' aria-hidden="true" />
                 <span>hi.pointzero@gmail.com</span>
               </a>
               <a href="tel:+9779860486269" className='flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors'>
-                <PhoneIcon className='w-5 h-5' />
+                <PhoneIcon className='w-5 h-5' aria-hidden="true" />
                 <span>+977 986-0486269</span>
               </a>
               <div className='flex items-start gap-3 text-gray-400'>
-                <LocationOnIcon className='w-5 h-5 shrink-0' />
+                <LocationOnIcon className='w-5 h-5 shrink-0' aria-hidden="true" />
                 <span>Kathmandu, Nepal</span>
               </div>
-            </div>
+            </address>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className='text-white font-semibold text-lg mb-6'>Our Services</h4>
+            <h3 className='text-white font-semibold text-lg mb-6'>Our Services</h3>
             <ul className='space-y-3'>
               {services.map((service, index) => (
                 <li key={index}>
@@ -119,7 +117,7 @@ export default function Footer() {
 
           {/* Hire Team */}
           <div>
-            <h4 className='text-white font-semibold text-lg mb-6'>Hire Developer Team</h4>
+            <h3 className='text-white font-semibold text-lg mb-6'>Hire Developer Team</h3>
             <ul className='space-y-3'>
               {hireTeam.map((item, index) => (
                 <li key={index}>
@@ -137,7 +135,7 @@ export default function Footer() {
 
           {/* Quick Links & Social */}
           <div>
-            <h4 className='text-white font-semibold text-lg mb-6'>Quick Links</h4>
+            <h3 className='text-white font-semibold text-lg mb-6'>Quick Links</h3>
             <ul className='space-y-3'>
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -154,24 +152,25 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className='mt-8'>
-              <h4 className='text-white font-semibold text-lg mb-4'>Follow Us</h4>
-              <div className='flex gap-3'>
+              <h3 className='text-white font-semibold text-lg mb-4'>Follow Us</h3>
+              <ul className='flex gap-3 list-none p-0'>
                 {[
-                  { icon: <FacebookIcon className='w-5 h-5' />, href: 'https://www.facebook.com/pointzero.com.np/' },
-                  { icon: <TwitterIcon className='w-5 h-5' />, href: '#' },
-                  { icon: <InstagramIcon className='w-5 h-5' />, href: 'https://www.instagram.com/pointzero.com.np/' },
-                  { icon: <LinkedInIcon className='w-5 h-5' />, href: '#' },
-                  { icon: <GitHubIcon className='w-5 h-5' />, href: '#' },
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className='p-2.5 text-gray-400 bg-white/5 rounded-lg transition-all duration-300 hover:bg-cyan-500/20 hover:text-cyan-400 hover:scale-110 border border-white/5 hover:border-cyan-500/30'
-                  >
-                    {social.icon}
-                  </a>
+                  { icon: <FacebookIcon className='w-5 h-5' />, href: 'https://www.facebook.com/pointzero.com.np/', label: 'Facebook' },
+                  { icon: <InstagramIcon className='w-5 h-5' />, href: 'https://www.instagram.com/pointzero.com.np/', label: 'Instagram' },
+                ].map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Pointzero on ${social.label}`}
+                      className='p-2.5 text-gray-400 bg-white/5 rounded-lg transition-all duration-300 hover:bg-cyan-500/20 hover:text-cyan-400 hover:scale-110 border border-white/5 hover:border-cyan-500/30 inline-flex'
+                    >
+                      {social.icon}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
@@ -182,12 +181,12 @@ export default function Footer() {
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
             <p className='text-gray-500 text-sm text-center md:text-left'>
-              &copy; {new Date().getFullYear()} Point Zero. All rights reserved.
+              &copy; {new Date().getFullYear()} Pointzero. All rights reserved.
             </p>
-            <div className='flex items-center gap-6 text-sm text-gray-500'>
-              <a href="#" className='hover:text-cyan-400 transition-colors'>Privacy Policy</a>
-              <a href="#" className='hover:text-cyan-400 transition-colors'>Terms of Service</a>
-            </div>
+            <nav aria-label="Footer legal" className='flex items-center gap-6 text-sm text-gray-500'>
+              <Link to="/contact" className='hover:text-cyan-400 transition-colors'>Contact</Link>
+              <a href="mailto:hi.pointzero@gmail.com" className='hover:text-cyan-400 transition-colors'>Email us</a>
+            </nav>
           </div>
         </div>
       </div>

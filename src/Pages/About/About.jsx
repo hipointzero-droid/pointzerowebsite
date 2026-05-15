@@ -26,6 +26,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import SmoothCounter from './SmoothCount';
+import Seo from '../../components/Seo';
 
 export default function About() {
   const teamMembers = [
@@ -38,6 +39,32 @@ export default function About() {
 
   return (
     <div className='bg-black min-h-screen'>
+      <Seo
+        title="About Pointzero — Digital Product Studio in Nepal"
+        description="Meet the Pointzero team and learn how we partner with founders and product teams to design and ship modern web and mobile products from Kathmandu, Nepal."
+        keywords="Pointzero team, software company Nepal, digital product studio Kathmandu, about Pointzero"
+        path="/about"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About', path: '/about' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: 'About Pointzero',
+          url: 'https://pointzero.com.np/about',
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'Pointzero',
+            foundingLocation: 'Kathmandu, Nepal',
+            employees: [
+              { '@type': 'Person', name: 'Kripas Khatiwada', jobTitle: 'CEO & Founder' },
+              { '@type': 'Person', name: 'Sagun Khatiwada', jobTitle: 'Managing Director' },
+              { '@type': 'Person', name: 'Yunish Pandit', jobTitle: 'Full Stack Developer' },
+            ],
+          },
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}

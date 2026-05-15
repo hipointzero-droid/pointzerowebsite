@@ -54,7 +54,7 @@ export default function Features() {
   ];
 
   return (
-    <section className='relative bg-black py-24 overflow-hidden'>
+    <section aria-labelledby="services-overview-heading" className='relative bg-black py-24 overflow-hidden'>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -68,14 +68,15 @@ export default function Features() {
             <CodeIcon className='w-4 h-4 text-cyan-400' />
             <span className='text-sm font-medium text-cyan-400'>What We Offer</span>
           </div>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
-            Our{' '}
+          <h2 id="services-overview-heading" className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
+            What we{' '}
             <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-              Services
+              build for you
             </span>
           </h2>
           <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
-            Comprehensive digital solutions designed to transform your business and drive growth in the digital age.
+            End‑to‑end digital product capability—web, mobile, software, QA, infrastructure and dedicated
+            teams—under one roof, accountable to your roadmap.
           </p>
         </AnimateOnScroll>
 

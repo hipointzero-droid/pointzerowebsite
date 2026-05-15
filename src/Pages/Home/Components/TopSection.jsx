@@ -1,9 +1,6 @@
 import React, { Suspense } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import { useNavigate } from 'react-router-dom';
 import StarsCanvas from '../../../components/Stars';
 import CodeAnimation from '../../../components/CodeAnimation';
@@ -12,7 +9,7 @@ export default function TopSection() {
   const navigate = useNavigate();
 
   return (
-    <section className='relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden'>
+    <section aria-labelledby="hero-heading" className='relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden'>
       {/* Three.js Stars Background */}
       <Suspense fallback={null}>
         <StarsCanvas />
@@ -36,12 +33,12 @@ export default function TopSection() {
           <div className='lg:w-1/2 text-center lg:text-left'>
             {/* Badge */}
             <div className='hero-line inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8'>
-              <span className='w-2 h-2 bg-green-400 rounded-full animate-pulse'></span>
-              <span className='text-sm text-gray-300'>Available for new projects</span>
+              <span className='w-2 h-2 bg-green-400 rounded-full animate-pulse' aria-hidden="true"></span>
+              <span className='text-sm text-gray-300'>Available for new projects · Based in Nepal</span>
             </div>
 
             {/* Main Heading - single line */}
-            <h1 className='hero-line text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight'>
+            <h1 id="hero-heading" className='hero-line text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight'>
               Your Trusted{' '}
               <span className='bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
                 Development
@@ -51,9 +48,11 @@ export default function TopSection() {
 
             {/* Description */}
             <p className='hero-line mt-8 text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed' style={{ animationDelay: '1s' }}>
-              At Point Zero, we specialize in bringing your digital dreams to life.
-              With a team of passionate and experienced professionals, we offer a wide
-              range of services tailored to meet your needs and exceed your expectations.
+              Pointzero is a digital product studio in Nepal that designs and ships
+              modern <strong className="text-gray-200 font-semibold">websites</strong>,
+              <strong className="text-gray-200 font-semibold"> mobile apps</strong> and
+              <strong className="text-gray-200 font-semibold"> custom software</strong>—built
+              for speed, conversions, and long‑term growth.
             </p>
 
             {/* CTA Buttons */}
@@ -80,24 +79,25 @@ export default function TopSection() {
             {/* Social Links */}
             <div className='hero-line mt-12 flex items-center gap-6 justify-center lg:justify-start' style={{ animationDelay: '1.3s' }}>
               <span className='text-sm text-gray-500 uppercase tracking-wider'>Follow Us</span>
-              <div className='w-12 h-px bg-gradient-to-r from-gray-500 to-transparent'></div>
-              <div className='flex gap-3'>
+              <div className='w-12 h-px bg-gradient-to-r from-gray-500 to-transparent' aria-hidden="true"></div>
+              <ul className='flex gap-3 list-none p-0 m-0'>
                 {[
-                  { icon: <FacebookIcon className='w-5 h-5' />, href: 'https://www.facebook.com/pointzero.com.np/' },
-                  { icon: <TwitterIcon className='w-5 h-5' />, href: '#' },
-                  { icon: <InstagramIcon className='w-5 h-5' />, href: 'https://www.instagram.com/pointzero.com.np/' },
-                  { icon: <LinkedInIcon className='w-5 h-5' />, href: '#' },
-                  { icon: <GitHubIcon className='w-5 h-5' />, href: '#' },
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    className='p-2.5 text-gray-400 bg-white/5 rounded-lg transition-all duration-300 hover:bg-cyan-500/20 hover:text-cyan-400 hover:scale-110'
-                  >
-                    {social.icon}
-                  </a>
+                  { icon: <FacebookIcon className='w-5 h-5' />, href: 'https://www.facebook.com/pointzero.com.np/', label: 'Facebook' },
+                  { icon: <InstagramIcon className='w-5 h-5' />, href: 'https://www.instagram.com/pointzero.com.np/', label: 'Instagram' },
+                ].map((social) => (
+                  <li key={social.label}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Pointzero on ${social.label}`}
+                      className='p-2.5 text-gray-400 bg-white/5 rounded-lg transition-all duration-300 hover:bg-cyan-500/20 hover:text-cyan-400 hover:scale-110 inline-flex'
+                    >
+                      {social.icon}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
 

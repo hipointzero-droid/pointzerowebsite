@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/Stars';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
+import Seo from '../../components/Seo';
 
 // Images
 import mobileImg from '../../assets/image 4.png';
@@ -25,12 +26,38 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import SpeedIcon from '@mui/icons-material/Speed';
 import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { useNavigate } from 'react-router-dom';
 
 export default function Services() {
   const navigate = useNavigate();
 
   const services = [
+    {
+      id: 'ai',
+      icon: <AutoAwesomeIcon className="w-8 h-8" />,
+      title: 'AI & RAG Software Development',
+      subtitle: 'Production‑grade LLM products',
+      description:
+        'We design and ship AI software for startups and enterprises—retrieval‑augmented (RAG) chatbots, AI agents, document and PDF extraction, and LLM workflows—on Claude, OpenAI GPT, Google Gemini and open Llama models, with evals, observability and SLAs.',
+      gradient: 'from-cyan-500 to-purple-600',
+      image: webImg,
+      features: [
+        'RAG chatbots & assistants over your docs and DB',
+        'AI agents and multi‑step automations',
+        'Vector search (pgvector, Pinecone, Weaviate, Qdrant)',
+        'LLM integrations (Claude, GPT, Gemini, Llama)',
+        'Document & data extraction pipelines',
+        'Fine‑tuning, prompt libraries & evals',
+      ],
+      technologies: [
+        { name: 'Claude', color: '#D97706' },
+        { name: 'OpenAI', color: '#10A37F' },
+        { name: 'Gemini', color: '#4285F4' },
+        { name: 'LangGraph', color: '#22D3EE' },
+      ],
+      cta: 'Build AI Software',
+    },
     {
       id: 'mobile',
       icon: <PhoneIphoneIcon className="w-8 h-8" />,
@@ -187,6 +214,44 @@ export default function Services() {
 
   return (
     <div className="bg-black min-h-screen">
+      <Seo
+        title="Services — AI/RAG, Web, Mobile, UI/UX, QA & DevOps | Pointzero"
+        description="Pointzero services: AI & RAG software (Claude, GPT, Gemini, Llama, vector search), mobile and web app development, UI/UX design, QA, infrastructure & DevOps, and dedicated developer teams—built in Kathmandu, Nepal for clients worldwide."
+        keywords="AI software development Nepal, RAG development Nepal, LLM app development Nepal, AI agents Nepal, Claude API developer, OpenAI developer Nepal, Gemini integration Nepal, vector search pgvector Pinecone, web development services Nepal, mobile app development Nepal, UI UX design Nepal, QA services Nepal, DevOps Nepal, hire developers Nepal"
+        path="/services"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'Pointzero services',
+          itemListElement: [
+            {
+              name: 'AI & RAG Software Development',
+              description:
+                'RAG chatbots, AI agents and LLM apps with Claude, OpenAI GPT, Google Gemini and Llama, plus vector databases (pgvector, Pinecone, Weaviate, Qdrant).',
+            },
+            { name: 'Mobile App Development' },
+            { name: 'Web Development' },
+            { name: 'UI/UX Design' },
+            { name: 'Software Testing & QA' },
+            { name: 'Infrastructure & DevOps' },
+            { name: 'Hire Dedicated Developers' },
+          ].map((s, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+              '@type': 'Service',
+              name: s.name,
+              description: s.description,
+              provider: { '@type': 'Organization', name: 'Pointzero' },
+              areaServed: ['Nepal', 'Worldwide'],
+            },
+          })),
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}

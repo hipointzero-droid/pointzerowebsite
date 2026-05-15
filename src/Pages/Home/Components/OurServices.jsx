@@ -58,7 +58,7 @@ export default function OurServices() {
   ];
 
   return (
-    <section className='relative bg-gradient-to-b from-black to-gray-900 py-24 overflow-hidden'>
+    <section aria-labelledby="services-spotlight-heading" className='relative bg-gradient-to-b from-black to-gray-900 py-24 overflow-hidden'>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -72,14 +72,15 @@ export default function OurServices() {
             <WorkspacePremiumIcon className='w-4 h-4 text-cyan-400' />
             <span className='text-sm font-medium text-cyan-400'>Premium Solutions</span>
           </div>
-          <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
-            Our Core{' '}
+          <h2 id="services-spotlight-heading" className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
+            Services that{' '}
             <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-              Services
+              compound results
             </span>
           </h2>
           <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
-            Discover our specialized service offerings designed to accelerate your digital transformation journey.
+            Hand‑picked offerings that solve the bottleneck most teams hit—shipping high‑quality digital
+            products on time, without ballooning scope.
           </p>
         </AnimateOnScroll>
 
