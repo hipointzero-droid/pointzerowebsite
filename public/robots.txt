@@ -4,6 +4,16 @@
 User-agent: *
 Allow: /
 
+# AdMob app-ads.txt crawler (required for iOS ad verification)
+User-agent: Google-adstxt
+Disallow:
+
+User-agent: Mediapartners-Google
+Disallow:
+
+User-agent: Googlebot
+Disallow:
+
 # Explicitly allow AI / LLM crawlers so Pointzero can be cited
 # in answers from ChatGPT, Claude, Gemini, Perplexity and others.
 
