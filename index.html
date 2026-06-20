@@ -1,156 +1,296 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-NP">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0b0b0f" />
     <meta name="color-scheme" content="dark" />
     <meta name="format-detection" content="telephone=no" />
+
+    <!-- Favicons & PWA -->
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Canonical & language alternates -->
     <link rel="canonical" href="https://pointzero.com.np/" />
+    <link rel="alternate" hreflang="en" href="https://pointzero.com.np/" />
+    <link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/" />
+    <link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/" />
     <link rel="alternate" type="text/plain" href="https://pointzero.com.np/llms.txt" title="LLM-friendly site summary" />
+    <link rel="alternate" type="application/rss+xml" title="Pointzero Blog" href="https://pointzero.com.np/rss.xml" />
 
     <!-- Primary Meta Tags -->
-    <title>Pointzero — Best Software Company in Nepal | AI, RAG, Web & Mobile</title>
-    <meta name="title" content="Pointzero — Best Software Company in Nepal | AI, RAG, Web & Mobile" />
+    <title>Point Zero — AI, RAG & Software Development Company in Nepal</title>
+    <meta name="title" content="Point Zero — AI, RAG & Software Development Company in Nepal" />
     <meta
       name="description"
-      content="Pointzero is a top software company in Kathmandu, Nepal. We build AI and RAG software (Claude, GPT, Gemini, Llama, vector search), modern websites, mobile apps and custom software — WellNepa, SajiloDera, Bachelor Question Bank and more."
+      content="Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps for startups and enterprises. Free discovery call."
     />
     <meta
       name="keywords"
-      content="best software company in Nepal, top software company Kathmandu, AI software company Nepal, RAG development Nepal, LLM app development Nepal, AI agents Nepal, ChatGPT Claude Gemini integration Nepal, vector database Nepal, pgvector Pinecone, web development Nepal, mobile app development Nepal, React, Flutter, Django, Node.js, UI UX design Nepal, hire developers Nepal, hire AI engineers Nepal, Pointzero, WellNepa, SajiloDera"
+      content="software company in Nepal, AI development Nepal, RAG development Nepal, LLM developer Nepal, mobile app development Nepal, web development Nepal, hire developers Nepal, AI agents Nepal, Claude developer, OpenAI integration, vector database, pgvector Pinecone, Flutter Nepal, React Next.js, Pointzero"
     />
-    <meta name="author" content="Pointzero" />
+    <meta name="author" content="Point Zero" />
+    <meta name="publisher" content="Point Zero" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
-    <meta name="geo.region" content="NP" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="geo.region" content="NP-BA" />
     <meta name="geo.placename" content="Kathmandu" />
+    <meta name="geo.position" content="27.7172;85.3240" />
+    <meta name="ICBM" content="27.7172, 85.3240" />
+    <meta name="rating" content="general" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Pointzero" />
+    <meta property="og:site_name" content="Point Zero" />
     <meta property="og:url" content="https://pointzero.com.np/" />
-    <meta property="og:title" content="Pointzero — Best Software Company in Nepal | AI, RAG, Web & Mobile" />
+    <meta property="og:title" content="Point Zero — AI, RAG & Software Development Company in Nepal" />
     <meta
       property="og:description"
-      content="Top software company in Kathmandu, Nepal — AI/RAG products, modern websites, mobile apps and custom software, shipped fast."
+      content="Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps for startups and enterprises. Free discovery call."
     />
     <meta property="og:image" content="https://pointzero.com.np/og-image.png" />
-    <meta property="og:image:alt" content="Pointzero — Digital product studio in Nepal" />
+    <meta property="og:image:secure_url" content="https://pointzero.com.np/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Point Zero — AI, RAG, Web and Mobile development studio in Nepal" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en_NP" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@pointzero" />
+    <meta name="twitter:creator" content="@pointzero" />
     <meta name="twitter:url" content="https://pointzero.com.np/" />
-    <meta name="twitter:title" content="Pointzero — Best Software Company in Nepal | AI, RAG, Web & Mobile" />
+    <meta name="twitter:title" content="Point Zero — AI, RAG & Software Development Company in Nepal" />
     <meta
       name="twitter:description"
-      content="Top software company in Kathmandu, Nepal — AI/RAG products, modern websites, mobile apps and custom software, shipped fast."
+      content="Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps. Free discovery call."
     />
     <meta name="twitter:image" content="https://pointzero.com.np/og-image.png" />
+    <meta name="twitter:image:alt" content="Point Zero — AI, RAG, Web and Mobile development studio in Nepal" />
 
-    <!-- Performance: preconnect/dns-prefetch -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <!-- Performance: preconnect/dns-prefetch — only origins we actually use -->
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      charset="UTF-8"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-    </noscript>
+    <!-- Preload LCP-critical OG image so it can be reused as hero brand -->
+    <link rel="preload" as="image" href="/og-image.png" fetchpriority="high" />
 
-    <!-- Structured data: Organization -->
+    <!-- Structured data: Organization + LocalBusiness + ProfessionalService -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
-        "name": "Pointzero",
-        "legalName": "Point Zero",
-        "url": "https://pointzero.com.np/",
-        "logo": "https://pointzero.com.np/og-image.png",
-        "image": "https://pointzero.com.np/og-image.png",
-        "description": "Top software company in Kathmandu, Nepal building AI/RAG products, modern websites, mobile apps and custom software.",
-        "email": "hi.pointzero@gmail.com",
-        "telephone": "+977-9860486269",
-        "priceRange": "$$",
-        "areaServed": ["Nepal", "Worldwide"],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kathmandu",
-          "addressRegion": "Bagmati",
-          "addressCountry": "NP"
-        },
-        "knowsAbout": [
-          "Artificial Intelligence",
-          "Generative AI",
-          "Large Language Models",
-          "Retrieval-Augmented Generation",
-          "AI Agents",
-          "Vector Databases",
-          "Claude API",
-          "OpenAI API",
-          "Gemini API",
-          "Llama",
-          "LangChain",
-          "LangGraph",
-          "pgvector",
-          "Pinecone",
-          "Weaviate",
-          "Web Development",
-          "Mobile App Development",
-          "Custom Software Development",
-          "UI/UX Design",
-          "QA and Software Testing",
-          "DevOps and Cloud Infrastructure",
-          "React",
-          "Next.js",
-          "Flutter",
-          "Django",
-          "Node.js",
-          "PostgreSQL"
-        ],
-        "sameAs": [
-          "https://www.facebook.com/pointzero.com.np/",
-          "https://www.instagram.com/pointzero.com.np/"
+        "@graph": [
+          {
+            "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+            "@id": "https://pointzero.com.np/#organization",
+            "name": "Point Zero",
+            "alternateName": ["Pointzero", "PointZero", "Point Zero Nepal"],
+            "legalName": "Point Zero",
+            "url": "https://pointzero.com.np/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://pointzero.com.np/og-image.png",
+              "width": 1200,
+              "height": 630
+            },
+            "image": "https://pointzero.com.np/og-image.png",
+            "description": "Point Zero is a top software development company in Kathmandu, Nepal. We design and ship AI agents, RAG chatbots, websites, mobile apps and custom software for startups and enterprises worldwide.",
+            "foundingDate": "2022-01-01",
+            "email": "hi.pointzero@gmail.com",
+            "telephone": "+977-9860486269",
+            "priceRange": "$$",
+            "currenciesAccepted": "NPR, USD, EUR, INR, GBP",
+            "paymentAccepted": "Bank Transfer, Wise, Stripe, eSewa, Khalti",
+            "openingHours": "Su-Fr 09:00-18:00",
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              }
+            ],
+            "areaServed": [
+              { "@type": "Country", "name": "Nepal" },
+              { "@type": "Country", "name": "United States" },
+              { "@type": "Country", "name": "United Kingdom" },
+              { "@type": "Country", "name": "United Arab Emirates" },
+              { "@type": "Country", "name": "Australia" },
+              { "@type": "Country", "name": "India" }
+            ],
+            "slogan": "Your AI & Software Engineering Partner — from idea to production.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kathmandu",
+              "addressRegion": "Bagmati",
+              "postalCode": "44600",
+              "addressCountry": "NP"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 27.7172,
+              "longitude": 85.3240
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "email": "hi.pointzero@gmail.com",
+                "telephone": "+977-9860486269",
+                "areaServed": ["NP", "US", "GB", "AE", "AU", "IN"],
+                "availableLanguage": ["English", "Nepali", "Hindi"]
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "email": "hi.pointzero@gmail.com",
+                "availableLanguage": ["English", "Nepali"]
+              }
+            ],
+            "knowsAbout": [
+              "Artificial Intelligence",
+              "Generative AI",
+              "Large Language Models",
+              "Retrieval-Augmented Generation",
+              "AI Agents",
+              "Vector Databases",
+              "Claude API",
+              "OpenAI API",
+              "Gemini API",
+              "Llama",
+              "LangChain",
+              "LangGraph",
+              "pgvector",
+              "Pinecone",
+              "Weaviate",
+              "Qdrant",
+              "Web Development",
+              "Mobile App Development",
+              "SaaS Development",
+              "MVP Development",
+              "Custom Software Development",
+              "UI/UX Design",
+              "QA and Software Testing",
+              "DevOps and Cloud Infrastructure",
+              "React",
+              "Next.js",
+              "Flutter",
+              "Django",
+              "Node.js",
+              "PostgreSQL"
+            ],
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI & RAG Software Development",
+                  "serviceType": "Artificial Intelligence development"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Web Development",
+                  "serviceType": "Web application development"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Mobile App Development",
+                  "serviceType": "iOS and Android development"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "UI/UX Design",
+                  "serviceType": "Product design"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "MVP & SaaS Development",
+                  "serviceType": "Startup engineering"
+                }
+              }
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "32",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "sameAs": [
+              "https://www.facebook.com/pointzero.com.np/",
+              "https://www.instagram.com/pointzero.com.np/",
+              "https://www.linkedin.com/company/pointzero-np/",
+              "https://github.com/pointzero-np",
+              "https://wellnepa.com",
+              "https://sajilodera.org"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://pointzero.com.np/#website",
+            "url": "https://pointzero.com.np/",
+            "name": "Point Zero",
+            "publisher": { "@id": "https://pointzero.com.np/#organization" },
+            "inLanguage": "en-NP",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://pointzero.com.np/blog?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
         ]
-      }
-    </script>
-
-    <!-- Structured data: WebSite -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Pointzero",
-        "url": "https://pointzero.com.np/"
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
     <noscript>
-      <p style="font-family: system-ui, sans-serif; padding: 24px; text-align: center;">
-        Pointzero is a digital product studio in Nepal — web, mobile and software development.
-        Please enable JavaScript to view the full site, or
-        <a href="mailto:hi.pointzero@gmail.com">email us</a>.
-      </p>
+      <main style="font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 24px; color: #111; line-height: 1.6;">
+        <h1>Point Zero — AI, RAG & Software Development Company in Nepal</h1>
+        <p>
+          Point Zero is a top software company in Kathmandu, Nepal. We design and ship
+          AI agents, RAG chatbots, web apps, mobile apps and custom software for
+          startups and enterprises worldwide.
+        </p>
+        <h2>Services</h2>
+        <ul>
+          <li>AI & RAG Software Development (Claude, GPT, Gemini, Llama, pgvector, Pinecone)</li>
+          <li>Web Development (React, Next.js, Django, Node.js)</li>
+          <li>Mobile App Development (Flutter, React Native, iOS, Android)</li>
+          <li>UI/UX Design</li>
+          <li>MVP and SaaS Development</li>
+          <li>QA, Testing and DevOps</li>
+        </ul>
+        <h2>Contact</h2>
+        <p>
+          Email <a href="mailto:hi.pointzero@gmail.com">hi.pointzero@gmail.com</a> ·
+          Phone <a href="tel:+9779860486269">+977 9860486269</a> ·
+          Kathmandu, Nepal
+        </p>
+        <p>Please enable JavaScript to view the full interactive site.</p>
+      </main>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>

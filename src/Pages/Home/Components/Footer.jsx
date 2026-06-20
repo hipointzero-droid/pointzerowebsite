@@ -13,19 +13,23 @@ export default function Footer() {
   const navigate = useNavigate();
 
   const services = [
-    { name: 'AI & RAG Software', path: '/services' },
-    { name: 'Web Development', path: '/services' },
-    { name: 'Mobile App Development', path: '/services' },
-    { name: 'UI/UX Design', path: '/services' },
-    { name: 'Quality Assurance', path: '/services' },
+    { name: 'AI Development Company in Nepal', path: '/services/ai-development-nepal' },
+    { name: 'RAG Chatbot Development', path: '/services/rag-chatbot-development' },
+    { name: 'Web Development in Nepal', path: '/services/web-development-nepal' },
+    { name: 'Mobile App Development in Nepal', path: '/services/mobile-app-development-nepal' },
+    { name: 'MVP Development', path: '/services/mvp-development' },
+    { name: 'UI/UX Design in Nepal', path: '/services/ui-ux-design-nepal' },
+    { name: 'DevOps & Cloud in Nepal', path: '/services/devops-cloud-nepal' },
   ];
 
   const hireTeam = [
-    { name: 'AI / LLM Engineers', path: '/services' },
-    { name: 'Mobile Developers', path: '/services' },
-    { name: 'Web Developers', path: '/services' },
-    { name: 'UI/UX Designers', path: '/services' },
-    { name: 'DevOps Engineers', path: '/services' },
+    { name: 'AI / LLM Engineers', path: '/services/ai-development-nepal' },
+    { name: 'RAG Engineers', path: '/services/rag-chatbot-development' },
+    { name: 'Flutter Developers', path: '/services/mobile-app-development-nepal' },
+    { name: 'React / Next.js Developers', path: '/services/web-development-nepal' },
+    { name: 'UI/UX Designers', path: '/services/ui-ux-design-nepal' },
+    { name: 'DevOps / SRE Engineers', path: '/services/devops-cloud-nepal' },
+    { name: 'Founding Engineers (MVP)', path: '/services/mvp-development' },
   ];
 
   const quickLinks = [

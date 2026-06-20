@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { useNavigate } from 'react-router-dom';
-import StarsCanvas from '../../../components/Stars';
+import StarsCanvas from '../../../components/StarsLazy';
 import CodeAnimation from '../../../components/CodeAnimation';
 
 export default function TopSection() {
@@ -34,25 +34,31 @@ export default function TopSection() {
             {/* Badge */}
             <div className='hero-line inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8'>
               <span className='w-2 h-2 bg-green-400 rounded-full animate-pulse' aria-hidden="true"></span>
-              <span className='text-sm text-gray-300'>Available for new projects · Based in Nepal</span>
+              <span className='text-sm text-gray-300'>Top AI &amp; Software Engineering Partner · Kathmandu, Nepal</span>
             </div>
 
-            {/* Main Heading - single line */}
+            {/* Main Heading - keyword-loaded, conversion-focused */}
             <h1 id="hero-heading" className='hero-line text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight'>
-              Your Trusted{' '}
+              AI, Web &amp; Mobile{' '}
               <span className='bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-                Development
+                Software Development
               </span>{' '}
-              Partner
+              Company in Nepal
             </h1>
 
-            {/* Description */}
+            {/* Description — outcome-led, keyword-rich */}
             <p className='hero-line mt-8 text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed' style={{ animationDelay: '1s' }}>
-              Pointzero is a digital product studio in Nepal that designs and ships
-              modern <strong className="text-gray-200 font-semibold">websites</strong>,
-              <strong className="text-gray-200 font-semibold"> mobile apps</strong> and
-              <strong className="text-gray-200 font-semibold"> custom software</strong>—built
-              for speed, conversions, and long‑term growth.
+              Point Zero is the AI &amp; software engineering partner for ambitious teams.
+              We ship <strong className="text-gray-200 font-semibold">RAG chatbots</strong>,
+              <strong className="text-gray-200 font-semibold"> AI agents</strong>,
+              <strong className="text-gray-200 font-semibold"> web apps</strong> and
+              <strong className="text-gray-200 font-semibold"> mobile apps</strong> — production-grade,
+              eval-tested, and built to convert.
+            </p>
+
+            {/* Trust microcopy */}
+            <p className='hero-line mt-4 text-sm text-gray-500 max-w-xl mx-auto lg:mx-0' style={{ animationDelay: '1.05s' }}>
+              ⭐ 5.0 client rating · 50+ projects shipped · Reply within 1 business day
             </p>
 
             {/* CTA Buttons */}
@@ -60,10 +66,11 @@ export default function TopSection() {
               <button
                 onClick={() => navigate("/contact")}
                 className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
+                aria-label="Book a free discovery call with Point Zero"
               >
                 <span className='flex items-center justify-center gap-2'>
-                  Start Your Project
-                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  Book a Free Discovery Call
+                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
@@ -71,8 +78,9 @@ export default function TopSection() {
               <button
                 onClick={() => navigate("/project")}
                 className='px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
+                aria-label="See Point Zero case studies"
               >
-                View Our Work
+                See Case Studies
               </button>
             </div>
 

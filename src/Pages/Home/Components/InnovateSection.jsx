@@ -26,29 +26,31 @@ export default function InnovateSection() {
             </div>
 
             <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight'>
-              Ignite Your Digital Journey with{' '}
+              The AI &amp; Software Engineering Partner for{' '}
               <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-                Point Zero
+                Ambitious Teams
               </span>
             </h2>
 
             <p className='mt-6 text-gray-400 text-lg leading-relaxed'>
-              With Point Zero by your side, the possibilities are endless. Whether you need software testing
-              and QA services to ensure flawless performance or DevOps solutions to streamline your
-              operations, we've got you covered.
+              Point Zero is a Kathmandu-based digital product studio that ships
+              production-grade AI, web and mobile software for startups and enterprises
+              in Nepal, the US, UK and the UAE. We move fast — RAG pilots in 2–3 weeks,
+              marketing sites in 2–4, MVPs in 8–10 — without trading away rigour.
             </p>
 
             <p className='mt-4 text-gray-400 text-lg leading-relaxed'>
-              We're not just another software development company – we're your partners in innovation,
-              dedicated to propelling your business forward in the digital age.
+              Senior engineers on the build, fixed-price discovery, weekly demos, and
+              evals or analytics tied to every release. The code lives in your GitHub
+              from day one, with a runbook your team can actually use.
             </p>
 
-            {/* Feature Points */}
+            {/* Feature Points — outcomes, not slogans */}
             <div className='mt-8 space-y-4'>
               {[
-                { icon: <RocketLaunchIcon className='w-5 h-5' />, text: 'Cutting-edge technology solutions' },
-                { icon: <TrendingUpIcon className='w-5 h-5' />, text: 'Scalable and future-proof development' },
-                { icon: <AutoAwesomeIcon className='w-5 h-5' />, text: 'Dedicated team of experts' },
+                { icon: <RocketLaunchIcon className='w-5 h-5' />, text: 'Ship in weeks — RAG pilot in 14 days, MVP in 8–10 weeks' },
+                { icon: <TrendingUpIcon className='w-5 h-5' />, text: 'Sub-2-second LCP and 95+ Lighthouse on every web launch' },
+                { icon: <AutoAwesomeIcon className='w-5 h-5' />, text: 'Eval-gated AI releases — no "vibe-check" deploys to production' },
               ].map((item, index) => (
                 <div key={index} className='flex items-center gap-4 group'>
                   <div className='p-2.5 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg text-cyan-400 transition-all duration-300 group-hover:from-cyan-500/30 group-hover:to-blue-500/30'>

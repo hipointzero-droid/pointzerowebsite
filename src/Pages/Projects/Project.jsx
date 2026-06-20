@@ -1,7 +1,7 @@
 import React, { useState, Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
-import StarsCanvas from '../../components/Stars';
+import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
 
@@ -241,9 +241,9 @@ export default function Project() {
   return (
     <div className="bg-black min-h-screen">
       <Seo
-        title="Our Work — Web & Mobile Projects | Pointzero"
-        description="Selected work from Pointzero: WellNepa coaching marketplace, SajiloDera property & transport platform, Bachelor Question Bank, PyMentor and more—modern web and mobile products built in Nepal."
-        keywords="Pointzero portfolio, WellNepa, SajiloDera, Bachelor Question Bank, PyMentor, web projects Nepal, mobile apps Nepal"
+        title="Our Work — AI, Web & Mobile Case Studies | Point Zero"
+        description="Selected case studies from Point Zero: WellNepa coaching marketplace, SajiloDera, Bachelor Question Bank, PyMentor AI Interview, ChatMandu and more."
+        keywords="Pointzero portfolio, software case studies Nepal, WellNepa, SajiloDera, Bachelor Question Bank, PyMentor, ChatMandu, AI projects Nepal"
         path="/project"
         breadcrumbs={[
           { name: 'Home', path: '/' },

@@ -1,39 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://pointzero.com.np/</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/" />
+    <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og-image.png</image:loc>
+      <image:title>Point Zero — AI, RAG, Web and Mobile development company in Nepal</image:title>
+      <image:caption>Point Zero logo and brand image</image:caption>
+    </image:image>
   </url>
-  <url>
-    <loc>https://pointzero.com.np/about</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://pointzero.com.np/services</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services" />
   </url>
+
   <url>
-    <loc>https://pointzero.com.np/project</loc>
-    <lastmod>2026-05-15</lastmod>
+    <loc>https://pointzero.com.np/services/ai-development-nepal</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/ai-development-nepal" />
+    <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/services/ai-development-nepal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/ai-development-nepal" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/services/rag-chatbot-development</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/rag-chatbot-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/rag-chatbot-development" />
   </url>
+
+  <url>
+    <loc>https://pointzero.com.np/services/web-development-nepal</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/web-development-nepal" />
+    <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/services/web-development-nepal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/web-development-nepal" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/services/mobile-app-development-nepal</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/mobile-app-development-nepal" />
+    <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/services/mobile-app-development-nepal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/mobile-app-development-nepal" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/services/mvp-development</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/mvp-development" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/mvp-development" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/services/ui-ux-design-nepal</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/ui-ux-design-nepal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/ui-ux-design-nepal" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/services/devops-cloud-nepal</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/devops-cloud-nepal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/devops-cloud-nepal" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/project</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/project" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/project" />
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/about</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/about" />
+  </url>
+
   <url>
     <loc>https://pointzero.com.np/blog</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/blog" />
   </url>
+
   <url>
     <loc>https://pointzero.com.np/contact</loc>
-    <lastmod>2026-05-15</lastmod>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/contact" />
   </url>
+
 </urlset>

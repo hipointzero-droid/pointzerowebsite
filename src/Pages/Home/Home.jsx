@@ -8,6 +8,7 @@ import DetailSection from './Components/DetailSection';
 import ProcessSection from './Components/ProcessSection';
 import FaqSection from './Components/FaqSection';
 import AiSection from './Components/AiSection';
+import Testimonials from './Components/Testimonials';
 import Footer from './Components/Footer';
 import Navbar from '../../components/Navbar';
 import HomeTechnologies from './Components/HomeTechnologies/HomeTechnologies';
@@ -141,8 +142,34 @@ export default function Home() {
         '@type': 'WebSite',
         '@id': `${ORIGIN}/#website`,
         url: `${ORIGIN}/`,
-        name: 'Pointzero',
+        name: 'Point Zero',
+        alternateName: 'Pointzero',
         publisher: { '@id': `${ORIGIN}/#organization` },
+        inLanguage: 'en-NP',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${ORIGIN}/blog?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${ORIGIN}/#webpage`,
+        url: `${ORIGIN}/`,
+        name: 'Point Zero — AI, RAG & Software Development Company in Nepal',
+        isPartOf: { '@id': `${ORIGIN}/#website` },
+        about: { '@id': `${ORIGIN}/#organization` },
+        primaryImageOfPage: `${ORIGIN}/og-image.png`,
+        inLanguage: 'en-NP',
+        // Speakable picks out the heading and FAQ block — voice assistants
+        // (Google Assistant, Alexa) and AI crawlers can quote these aloud.
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['#hero-heading', '#faq-heading', '#testimonials-heading'],
+        },
       },
     ],
   };
@@ -150,9 +177,9 @@ export default function Home() {
   return (
     <div className="bg-black">
       <Seo
-        title="Pointzero — Best Software Company in Nepal | Web, Mobile, AI & RAG"
-        description="Pointzero is a top software company in Kathmandu, Nepal building modern websites, mobile apps, custom software and AI/RAG products. We work with Claude, OpenAI, Gemini and Llama to ship production‑grade AI software—chatbots, agents, vector search and LLM apps."
-        keywords="best software company in Nepal, top software company Kathmandu, AI software company Nepal, RAG development Nepal, LLM app development Nepal, AI agents Nepal, ChatGPT Claude Gemini integration Nepal, web development Nepal, mobile app development Nepal, hire AI developers Nepal, Pointzero"
+        title="Point Zero — AI, RAG & Software Development Company in Nepal"
+        description="Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps for startups and enterprises. Free discovery call."
+        keywords="software company in Nepal, AI development Nepal, RAG development Nepal, LLM developer Nepal, mobile app development Nepal, web development Nepal, hire developers Nepal, Pointzero"
         path="/"
         jsonLd={orgJsonLd}
         breadcrumbs={[{ name: 'Home', path: '/' }]}
@@ -177,6 +204,7 @@ export default function Home() {
         <HomeTechnologies />
         <OurCoreFeatures />
         <DetailSection />
+        <Testimonials />
         <FaqSection />
       </main>
 

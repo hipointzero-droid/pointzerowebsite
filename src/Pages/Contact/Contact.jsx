@@ -1,7 +1,7 @@
 import React, { useState, Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
-import StarsCanvas from '../../components/Stars';
+import StarsCanvas from '../../components/StarsLazy';
 import Seo from '../../components/Seo';
 
 // Icons
@@ -84,9 +84,9 @@ export default function Contact() {
   return (
     <div className="bg-black min-h-screen">
       <Seo
-        title="Contact Pointzero — Start Your Project Today"
-        description="Get in touch with Pointzero. Tell us about your web, mobile or software project and our team will respond within one business day."
-        keywords="contact Pointzero, hire web developers Nepal, hire app developers Nepal, software agency contact"
+        title="Contact Point Zero — Start Your AI or Software Project"
+        description="Tell us about your AI, web or mobile project. Free discovery call. Email hi.pointzero@gmail.com or call +977 9860486269. Reply within one business day."
+        keywords="contact Pointzero, hire AI developers Nepal, hire web developers Nepal, software development quote Nepal, AI consultant Kathmandu"
         path="/contact"
         breadcrumbs={[
           { name: 'Home', path: '/' },

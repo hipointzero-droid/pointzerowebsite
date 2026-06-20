@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
-import StarsCanvas from '../../components/Stars';
+import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import { blogPosts, blogCategories } from './blogData';
 
@@ -19,36 +19,78 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import CloseIcon from '@mui/icons-material/Close';
 import Seo from '../../components/Seo';
 
+// Convert a category label (e.g. "AI / Mobile") to a URL slug ("ai-mobile").
+// Reversible for our small fixed set of categories.
+export function categoryToSlug(category) {
+  return String(category || '')
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/\//g, '-')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export function slugToCategory(slug, allCategories) {
+  if (!slug) return 'All';
+  const norm = String(slug).toLowerCase();
+  return (
+    allCategories.find((c) => categoryToSlug(c) === norm) ||
+    'All'
+  );
+}
+
 export default function Blog() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { slug: routeSlug, category: routeCategory } = useParams();
+  const navigate = useNavigate();
   const [activePostId, setActivePostId] = useState(null);
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState(() =>
+    routeCategory ? slugToCategory(routeCategory, blogCategories) : 'All',
+  );
   const [searchQuery, setSearchQuery] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Load from URL params on mount
+  // Resolve the active post from either the clean URL (/blog/:slug)
+  // or the legacy query string (?post=slug). Legacy URLs are upgraded
+  // to the clean path so future shares and crawls land on the canonical URL.
   useEffect(() => {
-    const postSlug = searchParams.get('post');
-    if (postSlug) {
-      const post = blogPosts.find(p => p.slug === postSlug);
-      if (post) setActivePostId(post.id);
-    }
-  }, [searchParams]);
+    const querySlug = searchParams.get('post');
+    const effectiveSlug = routeSlug || querySlug;
 
-  // Update URL when active post changes
+    if (effectiveSlug) {
+      const post = blogPosts.find(p => p.slug === effectiveSlug);
+      if (post) {
+        setActivePostId(post.id);
+        // Legacy ?post=slug → /blog/:slug (301-style replace on the client)
+        if (!routeSlug && querySlug) {
+          navigate(`/blog/${querySlug}`, { replace: true });
+        }
+      }
+    } else {
+      setActivePostId(null);
+    }
+  }, [routeSlug, searchParams, navigate]);
+
+  // Sync active category from the URL when on /blog/category/:category
+  useEffect(() => {
+    if (routeCategory) {
+      const match = slugToCategory(routeCategory, blogCategories);
+      setActiveCategory(match);
+    }
+  }, [routeCategory]);
+
+  // Keep document.title in sync; the clean URL is now handled by router navigation.
   useEffect(() => {
     if (activePostId) {
       const post = blogPosts.find(p => p.id === activePostId);
-      if (post) {
-        setSearchParams({ post: post.slug });
-        // Update page title for SEO
-        document.title = `${post.title} | Point Zero Blog`;
-      }
+      if (post) document.title = `${post.title} | Point Zero Blog`;
+    } else if (routeCategory) {
+      const cat = slugToCategory(routeCategory, blogCategories);
+      document.title = `${cat} — Point Zero Blog`;
     } else {
-      setSearchParams({});
-      document.title = 'Blog — Insights & Case Studies | Point Zero';
+      document.title = 'Blog — AI, RAG, Web & Mobile Engineering | Point Zero';
     }
-  }, [activePostId]);
+  }, [activePostId, routeCategory]);
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
@@ -76,8 +118,16 @@ export default function Blog() {
   const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   const handlePostClick = (postId) => {
+    const post = blogPosts.find((p) => p.id === postId);
     setActivePostId(postId);
     setIsSidebarOpen(false);
+    if (post) navigate(`/blog/${post.slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handlePostClose = () => {
+    setActivePostId(null);
+    navigate('/blog');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -85,8 +135,75 @@ export default function Blog() {
   // DETAIL VIEW
   // ──────────────────────────────────────────────
   if (activePost) {
+    const postUrl = `https://pointzero.com.np/blog/${activePost.slug}`;
+    const postDescription =
+      activePost.excerpt && activePost.excerpt.length > 0
+        ? activePost.excerpt
+        : `Read "${activePost.title}" on the Point Zero engineering blog.`;
+    const postDescriptionShort =
+      postDescription.length > 160 ? postDescription.slice(0, 157) + '…' : postDescription;
+    const articleBody =
+      Array.isArray(activePost.content)
+        ? activePost.content
+            .map((b) => {
+              if (b.type === 'paragraph' || b.type === 'heading' || b.type === 'quote') return b.text || '';
+              if (b.type === 'list' && Array.isArray(b.items)) return b.items.join(' ');
+              return '';
+            })
+            .filter(Boolean)
+            .join(' ')
+            .slice(0, 5000)
+        : undefined;
+
+    const postJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `${postUrl}#post`,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+      headline: activePost.title,
+      description: postDescriptionShort,
+      url: postUrl,
+      datePublished: activePost.date,
+      dateModified: activePost.date,
+      inLanguage: 'en-NP',
+      keywords: Array.isArray(activePost.tags) ? activePost.tags.join(', ') : undefined,
+      articleSection: activePost.category,
+      articleBody,
+      timeRequired: activePost.readTime,
+      image: activePost.image
+        ? [`https://pointzero.com.np${typeof activePost.image === 'string' ? activePost.image : ''}`]
+        : ['https://pointzero.com.np/og-image.png'],
+      author: {
+        '@type': 'Organization',
+        name: activePost.author || 'Point Zero',
+        url: 'https://pointzero.com.np/',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Point Zero',
+        url: 'https://pointzero.com.np/',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://pointzero.com.np/og-image.png',
+        },
+      },
+    };
+
     return (
       <div className="bg-black min-h-screen">
+        <Seo
+          title={`${activePost.title} | Point Zero Blog`}
+          description={postDescriptionShort}
+          keywords={Array.isArray(activePost.tags) ? activePost.tags.join(', ') : undefined}
+          path={`/blog/${activePost.slug}`}
+          breadcrumbs={[
+            { name: 'Home', path: '/' },
+            { name: 'Blog', path: '/blog' },
+            { name: activePost.title, path: `/blog/${activePost.slug}` },
+          ]}
+          type="article"
+          jsonLd={postJsonLd}
+        />
         <Navbar />
 
         {/* Mobile sidebar toggle */}
@@ -185,7 +302,7 @@ export default function Blog() {
               <main className="flex-1 min-w-0">
                 {/* Back button */}
                 <button
-                  onClick={() => setActivePostId(null)}
+                  onClick={handlePostClose}
                   className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors mb-8 group"
                 >
                   <ArrowBackIcon className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -358,23 +475,56 @@ export default function Blog() {
   // ──────────────────────────────────────────────
   // LIST VIEW (default)
   // ──────────────────────────────────────────────
+  const onCategoryRoute = Boolean(routeCategory) && activeCategory !== 'All';
+  const categoryPath = onCategoryRoute
+    ? `/blog/category/${categoryToSlug(activeCategory)}`
+    : '/blog';
+  const seoTitle = onCategoryRoute
+    ? `${activeCategory} — Point Zero Blog`
+    : 'Blog — AI, RAG, Web & Mobile Engineering | Point Zero';
+  const seoDescription = onCategoryRoute
+    ? `${activeCategory} posts from Point Zero — engineering deep-dives, case studies and how-tos shipped by an AI & software studio in Kathmandu, Nepal.`
+    : 'Insights, case studies and engineering deep-dives on AI agents, RAG, vector databases, mobile and web development from the Point Zero team.';
+  const breadcrumbs = onCategoryRoute
+    ? [
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: activeCategory, path: categoryPath },
+      ]
+    : [
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+      ];
+
   return (
     <div className="bg-black min-h-screen">
       <Seo
-        title="Blog — Insights on Web, Mobile & Product | Pointzero"
-        description="Articles and case studies from the Pointzero team on web development, mobile apps, design and shipping great digital products."
-        keywords="Pointzero blog, web development insights, mobile app insights, software engineering Nepal, product design articles"
-        path="/blog"
-        breadcrumbs={[
-          { name: 'Home', path: '/' },
-          { name: 'Blog', path: '/blog' },
-        ]}
+        title={seoTitle}
+        description={seoDescription}
+        keywords="AI blog Nepal, RAG tutorials, LLM engineering blog, web development blog Nepal, software engineering insights, Pointzero blog"
+        path={categoryPath}
+        breadcrumbs={breadcrumbs}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'Blog',
-          name: 'Pointzero Blog',
-          url: 'https://pointzero.com.np/blog',
-          publisher: { '@type': 'Organization', name: 'Pointzero' },
+          name: onCategoryRoute ? `${activeCategory} — Point Zero Blog` : 'Point Zero Blog',
+          url: `https://pointzero.com.np${categoryPath}`,
+          inLanguage: 'en-NP',
+          publisher: {
+            '@type': 'Organization',
+            name: 'Point Zero',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://pointzero.com.np/og-image.png',
+            },
+          },
+          blogPost: filteredPosts.slice(0, 10).map((p) => ({
+            '@type': 'BlogPosting',
+            headline: p.title,
+            datePublished: p.date,
+            author: { '@type': 'Organization', name: 'Point Zero' },
+            url: `https://pointzero.com.np/blog/${p.slug}`,
+          })),
         }}
       />
       <Navbar />

@@ -12,8 +12,8 @@ import rectang5 from '../../assets/about/Rectangle 6.png';
 import kripas from '../../assets/about/kirpas.png';
 import sagun from '../../assets/about/sagun.png';
 import yunish from '../../assets/about/yunish.png';
-import EarthCanvas from '../../components/Earth';
-import StarsCanvas from '../../components/Stars';
+import EarthCanvas from '../../components/EarthLazy';
+import StarsCanvas from '../../components/StarsLazy';
 import GroupsIcon from '@mui/icons-material/Groups';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -40,9 +40,9 @@ export default function About() {
   return (
     <div className='bg-black min-h-screen'>
       <Seo
-        title="About Pointzero — Digital Product Studio in Nepal"
-        description="Meet the Pointzero team and learn how we partner with founders and product teams to design and ship modern web and mobile products from Kathmandu, Nepal."
-        keywords="Pointzero team, software company Nepal, digital product studio Kathmandu, about Pointzero"
+        title="About Point Zero — Software & AI Studio in Kathmandu, Nepal"
+        description="Meet the Point Zero team. Kathmandu-based software studio shipping AI, web and mobile products since 2022 for clients in Nepal, the US and EU."
+        keywords="about Pointzero, Point Zero team, software studio Nepal, AI company Kathmandu, digital product studio Nepal"
         path="/about"
         breadcrumbs={[
           { name: 'Home', path: '/' },
@@ -50,19 +50,88 @@ export default function About() {
         ]}
         jsonLd={{
           '@context': 'https://schema.org',
-          '@type': 'AboutPage',
-          name: 'About Pointzero',
-          url: 'https://pointzero.com.np/about',
-          mainEntity: {
-            '@type': 'Organization',
-            name: 'Pointzero',
-            foundingLocation: 'Kathmandu, Nepal',
-            employees: [
-              { '@type': 'Person', name: 'Kripas Khatiwada', jobTitle: 'CEO & Founder' },
-              { '@type': 'Person', name: 'Sagun Khatiwada', jobTitle: 'Managing Director' },
-              { '@type': 'Person', name: 'Yunish Pandit', jobTitle: 'Full Stack Developer' },
-            ],
-          },
+          '@graph': [
+            {
+              '@type': 'AboutPage',
+              '@id': 'https://pointzero.com.np/about#aboutpage',
+              url: 'https://pointzero.com.np/about',
+              name: 'About Point Zero',
+              inLanguage: 'en-NP',
+              isPartOf: { '@id': 'https://pointzero.com.np/#website' },
+              about: { '@id': 'https://pointzero.com.np/#organization' },
+              mainEntity: { '@id': 'https://pointzero.com.np/#organization' },
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['h1'],
+              },
+            },
+            {
+              '@type': 'Person',
+              '@id': 'https://pointzero.com.np/about#kripas-khatiwada',
+              name: 'Kripas Khatiwada',
+              jobTitle: 'CEO & Founder',
+              worksFor: { '@id': 'https://pointzero.com.np/#organization' },
+              knowsAbout: [
+                'Artificial Intelligence',
+                'Retrieval-Augmented Generation',
+                'Large Language Models',
+                'Full-stack engineering',
+                'React',
+                'Next.js',
+                'Django',
+                'PostgreSQL',
+                'Product strategy',
+              ],
+              nationality: { '@type': 'Country', name: 'Nepal' },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Kathmandu',
+                addressRegion: 'Bagmati',
+                addressCountry: 'NP',
+              },
+              sameAs: [
+                'https://www.linkedin.com/in/kripas-khatiwada/',
+                'https://github.com/kripaskhatiwada',
+              ],
+            },
+            {
+              '@type': 'Person',
+              '@id': 'https://pointzero.com.np/about#sagun-khatiwada',
+              name: 'Sagun Khatiwada',
+              jobTitle: 'Managing Director',
+              worksFor: { '@id': 'https://pointzero.com.np/#organization' },
+              knowsAbout: ['Business operations', 'Client partnerships', 'Delivery management'],
+              nationality: { '@type': 'Country', name: 'Nepal' },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Kathmandu',
+                addressRegion: 'Bagmati',
+                addressCountry: 'NP',
+              },
+            },
+            {
+              '@type': 'Person',
+              '@id': 'https://pointzero.com.np/about#yunish-pandit',
+              name: 'Yunish Pandit',
+              jobTitle: 'Full Stack Developer',
+              worksFor: { '@id': 'https://pointzero.com.np/#organization' },
+              knowsAbout: [
+                'React',
+                'Next.js',
+                'Node.js',
+                'PostgreSQL',
+                'Full-stack web development',
+                'API design',
+              ],
+              nationality: { '@type': 'Country', name: 'Nepal' },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Kathmandu',
+                addressRegion: 'Bagmati',
+                addressCountry: 'NP',
+              },
+            },
+          ],
         }}
       />
       <Navbar />

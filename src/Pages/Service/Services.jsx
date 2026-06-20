@@ -1,17 +1,9 @@
 import React, { Suspense } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../Home/Components/Footer';
-import StarsCanvas from '../../components/Stars';
+import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
-
-// Images
-import mobileImg from '../../assets/image 4.png';
-import webImg from '../../assets/image 9.png';
-import uiuxImg from '../../assets/image 8.png';
-import qaImg from '../../assets/image 10.png';
-import devopsImg from '../../assets/developer.png';
-import teamImg from '../../assets/developer1.png';
 
 // Icons
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
@@ -41,7 +33,6 @@ export default function Services() {
       description:
         'We design and ship AI software for startups and enterprises—retrieval‑augmented (RAG) chatbots, AI agents, document and PDF extraction, and LLM workflows—on Claude, OpenAI GPT, Google Gemini and open Llama models, with evals, observability and SLAs.',
       gradient: 'from-cyan-500 to-purple-600',
-      image: webImg,
       features: [
         'RAG chatbots & assistants over your docs and DB',
         'AI agents and multi‑step automations',
@@ -65,7 +56,6 @@ export default function Services() {
       subtitle: 'iOS & Android Excellence',
       description: 'Our specialty is developing powerful mobile applications for all sizes of businesses. We leverage cutting-edge technology to create apps for iOS, Android, hybrid, and cross-platform platforms that deliver exceptional user experiences.',
       gradient: 'from-purple-500 to-pink-600',
-      image: mobileImg,
       features: [
         'Native iOS App Development',
         'Native Android App Development',
@@ -89,7 +79,6 @@ export default function Services() {
       subtitle: 'Modern Web Solutions',
       description: 'We are a top web development company. Our certified developers are masters at building unique online solutions with the newest web technology for businesses of all scales. From simple websites to complex web applications.',
       gradient: 'from-cyan-500 to-blue-600',
-      image: webImg,
       features: [
         'Modern websites and web applications',
         'Custom Website Development',
@@ -114,7 +103,6 @@ export default function Services() {
       subtitle: 'User-Centered Design',
       description: 'Create stunning user experiences that captivate and convert. Our design team crafts intuitive interfaces that delight users and drive business results through research-driven design methodology.',
       gradient: 'from-orange-500 to-red-600',
-      image: uiuxImg,
       features: [
         'User Research & Analysis',
         'Wireframing & Prototyping',
@@ -138,7 +126,6 @@ export default function Services() {
       subtitle: 'Bug-Free Delivery',
       description: 'Quality Assurance and software testing services are fundamental to our ecosystem. Our proficient testers contribute to expedited releases without compromising quality through comprehensive testing strategies.',
       gradient: 'from-green-500 to-emerald-600',
-      image: qaImg,
       features: [
         'Manual QA Testing',
         'Automated Testing',
@@ -162,7 +149,6 @@ export default function Services() {
       subtitle: 'Scalable Infrastructure',
       description: 'Build resilient, scalable infrastructure with our DevOps expertise. We help you deploy faster, scale effortlessly, and maintain high availability with modern cloud-native solutions.',
       gradient: 'from-blue-500 to-indigo-600',
-      image: devopsImg,
       features: [
         'CI/CD Pipeline Setup',
         'Cloud Migration',
@@ -186,7 +172,6 @@ export default function Services() {
       subtitle: 'Extend Your Team',
       description: 'Augment your team with dedicated developers who integrate seamlessly with your workflow. Get skilled professionals committed to your project success with flexible engagement models.',
       gradient: 'from-yellow-500 to-orange-600',
-      image: teamImg,
       features: [
         'Flexible Engagement',
         'Skilled Professionals',
@@ -215,9 +200,9 @@ export default function Services() {
   return (
     <div className="bg-black min-h-screen">
       <Seo
-        title="Services — AI/RAG, Web, Mobile, UI/UX, QA & DevOps | Pointzero"
-        description="Pointzero services: AI & RAG software (Claude, GPT, Gemini, Llama, vector search), mobile and web app development, UI/UX design, QA, infrastructure & DevOps, and dedicated developer teams—built in Kathmandu, Nepal for clients worldwide."
-        keywords="AI software development Nepal, RAG development Nepal, LLM app development Nepal, AI agents Nepal, Claude API developer, OpenAI developer Nepal, Gemini integration Nepal, vector search pgvector Pinecone, web development services Nepal, mobile app development Nepal, UI UX design Nepal, QA services Nepal, DevOps Nepal, hire developers Nepal"
+        title="Services — AI, RAG, Web, Mobile, UI/UX & DevOps | Point Zero"
+        description="Hire Point Zero for AI/RAG development, web apps, mobile apps, UI/UX, MVP build and DevOps. Trusted by startups and enterprises in Nepal and worldwide."
+        keywords="AI development services Nepal, RAG development services, LLM integration services, web development services Nepal, mobile app services Nepal, UI/UX design services, MVP development Nepal, hire developers Nepal"
         path="/services"
         breadcrumbs={[
           { name: 'Home', path: '/' },
@@ -348,28 +333,54 @@ export default function Services() {
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}
                 id={service.id}
               >
-                {/* Image Side */}
+                {/* Visual Side — premium icon card, no stock images */}
                 <div className="lg:w-1/2 w-full">
                   <div className="relative group">
-                    {/* Glow Effect */}
-                    <div className={`absolute -inset-4 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-20 blur-2xl group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    {/* Outer glow */}
+                    <div className={`absolute -inset-4 bg-gradient-to-r ${service.gradient} rounded-3xl opacity-20 blur-2xl group-hover:opacity-35 transition-opacity duration-500`}></div>
 
-                    {/* Image Container */}
-                    <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 border border-white/10 overflow-hidden">
-                      {/* Decorative Elements */}
-                      <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-10 blur-2xl`}></div>
-                      <div className={`absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br ${service.gradient} opacity-10 blur-2xl`}></div>
+                    {/* Card */}
+                    <div className="relative bg-gradient-to-br from-gray-950 to-gray-900 rounded-3xl p-8 sm:p-10 border border-white/10 overflow-hidden min-h-[420px] flex flex-col justify-between">
+                      {/* Animated grid background */}
+                      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" aria-hidden="true"></div>
 
-                      {/* Main Image */}
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="relative w-full h-auto max-h-[400px] object-contain mx-auto transition-transform duration-500 group-hover:scale-105"
-                      />
+                      {/* Gradient orbs */}
+                      <div className={`absolute -top-16 -right-16 w-56 h-56 bg-gradient-to-br ${service.gradient} opacity-30 blur-3xl rounded-full group-hover:opacity-50 transition-opacity duration-700`} aria-hidden="true"></div>
+                      <div className={`absolute -bottom-16 -left-16 w-56 h-56 bg-gradient-to-br ${service.gradient} opacity-25 blur-3xl rounded-full group-hover:opacity-40 transition-opacity duration-700`} aria-hidden="true"></div>
 
-                      {/* Floating Badge */}
-                      <div className={`absolute top-4 left-4 px-4 py-2 bg-gradient-to-r ${service.gradient} rounded-full text-white text-sm font-semibold shadow-lg`}>
-                        {service.subtitle}
+                      {/* Subtitle badge */}
+                      <div className="relative flex items-center justify-between">
+                        <span className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${service.gradient} rounded-full text-white text-xs sm:text-sm font-semibold shadow-lg`}>
+                          {service.subtitle}
+                        </span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500 font-medium">
+                          0{services.findIndex((s) => s.id === service.id) + 1}
+                        </span>
+                      </div>
+
+                      {/* Big centered icon */}
+                      <div className="relative flex items-center justify-center my-8 sm:my-10">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-20 blur-2xl rounded-full`} aria-hidden="true"></div>
+                        <div className={`relative p-10 sm:p-12 bg-gradient-to-br ${service.gradient} rounded-3xl text-white shadow-2xl transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500`}>
+                          {React.cloneElement(service.icon, { className: 'w-16 h-16 sm:w-20 sm:h-20' })}
+                        </div>
+                      </div>
+
+                      {/* Tech badge constellation */}
+                      <div className="relative flex flex-wrap gap-2 justify-center">
+                        {service.technologies.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-xs font-medium text-gray-200 hover:bg-white/10 transition-colors"
+                          >
+                            <span
+                              className="w-1.5 h-1.5 rounded-full"
+                              style={{ background: tech.color }}
+                              aria-hidden="true"
+                            />
+                            {tech.name}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
