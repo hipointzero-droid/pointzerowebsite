@@ -1,9 +1,20 @@
-import { lazy, useEffect, useState } from 'react';
+import { lazy, useEffect, useState, Component } from 'react';
 
 // Defer Three.js (~800KB) until after first paint so it doesn't block LCP.
-// The Stars module is only imported when the component is actually rendered
-// AND the browser is idle, which happens after the critical hero content paints.
 const StarsImpl = lazy(() => import('./Stars'));
+
+class StarsErrorBoundary extends Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
 
 export default function StarsCanvas() {
   const [ready, setReady] = useState(false);
@@ -24,5 +35,9 @@ export default function StarsCanvas() {
   }, []);
 
   if (!ready) return null;
-  return <StarsImpl />;
+  return (
+    <StarsErrorBoundary>
+      <StarsImpl />
+    </StarsErrorBoundary>
+  );
 }
