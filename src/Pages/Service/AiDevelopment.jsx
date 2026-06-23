@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -182,6 +183,10 @@ export default function AiDevelopment() {
           '@type': 'Offer',
           price: '3000',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/ai-development-nepal',
+          category: 'AI development',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '3000',
@@ -217,6 +222,7 @@ export default function AiDevelopment() {
         description="Hire Point Zero — the top AI development company in Nepal. We ship RAG chatbots, AI agents and LLM apps with Claude, GPT, Gemini & Llama. Free discovery call."
         keywords="AI development company Nepal, AI software development Nepal, RAG development Nepal, LLM development Nepal, AI agents Nepal, Claude developer Nepal, OpenAI integration Nepal, Gemini integration Nepal, vector database Nepal, pgvector Pinecone, hire AI engineer Nepal"
         path="/services/ai-development-nepal"
+        image="https://pointzero.com.np/og/ai-development.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -267,7 +273,10 @@ export default function AiDevelopment() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Book a Free AI Discovery Call', 'service_ai_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105"
                 aria-label="Book a free AI discovery call"
               >

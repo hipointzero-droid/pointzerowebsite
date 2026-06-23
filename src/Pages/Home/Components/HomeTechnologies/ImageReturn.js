@@ -49,10 +49,14 @@ import hootsuite from "../../../../static/images/DigitalMarketing/hootsuite.png"
 
 
 
-import { BACKEND, CMS, DATABASE, DEVOPS, FRONTEND, MOBILE,DIGIAL_MARKETING } from "./constants";
+import { AI, BACKEND, CMS, DATABASE, DEVOPS, FRONTEND, MOBILE, DIGIAL_MARKETING } from "./constants";
 
 const ImageReturn = (techtype, imagename) => {
   switch (techtype) {
+    case AI:
+      // No raster files shipped for AI/LLM brands — the TechCard falls back
+      // to the brand-coloured monogram defined in HomeTechnologies.jsx.
+      return "";
     case MOBILE:
       switch (imagename) {
         case "android":

@@ -6,128 +6,203 @@
 
   <url>
     <loc>https://pointzero.com.np/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/" />
     <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/" />
     <image:image>
-      <image:loc>https://pointzero.com.np/og-image.png</image:loc>
+      <image:loc>https://pointzero.com.np/og/home.png</image:loc>
       <image:title>Point Zero — AI, RAG, Web and Mobile development company in Nepal</image:title>
-      <image:caption>Point Zero logo and brand image</image:caption>
+      <image:caption>AI and software studio in Kathmandu, Nepal — Point Zero</image:caption>
     </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/services.png</image:loc>
+      <image:title>Software development services — AI, RAG, Web, Mobile, UI/UX, DevOps</image:title>
+      <image:caption>End-to-end product engineering by Point Zero, Kathmandu, Nepal</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/ai-development-nepal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/ai-development-nepal" />
     <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/services/ai-development-nepal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/ai-development-nepal" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/ai-development.png</image:loc>
+      <image:title>AI Development Company in Nepal — RAG, Agents and LLMs</image:title>
+      <image:caption>Production AI development with Claude, GPT, Gemini and Llama</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/rag-chatbot-development</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/rag-chatbot-development" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/rag-chatbot-development" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/rag-chatbot.png</image:loc>
+      <image:title>RAG Chatbot Development — Claude, GPT, Gemini</image:title>
+      <image:caption>Production retrieval-augmented chatbots with evals and citations</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/web-development-nepal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/web-development-nepal" />
     <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/services/web-development-nepal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/web-development-nepal" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/web-development.png</image:loc>
+      <image:title>Web Development Company in Nepal — React, Next.js</image:title>
+      <image:caption>Marketing sites, SaaS and eCommerce on React, Next.js, Django, Node.js</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/mobile-app-development-nepal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/mobile-app-development-nepal" />
     <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/services/mobile-app-development-nepal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/mobile-app-development-nepal" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/mobile-development.png</image:loc>
+      <image:title>Mobile App Development in Nepal — Flutter, iOS, Android</image:title>
+      <image:caption>iOS and Android app development with Flutter, React Native, Swift, Kotlin</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/mvp-development</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/mvp-development" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/mvp-development" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/mvp-development.png</image:loc>
+      <image:title>MVP Development Company — Launch in 8–10 Weeks</image:title>
+      <image:caption>Startup MVPs built end-to-end with auth, billing, admin and analytics</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/ui-ux-design-nepal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/ui-ux-design-nepal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/ui-ux-design-nepal" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/ui-ux.png</image:loc>
+      <image:title>UI/UX Design Company in Nepal — Product, Web and Mobile</image:title>
+      <image:caption>Product discovery, visual design, design systems and CRO</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/services/devops-cloud-nepal</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/services/devops-cloud-nepal" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/services/devops-cloud-nepal" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/devops-cloud.png</image:loc>
+      <image:title>DevOps and Cloud Infrastructure Services in Nepal</image:title>
+      <image:caption>AWS, GCP, Terraform, CI/CD and observability — Point Zero</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://pointzero.com.np/industries</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/industries" />
+    <xhtml:link rel="alternate" hreflang="en-NP" href="https://pointzero.com.np/industries" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/industries" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/industries.png</image:loc>
+      <image:title>Industries we ship in — Healthcare, Finance, EdTech, Logistics</image:title>
+      <image:caption>Thirteen industry playbooks shipped by Point Zero, Kathmandu, Nepal</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/project</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/project" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/project.png</image:loc>
+      <image:title>Our Work — AI, Web and Mobile Case Studies</image:title>
+      <image:caption>Selected case studies from Point Zero</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/about</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/about" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/about.png</image:loc>
+      <image:title>About Point Zero — Software and AI Studio in Kathmandu</image:title>
+      <image:caption>Meet the Point Zero team — shipping AI, web and mobile products since 2022</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/blog</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/blog" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/blog.png</image:loc>
+      <image:title>Point Zero Engineering Blog — AI, RAG, Web and Mobile</image:title>
+      <image:caption>Deep dives on AI agents, RAG, vector databases, web and mobile</image:caption>
+    </image:image>
   </url>
 
   <url>
     <loc>https://pointzero.com.np/contact</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pointzero.com.np/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pointzero.com.np/contact" />
+    <image:image>
+      <image:loc>https://pointzero.com.np/og/contact.png</image:loc>
+      <image:title>Contact Point Zero — Start Your AI or Software Project</image:title>
+      <image:caption>Free discovery call. Reply within one business day.</image:caption>
+    </image:image>
   </url>
 
 </urlset>

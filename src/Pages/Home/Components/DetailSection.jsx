@@ -66,7 +66,7 @@ export default function DetailSection() {
             <div className='lg:hidden mt-8'>
               <div className='relative'>
                 <div className='absolute -inset-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-3xl opacity-20 blur-lg'></div>
-                <img src={image} alt="Success" className='relative w-full rounded-2xl' />
+                <img src={image} alt="Point Zero team delivering a successful software project — Kathmandu, Nepal" loading="lazy" decoding="async" width="800" height="600" className='relative w-full rounded-2xl' />
               </div>
             </div>
 
@@ -111,7 +111,7 @@ export default function DetailSection() {
 
               {/* Main Image */}
               <div className='relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-3xl border border-white/10'>
-                <img src={image} alt="Success" className='w-full rounded-2xl' />
+                <img src={image} alt="Point Zero engineering team shipping web, mobile and AI products" loading="lazy" decoding="async" width="800" height="600" className='w-full rounded-2xl' />
 
                 {/* Floating Stats Card */}
                 <div className='absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur-lg border border-white/10 rounded-2xl p-5 shadow-xl'>

@@ -9,7 +9,7 @@ export default function ServiceComponent({developer,developer1,title,desc,color}
       }} onMouseLeave={()=>{
         setfirst(!first)
       }}>
-<img src={first===false? developer:developer1} alt="" className='h-26 '/>
+<img src={first===false? developer:developer1} alt={`${title} icon — Point Zero service`} loading="lazy" className='h-26 '/>
 <p className=' text-xl font-bold  mt-3 w-[80%]'>{title}</p>
 <p className=' font-semibold  mt-3 w-[90%]'>{desc}</p>
 <p className={`mt-6 font-bold  ${first===false?"text-[#242323]":"text-red-600"}`}>Read More</p>

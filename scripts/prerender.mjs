@@ -119,6 +119,7 @@ const routes = [
     h1: 'AI, RAG and Software Development Company in Nepal',
     bodyCopy:
       'Point Zero is a software development studio in Kathmandu, Nepal building production-grade AI agents, RAG chatbots, websites, mobile apps and custom software for startups and enterprises worldwide.',
+    ogImage: '/og/home.png',
   },
   {
     path: '/services',
@@ -130,6 +131,7 @@ const routes = [
     h1: 'Software Development Services in Nepal',
     bodyCopy:
       'Point Zero builds AI agents, RAG chatbots, web platforms, mobile apps and MVPs. We work with Claude, OpenAI GPT, Google Gemini and open Llama models, with vector databases (pgvector, Pinecone, Weaviate, Qdrant) and modern stacks (React, Next.js, Flutter, Django, Node.js, PostgreSQL).',
+    ogImage: '/og/services.png',
   },
   {
     path: '/services/ai-development-nepal',
@@ -141,6 +143,7 @@ const routes = [
     h1: 'AI Development Company in Nepal',
     bodyCopy:
       'Point Zero is an AI development company in Kathmandu, Nepal. We ship production-grade RAG chatbots, AI agents and LLM applications with Claude, OpenAI GPT, Google Gemini and open Llama models — with evals, observability and SLAs from day one. Trusted by startups and enterprises in Nepal, the US, UK and the UAE.',
+    ogImage: '/og/ai-development.png',
   },
   {
     path: '/services/rag-chatbot-development',
@@ -152,6 +155,7 @@ const routes = [
     h1: 'RAG Chatbot Development',
     bodyCopy:
       'Point Zero builds RAG (retrieval-augmented generation) chatbots that answer from your docs, websites and databases — with hybrid retrieval, re-ranking, hallucination evals and inline citations. Pilots ship in 2–3 weeks from USD 3,000.',
+    ogImage: '/og/rag-chatbot.png',
   },
   {
     path: '/services/web-development-nepal',
@@ -163,6 +167,7 @@ const routes = [
     h1: 'Web Development Company in Nepal',
     bodyCopy:
       'Point Zero is a web development company in Kathmandu, Nepal. We design and ship marketing websites, SaaS dashboards, eCommerce platforms and APIs on React, Next.js, Django, Node.js and PostgreSQL — with sub-2-second LCP, 95+ Lighthouse and SEO baked into the architecture.',
+    ogImage: '/og/web-development.png',
   },
   {
     path: '/services/mobile-app-development-nepal',
@@ -174,6 +179,7 @@ const routes = [
     h1: 'Mobile App Development Company in Nepal',
     bodyCopy:
       'Point Zero builds iOS and Android apps in Kathmandu, Nepal with Flutter, React Native, Swift and Kotlin. eSewa, Khalti, FonePay, Stripe and Apple/Google Pay handled in production. MVPs ship in 6–10 weeks from USD 2,500.',
+    ogImage: '/og/mobile-development.png',
   },
   {
     path: '/services/mvp-development',
@@ -185,6 +191,7 @@ const routes = [
     h1: 'MVP Development for Ambitious Founders',
     bodyCopy:
       'Point Zero takes founders from Lean Canvas to a launched product in 8–10 weeks, including auth, billing, admin dashboard, analytics events, crash monitoring and a day-one runbook. Fixed-price quotes from USD 6,000.',
+    ogImage: '/og/mvp-development.png',
   },
   {
     path: '/services/ui-ux-design-nepal',
@@ -196,6 +203,7 @@ const routes = [
     h1: 'UI/UX Design Company in Nepal',
     bodyCopy:
       'Point Zero designs landing pages, web apps and mobile products in Kathmandu, Nepal. Research-led, Figma-native, with design systems handed off to engineering via Storybook. Landing page design ships in 1–2 weeks from USD 600.',
+    ogImage: '/og/ui-ux.png',
   },
   {
     path: '/services/devops-cloud-nepal',
@@ -207,6 +215,7 @@ const routes = [
     h1: 'DevOps & Cloud Infrastructure in Nepal',
     bodyCopy:
       'Point Zero ships DevOps and cloud infrastructure for AWS, GCP and Vercel — CI/CD pipelines, Terraform-managed IaC, observability with SLOs, SOC-aligned security and on-call your team can sleep through. Cloud audits start at USD 800 and typically uncover 20–40% in cloud-bill savings.',
+    ogImage: '/og/devops-cloud.png',
   },
   {
     path: '/about',
@@ -217,6 +226,19 @@ const routes = [
     h1: 'About Point Zero',
     bodyCopy:
       'Point Zero is a Nepal-based digital product studio founded in 2022. We partner with founders and product teams to design and ship AI, web and mobile software end-to-end.',
+    ogImage: '/og/about.png',
+  },
+  {
+    path: '/industries',
+    title: 'Industries — Healthcare, Finance, EdTech, Logistics & More | Point Zero',
+    description:
+      'Point Zero ships AI, web and mobile software across 13 industries — healthcare, finance, EdTech, logistics, retail, travel, legal, manufacturing and more.',
+    keywords:
+      'healthcare app developer Nepal, fintech developer Nepal, EdTech developer Nepal, logistics software Nepal, retail software Nepal, travel app developer Nepal, legal tech Nepal, industry-specific software Nepal',
+    h1: 'Industries we ship in — Healthcare, Finance, EdTech, Logistics and more',
+    bodyCopy:
+      'Point Zero ships production software across thirteen verticals — healthcare, finance, EdTech, logistics, retail, travel, real estate, legal, manufacturing, media, food and on-demand, social, and security. Each vertical comes with a playbook proven on real customers, not a blank-page guess.',
+    ogImage: '/og/industries.png',
   },
   {
     path: '/project',
@@ -228,6 +250,7 @@ const routes = [
     h1: 'Selected Work & Case Studies',
     bodyCopy:
       'Real products we have shipped — AI agents, marketplaces, fintech tools, EdTech apps, and more. Each case study covers the brief, stack, results and growth metrics.',
+    ogImage: '/og/project.png',
   },
   {
     path: '/blog',
@@ -239,6 +262,7 @@ const routes = [
     h1: 'Point Zero Engineering Blog',
     bodyCopy:
       'Deep dives on AI agents, retrieval-augmented generation, LLM evals, vector databases, modern web stacks and mobile engineering — written by the people who actually shipped the code.',
+    ogImage: '/og/blog.png',
   },
   {
     path: '/contact',
@@ -250,6 +274,7 @@ const routes = [
     h1: 'Talk to a Point Zero Engineer',
     bodyCopy:
       'Send your brief and we will respond within one business day with next steps. Free discovery call, transparent pricing, fixed-price or T&M with milestones.',
+    ogImage: '/og/contact.png',
   },
 ];
 
@@ -314,6 +339,21 @@ function buildSnapshot(template, route) {
     /<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/,
     `<meta property="og:description" content="${escapeAttr(route.description)}" />`,
   );
+  // Per-route OG/Twitter image — each route has its own 1200×630 PNG in
+  // /og/. Falls back to the global /og-image.png if a route hasn't opted in.
+  const imageUrl = `${ORIGIN}${route.ogImage || '/og-image.png'}`;
+  html = html.replace(
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:image" content="${escapeAttr(imageUrl)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+property="og:image:secure_url"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:image:secure_url" content="${escapeAttr(imageUrl)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:image:alt" content="${escapeAttr(route.title)}" />`,
+  );
 
   // Twitter
   html = html.replace(
@@ -327,6 +367,10 @@ function buildSnapshot(template, route) {
   html = html.replace(
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
     `<meta name="twitter:description" content="${escapeAttr(route.description)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/>/,
+    `<meta name="twitter:image" content="${escapeAttr(imageUrl)}" />`,
   );
 
   // BreadcrumbList JSON-LD injected at end of head
@@ -359,7 +403,7 @@ function buildSnapshot(template, route) {
     inLanguage: 'en-NP',
     isPartOf: { '@id': `${ORIGIN}/#website` },
     about: { '@id': `${ORIGIN}/#organization` },
-    primaryImageOfPage: `${ORIGIN}/og-image.png`,
+    primaryImageOfPage: imageUrl,
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: ['h1', 'p'],
@@ -410,6 +454,7 @@ function buildBlogPostSnapshot(template, post) {
     (post.tags && post.tags.length ? post.tags.join(', ') + ', ' : '') +
     'Point Zero blog, Pointzero engineering, Nepal software';
   const title = `${post.title} | Point Zero Blog`;
+  const imageUrl = `${ORIGIN}/og/blog.png`;
 
   let html = template;
 
@@ -457,6 +502,22 @@ function buildBlogPostSnapshot(template, post) {
   html = html.replace(
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
     `<meta name="twitter:description" content="${escapeAttr(description)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:image" content="${escapeAttr(imageUrl)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+property="og:image:secure_url"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:image:secure_url" content="${escapeAttr(imageUrl)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/>/,
+    `<meta property="og:image:alt" content="${escapeAttr(title)}" />`,
+  );
+  html = html.replace(
+    /<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/>/,
+    `<meta name="twitter:image" content="${escapeAttr(imageUrl)}" />`,
   );
 
   const breadcrumbs = {

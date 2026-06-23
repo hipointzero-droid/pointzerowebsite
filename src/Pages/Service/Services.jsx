@@ -204,6 +204,7 @@ export default function Services() {
         description="Hire Point Zero for AI/RAG development, web apps, mobile apps, UI/UX, MVP build and DevOps. Trusted by startups and enterprises in Nepal and worldwide."
         keywords="AI development services Nepal, RAG development services, LLM integration services, web development services Nepal, mobile app services Nepal, UI/UX design services, MVP development Nepal, hire developers Nepal"
         path="/services"
+        image="https://pointzero.com.np/og/services.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },

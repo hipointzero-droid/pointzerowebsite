@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import SearchIcon from '@mui/icons-material/Search';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -140,6 +141,16 @@ export default function RagDevelopment() {
           '@type': 'Offer',
           price: '3000',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/rag-chatbot-development',
+          category: 'RAG chatbot development',
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: '3000',
+            priceCurrency: 'USD',
+            unitText: 'starting price for RAG chatbot pilot',
+          },
         },
       },
       {
@@ -161,6 +172,7 @@ export default function RagDevelopment() {
         description="Production RAG chatbot development by Point Zero. Hybrid retrieval, re-ranking, evals and grounded citations. Pilot in 2–3 weeks from USD 3,000."
         keywords="RAG chatbot development, RAG development Nepal, retrieval augmented generation, Claude RAG, GPT RAG, Gemini RAG, pgvector chatbot, Pinecone chatbot, AI knowledge base chatbot, LLM chatbot Nepal"
         path="/services/rag-chatbot-development"
+        image="https://pointzero.com.np/og/rag-chatbot.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -206,7 +218,10 @@ export default function RagDevelopment() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Start a RAG Pilot', 'service_rag_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-purple-500/30 hover:scale-105 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">

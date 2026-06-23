@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import WebIcon from '@mui/icons-material/Web';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -151,6 +152,10 @@ export default function WebDevelopment() {
           '@type': 'Offer',
           price: '1500',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/web-development-nepal',
+          category: 'Web development',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '1500',
@@ -178,6 +183,7 @@ export default function WebDevelopment() {
         description="Top web development company in Kathmandu, Nepal. Marketing sites, SaaS, eCommerce on React, Next.js, Django, Node.js. From USD 1,500. Free quote."
         keywords="web development company Nepal, website development Kathmandu, React developer Nepal, Next.js developer Nepal, Django developer Nepal, Node.js developer Nepal, SaaS development Nepal, eCommerce development Nepal, hire web developer Nepal"
         path="/services/web-development-nepal"
+        image="https://pointzero.com.np/og/web-development.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -225,7 +231,10 @@ export default function WebDevelopment() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Get a Free Quote', 'service_web_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">

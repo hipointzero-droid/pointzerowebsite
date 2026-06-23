@@ -196,6 +196,7 @@ export default function Blog() {
           description={postDescriptionShort}
           keywords={Array.isArray(activePost.tags) ? activePost.tags.join(', ') : undefined}
           path={`/blog/${activePost.slug}`}
+          image="https://pointzero.com.np/og/blog.png"
           breadcrumbs={[
             { name: 'Home', path: '/' },
             { name: 'Blog', path: '/blog' },
@@ -503,6 +504,7 @@ export default function Blog() {
         description={seoDescription}
         keywords="AI blog Nepal, RAG tutorials, LLM engineering blog, web development blog Nepal, software engineering insights, Pointzero blog"
         path={categoryPath}
+        image="https://pointzero.com.np/og/blog.png"
         breadcrumbs={breadcrumbs}
         jsonLd={{
           '@context': 'https://schema.org',
@@ -624,7 +626,7 @@ export default function Blog() {
                       {post.image && (
                         <div className="relative h-48 overflow-hidden">
                           <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient} opacity-20`}></div>
-                          <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src={post.image} alt={`${post.title} — Point Zero blog cover`} loading="lazy" decoding="async" width="600" height="320" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent"></div>
                         </div>
                       )}
@@ -703,7 +705,7 @@ export default function Blog() {
                       {post.thumbnail && (
                         <div className="relative h-44 overflow-hidden">
                           <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient} opacity-15`}></div>
-                          <img src={post.thumbnail} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                          <img src={post.thumbnail} alt={`${post.title} — Point Zero blog thumbnail`} loading="lazy" decoding="async" width="400" height="220" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
                         </div>
                       )}

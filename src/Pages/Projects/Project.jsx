@@ -245,6 +245,7 @@ export default function Project() {
         description="Selected case studies from Point Zero: WellNepa coaching marketplace, SajiloDera, Bachelor Question Bank, PyMentor AI Interview, ChatMandu and more."
         keywords="Pointzero portfolio, software case studies Nepal, WellNepa, SajiloDera, Bachelor Question Bank, PyMentor, ChatMandu, AI projects Nepal"
         path="/project"
+        image="https://pointzero.com.np/og/project.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Projects', path: '/project' },

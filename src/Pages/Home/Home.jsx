@@ -12,6 +12,10 @@ import Testimonials from './Components/Testimonials';
 import Footer from './Components/Footer';
 import Navbar from '../../components/Navbar';
 import HomeTechnologies from './Components/HomeTechnologies/HomeTechnologies';
+import IndustriesSection from './Components/IndustriesSection';
+import HowWeEngage from './Components/HowWeEngage';
+import Guarantee from './Components/Guarantee';
+import ScenarioCTA from './Components/ScenarioCTA';
 import Seo from '../../components/Seo';
 
 const ORIGIN = 'https://pointzero.com.np';
@@ -70,6 +74,26 @@ export default function Home() {
           addressRegion: 'Bagmati',
           addressCountry: 'NP',
         },
+        founder: {
+          '@type': 'Person',
+          '@id': `${ORIGIN}/about#kripas-khatiwada`,
+          name: 'Kripas Khatiwada',
+          jobTitle: 'CEO & Founder',
+          url: `${ORIGIN}/about`,
+          worksFor: { '@id': `${ORIGIN}/#organization` },
+          nationality: { '@type': 'Country', name: 'Nepal' },
+          sameAs: [
+            'https://www.linkedin.com/in/kripas-khatiwada/',
+            'https://github.com/kripaskhatiwada',
+          ],
+        },
+        founders: [
+          {
+            '@type': 'Person',
+            '@id': `${ORIGIN}/about#kripas-khatiwada`,
+            name: 'Kripas Khatiwada',
+          },
+        ],
         sameAs: [
           'https://www.facebook.com/pointzero.com.np/',
           'https://www.instagram.com/pointzero.com.np/',
@@ -181,6 +205,7 @@ export default function Home() {
         description="Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps for startups and enterprises. Free discovery call."
         keywords="software company in Nepal, AI development Nepal, RAG development Nepal, LLM developer Nepal, mobile app development Nepal, web development Nepal, hire developers Nepal, Pointzero"
         path="/"
+        image="https://pointzero.com.np/og/home.png"
         jsonLd={orgJsonLd}
         breadcrumbs={[{ name: 'Home', path: '/' }]}
       />
@@ -202,10 +227,14 @@ export default function Home() {
         <ProcessSection />
         <OurServices />
         <HomeTechnologies />
+        <IndustriesSection />
+        <HowWeEngage />
         <OurCoreFeatures />
         <DetailSection />
         <Testimonials />
+        <Guarantee />
         <FaqSection />
+        <ScenarioCTA />
       </main>
 
       <Footer />

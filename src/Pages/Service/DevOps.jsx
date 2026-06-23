@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import CloudIcon from '@mui/icons-material/Cloud';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -152,6 +153,10 @@ export default function DevOps() {
           '@type': 'Offer',
           price: '800',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/devops-cloud-nepal',
+          category: 'DevOps & cloud infrastructure',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '800',
@@ -179,6 +184,7 @@ export default function DevOps() {
         description="DevOps & cloud services in Nepal — AWS, GCP, Terraform, CI/CD, observability, security and on-call. Cloud audit from USD 800. Free discovery call."
         keywords="DevOps services Nepal, cloud infrastructure Nepal, AWS consultant Nepal, GCP consultant Nepal, Terraform Nepal, Kubernetes Nepal, SRE Nepal, observability Nepal, CI CD Nepal, hire DevOps engineer Nepal"
         path="/services/devops-cloud-nepal"
+        image="https://pointzero.com.np/og/devops-cloud.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -227,7 +233,10 @@ export default function DevOps() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Get a Free Cloud Audit', 'service_devops_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-blue-500/30 hover:scale-105 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">

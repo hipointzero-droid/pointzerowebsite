@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import BrushIcon from '@mui/icons-material/Brush';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -148,6 +149,10 @@ export default function UiUxDesign() {
           '@type': 'Offer',
           price: '600',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/ui-ux-design-nepal',
+          category: 'UI/UX design',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '600',
@@ -175,6 +180,7 @@ export default function UiUxDesign() {
         description="Top UI/UX design company in Kathmandu, Nepal. Product discovery, visual design, design systems, accessibility and CRO. Landing page design from USD 600."
         keywords="UI UX design Nepal, UI UX design company Kathmandu, product design Nepal, Figma designer Nepal, design system Nepal, mobile app design Nepal, web design Nepal, UX research Nepal, hire UI UX designer Nepal"
         path="/services/ui-ux-design-nepal"
+        image="https://pointzero.com.np/og/ui-ux.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -220,7 +226,10 @@ export default function UiUxDesign() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Start Your Design Project', 'service_uiux_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-orange-500/30 hover:scale-105 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">

@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
@@ -151,6 +152,10 @@ export default function MobileDevelopment() {
           '@type': 'Offer',
           price: '2500',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/mobile-app-development-nepal',
+          category: 'Mobile app development',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '2500',
@@ -178,6 +183,7 @@ export default function MobileDevelopment() {
         description="Top mobile app development company in Kathmandu, Nepal. iOS & Android with Flutter, React Native, Swift, Kotlin. From USD 2,500. Free quote."
         keywords="mobile app development company Nepal, mobile app developer Kathmandu, Flutter developer Nepal, React Native developer Nepal, iOS developer Nepal, Android developer Nepal, Swift Kotlin Nepal, hire mobile developer Nepal, app development Nepal cost"
         path="/services/mobile-app-development-nepal"
+        image="https://pointzero.com.np/og/mobile-development.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -225,7 +231,10 @@ export default function MobileDevelopment() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Get a Free Mobile Quote', 'service_mobile_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-pink-500/30 hover:scale-105 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">

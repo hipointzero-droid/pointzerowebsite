@@ -13,6 +13,7 @@ import MvpDevelopment from "../Pages/Service/MvpDevelopment";
 import UiUxDesign from "../Pages/Service/UiUxDesign";
 import DevOps from "../Pages/Service/DevOps";
 import Blog from "../Pages/Blog/Blog";
+import Industries from "../Pages/Industries/Industries";
 
 
 export const routes = createBrowserRouter([
@@ -20,6 +21,7 @@ export const routes = createBrowserRouter([
     { path: "/contact", element: <Contact /> },
     { path: "/about", element: <About /> },
     { path: "/project", element: <Project /> },
+    { path: "/industries", element: <Industries /> },
     { path: "/services", element: <Services /> },
     { path: "/services/ai-development-nepal", element: <AiDevelopment /> },
     { path: "/services/rag-chatbot-development", element: <RagDevelopment /> },

@@ -77,7 +77,15 @@ export default function Footer() {
           {/* Company Info */}
           <div className='lg:col-span-1'>
             <Link to="/" className='inline-block' aria-label="Pointzero — Home">
-              <img src={logo} alt="Pointzero logo" className='h-14' width="140" height="56" loading="lazy" />
+              <img
+                src={logo}
+                alt="Point Zero — AI and software studio in Kathmandu, Nepal"
+                className='h-16 w-auto object-contain'
+                width="251"
+                height="135"
+                loading="lazy"
+                decoding="async"
+              />
             </Link>
             <p className='mt-6 text-gray-400 leading-relaxed'>
               Pointzero is a digital product studio in Nepal. We design and ship modern websites,

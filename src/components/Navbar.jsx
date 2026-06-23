@@ -31,7 +31,14 @@ export default function Navbar() {
         <div className='flex items-center justify-between h-20'>
           {/* Logo */}
           <Link to="/" className='flex items-center group'>
-            <img src={logo} alt="Point Zero" className='h-14 transition-transform duration-300 group-hover:scale-105'/>
+            <img
+              src={logo}
+              alt="Point Zero — AI and software studio in Kathmandu, Nepal"
+              width="251"
+              height="135"
+              decoding="async"
+              className='h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105'
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -40,6 +47,7 @@ export default function Navbar() {
               { path: '/', label: 'Home' },
               { path: '/about', label: 'About' },
               { path: '/services', label: 'Services' },
+              { path: '/industries', label: 'Industries' },
               { path: '/project', label: 'Projects' },
               { path: '/blog', label: 'Blog' },
             ].map((item) => (
@@ -92,6 +100,7 @@ export default function Navbar() {
             { path: '/', label: 'Home' },
             { path: '/about', label: 'About' },
             { path: '/services', label: 'Services' },
+            { path: '/industries', label: 'Industries' },
             { path: '/project', label: 'Projects' },
             { path: '/blog', label: 'Blog' },
             { path: '/contact', label: 'Contact' },

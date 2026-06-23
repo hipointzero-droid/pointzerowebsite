@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/optimize-images.mjs && node scripts/prerender.mjs",
+    "build": "node scripts/og-images.mjs && vite build && node scripts/optimize-images.mjs && node scripts/prerender.mjs",
     "build:vite": "vite build",
     "prerender": "node scripts/prerender.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",
+    "og-images": "node scripts/og-images.mjs",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

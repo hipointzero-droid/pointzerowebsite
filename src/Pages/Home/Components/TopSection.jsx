@@ -4,6 +4,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { useNavigate } from 'react-router-dom';
 import StarsCanvas from '../../../components/StarsLazy';
 import CodeAnimation from '../../../components/CodeAnimation';
+import { trackCTAClick } from '../../../lib/analytics';
 
 export default function TopSection() {
   const navigate = useNavigate();
@@ -64,7 +65,10 @@ export default function TopSection() {
             {/* CTA Buttons */}
             <div className='hero-line mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start' style={{ animationDelay: '1.15s' }}>
               <button
-                onClick={() => navigate("/contact")}
+                onClick={() => {
+                  trackCTAClick('Book a Free Discovery Call', 'home_hero');
+                  navigate('/contact');
+                }}
                 className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
                 aria-label="Book a free discovery call with Point Zero"
               >

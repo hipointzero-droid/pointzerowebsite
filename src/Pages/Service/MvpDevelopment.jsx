@@ -5,6 +5,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import { trackCTAClick } from '../../lib/analytics';
 
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -141,6 +142,10 @@ export default function MvpDevelopment() {
           '@type': 'Offer',
           price: '6000',
           priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          priceValidUntil: '2027-12-31',
+          url: 'https://pointzero.com.np/services/mvp-development',
+          category: 'MVP development',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: '6000',
@@ -168,6 +173,7 @@ export default function MvpDevelopment() {
         description="Point Zero builds startup MVPs end to end — auth, billing, admin, analytics. Lean scope, weekly demos, launch in 8–10 weeks. From USD 6,000."
         keywords="MVP development company, MVP development Nepal, startup MVP, SaaS MVP, Lean MVP, build an MVP fast, MVP cost, MVP development agency, hire MVP team Nepal"
         path="/services/mvp-development"
+        image="https://pointzero.com.np/og/mvp-development.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Services', path: '/services' },
@@ -213,7 +219,10 @@ export default function MvpDevelopment() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate('/contact')}
+                onClick={() => {
+                  trackCTAClick('Book a Founder Discovery Call', 'service_mvp_hero');
+                  navigate('/contact');
+                }}
                 className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-emerald-500/30 hover:scale-105 transition-all"
               >
                 <span className="flex items-center justify-center gap-2">

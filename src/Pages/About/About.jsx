@@ -44,6 +44,7 @@ export default function About() {
         description="Meet the Point Zero team. Kathmandu-based software studio shipping AI, web and mobile products since 2022 for clients in Nepal, the US and EU."
         keywords="about Pointzero, Point Zero team, software studio Nepal, AI company Kathmandu, digital product studio Nepal"
         path="/about"
+        image="https://pointzero.com.np/og/about.png"
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'About', path: '/about' },
@@ -212,7 +213,10 @@ export default function About() {
               <AnimateOnScroll key={index} delay={index % 5} as="div" variant="scale" className='flex-shrink-0 group relative overflow-hidden rounded-2xl'>
                 <img
                   src={img}
-                  alt={`Gallery ${index + 1}`}
+                  alt={`Point Zero team and Kathmandu office — photo ${index + 1}`}
+                  loading="lazy"
+                  width="192"
+                  height="192"
                   className='w-40 h-40 md:w-48 md:h-48 object-cover transition-transform duration-500 group-hover:scale-110'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
@@ -285,7 +289,7 @@ export default function About() {
             <AnimateOnScroll as="div" variant="scale" delay={1} className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-cyan-500/30 shine-wrap'>
               <div className='absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2'></div>
               <div className='relative p-8'>
-                <img src={img1} alt="Client-centric" className='w-20 h-20 mb-6' />
+                <img src={img1} alt="Illustration of a client-centric software development process at Point Zero" loading="lazy" width="80" height="80" className='w-20 h-20 mb-6' />
                 <div className='flex items-center gap-3 mb-4'>
                   <div className='p-2 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg'>
                     <HandshakeIcon className='w-5 h-5 text-white' />
@@ -305,7 +309,7 @@ export default function About() {
             <AnimateOnScroll as="div" variant="scale" delay={2} className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-purple-500/30 shine-wrap'>
               <div className='absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2'></div>
               <div className='relative p-8'>
-                <img src={img2} alt="Quality" className='w-20 h-20 mb-6' />
+                <img src={img2} alt="Illustration representing Point Zero's commitment to quality engineering" loading="lazy" width="80" height="80" className='w-20 h-20 mb-6' />
                 <div className='flex items-center gap-3 mb-4'>
                   <div className='p-2 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg'>
                     <AccessTimeIcon className='w-5 h-5 text-white' />
@@ -391,7 +395,10 @@ export default function About() {
                   <div className='relative overflow-hidden rounded-xl mb-4'>
                     <img
                       src={member.image}
-                      alt={member.name}
+                      alt={`${member.name}${member.role ? `, ${member.role} at Point Zero` : ' — Point Zero team member'}`}
+                      loading="lazy"
+                      width="320"
+                      height="192"
                       className='w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110'
                     />
                     {/* Overlay */}
