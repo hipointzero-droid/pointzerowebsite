@@ -69,7 +69,7 @@ export default function TopSection() {
                   trackCTAClick('Book a Free Discovery Call', 'home_hero');
                   navigate('/contact');
                 }}
-                className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
+                className='group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/30 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
                 aria-label="Book a free discovery call with Point Zero"
               >
                 <span className='flex items-center justify-center gap-2'>
@@ -81,7 +81,7 @@ export default function TopSection() {
               </button>
               <button
                 onClick={() => navigate("/project")}
-                className='px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
+                className='px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900'
                 aria-label="See Point Zero case studies"
               >
                 See Case Studies

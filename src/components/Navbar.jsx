@@ -72,27 +72,40 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <button
-            className='hidden lg:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105 active:scale-95'
+            className='hidden lg:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'
             onClick={() => navigate("/contact")}
+            aria-label="Get in touch — go to contact page"
           >
             <span>Get in Touch</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className='lg:hidden p-2 text-white rounded-lg hover:bg-white/10 transition-colors'
-            onClick={() => setisOpen(!isOpen)}
-          >
-            {isOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
+          {/* Mobile: compact CTA + menu toggle */}
+          <div className='lg:hidden flex items-center gap-2'>
+            <button
+              className='px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400'
+              onClick={() => navigate("/contact")}
+              aria-label="Contact Point Zero"
+            >
+              Contact
+            </button>
+            <button
+              className='p-3 -mr-1 text-white rounded-lg hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400'
+              onClick={() => setisOpen(!isOpen)}
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+            >
+              {isOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
+      <div id="mobile-menu" className={`lg:hidden overflow-hidden transition-all duration-300 ${
         isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
       }`}>
         <div className='bg-black/95 backdrop-blur-lg border-t border-white/10 px-4 py-6 space-y-2'>

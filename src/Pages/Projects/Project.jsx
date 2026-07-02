@@ -4,6 +4,7 @@ import Footer from '../Home/Components/Footer';
 import StarsCanvas from '../../components/StarsLazy';
 import AnimateOnScroll from '../../components/AnimateOnScroll';
 import Seo from '../../components/Seo';
+import Picture from '../../components/Picture';
 
 // Project Images - Web
 import porject2 from '../../assets/project2.png';
@@ -366,11 +367,12 @@ export default function Project() {
                   <div className="grid lg:grid-cols-2 gap-0">
                     {/* Image */}
                     <div className="relative h-72 lg:h-auto lg:min-h-[26rem] bg-gradient-to-br from-violet-500/10 via-fuchsia-500/10 to-purple-500/10">
-                      <img
+                      <Picture
                         src={wellnepa}
                         alt="WellNepa coaching marketplace — homepage walkthrough"
                         className="w-full h-full object-cover object-top"
                         loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
                       <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur border border-white/15 rounded-full">
@@ -548,9 +550,11 @@ export default function Project() {
                   <div className="grid lg:grid-cols-2 gap-0">
                     {/* Image */}
                     <div className="relative h-64 lg:h-auto">
-                      <img
+                      <Picture
                         src={sajiloderaCaseStudy}
-                        alt="SajiloDera case study"
+                        alt="SajiloDera property and transport platform — case study screens"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
@@ -606,9 +610,11 @@ export default function Project() {
                   <div className="grid lg:grid-cols-2 gap-0">
                     {/* Image */}
                     <div className="relative h-64 lg:h-auto lg:min-h-[22rem]">
-                      <img
+                      <Picture
                         src={bachelorQuestionBankCaseStudy}
                         alt="Bachelor Question Bank app — home, notices, bookmarks, and question papers"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover object-top"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 lg:bg-gradient-to-l"></div>
@@ -686,25 +692,25 @@ export default function Project() {
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`}></div>
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} — ${project.subtitle}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                        onClick={(e) => {
-                          if (!project.link || project.link === '#') e.preventDefault();
-                        }}
-                        aria-disabled={!project.link || project.link === '#'}
-                      >
-                        View Project
-                        <OpenInNewIcon className="w-4 h-4" />
-                      </a>
-                    </div>
+                    {/* Overlay on hover — only when a live link exists */}
+                    {project.link && project.link !== '#' && (
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                        >
+                          View Project
+                          <OpenInNewIcon className="w-4 h-4" />
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -772,25 +778,25 @@ export default function Project() {
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`}></div>
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} — ${project.subtitle}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                        onClick={(e) => {
-                          if (!project.link || project.link === '#') e.preventDefault();
-                        }}
-                        aria-disabled={!project.link || project.link === '#'}
-                      >
-                        View Details
-                        <OpenInNewIcon className="w-4 h-4" />
-                      </a>
-                    </div>
+                    {/* Overlay on hover — only when a live link exists */}
+                    {project.link && project.link !== '#' && (
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-6 py-3 bg-white text-black font-semibold rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                        >
+                          View Details
+                          <OpenInNewIcon className="w-4 h-4" />
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}

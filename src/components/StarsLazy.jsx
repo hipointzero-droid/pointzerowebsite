@@ -30,8 +30,19 @@ export default function StarsCanvas() {
         ? window.cancelIdleCallback(id)
         : clearTimeout(id);
 
-    const id = schedule(() => setReady(true));
-    return () => cancel(id);
+    // Wait for the load event before even scheduling: the ~1MB Three.js
+    // chunk otherwise competes with LCP-critical resources on slow networks.
+    let id;
+    const start = () => { id = schedule(() => setReady(true)); };
+    if (document.readyState === 'complete') {
+      start();
+      return () => cancel(id);
+    }
+    window.addEventListener('load', start, { once: true });
+    return () => {
+      window.removeEventListener('load', start);
+      cancel(id);
+    };
   }, []);
 
   if (!ready) return null;

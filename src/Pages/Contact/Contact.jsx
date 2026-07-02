@@ -21,7 +21,6 @@ import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 // Mailto is the universal fallback that works without backend setup. When a
@@ -153,14 +152,15 @@ export default function Contact() {
       icon: <LocationOnIcon className="w-6 h-6" />,
       title: 'Visit Us',
       content: 'Kathmandu, Nepal',
-      link: '#',
+      link: 'https://www.google.com/maps/search/?api=1&query=Kathmandu%2C+Nepal',
+      external: true,
       gradient: 'from-orange-500 to-red-600',
     },
     {
       icon: <AccessTimeIcon className="w-6 h-6" />,
       title: 'Working Hours',
       content: 'Sun - Fri: 9AM - 6PM',
-      link: '#',
+      link: '',
       gradient: 'from-green-500 to-emerald-600',
     },
   ];
@@ -168,8 +168,7 @@ export default function Contact() {
   const socialLinks = [
     { icon: <FacebookIcon />, link: 'https://www.facebook.com/pointzero.com.np/', label: 'Facebook' },
     { icon: <InstagramIcon />, link: 'https://www.instagram.com/pointzero.com.np/', label: 'Instagram' },
-    { icon: <LinkedInIcon />, link: '#', label: 'LinkedIn' },
-    { icon: <TwitterIcon />, link: '#', label: 'Twitter' },
+    { icon: <LinkedInIcon />, link: 'https://www.linkedin.com/company/pointzero-np/', label: 'LinkedIn' },
   ];
 
   return (
@@ -249,26 +248,35 @@ export default function Contact() {
       <section className="relative py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((info, index) => (
-              <a
-                key={index}
-                href={info.link}
-                onClick={() => {
-                  if (info.link.startsWith('mailto:')) trackEmailClick('contact_card');
-                  else if (info.link.startsWith('tel:')) trackPhoneClick('contact_card');
-                }}
-                className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-6 transition-all duration-500 hover:border-white/20 hover:-translate-y-2"
-              >
-                <div className={`absolute -inset-1 bg-gradient-to-r ${info.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
-                <div className="relative">
-                  <div className={`inline-flex p-3 bg-gradient-to-br ${info.gradient} rounded-xl mb-4`}>
-                    <span className="text-white">{info.icon}</span>
+            {contactInfo.map((info, index) => {
+              const Wrapper = info.link ? 'a' : 'div';
+              const wrapperProps = info.link
+                ? {
+                    href: info.link,
+                    ...(info.external ? { target: '_blank', rel: 'noreferrer' } : {}),
+                    onClick: () => {
+                      if (info.link.startsWith('mailto:')) trackEmailClick('contact_card');
+                      else if (info.link.startsWith('tel:')) trackPhoneClick('contact_card');
+                    },
+                  }
+                : {};
+              return (
+                <Wrapper
+                  key={index}
+                  {...wrapperProps}
+                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-6 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                >
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${info.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
+                  <div className="relative">
+                    <div className={`inline-flex p-3 bg-gradient-to-br ${info.gradient} rounded-xl mb-4`}>
+                      <span className="text-white">{info.icon}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
+                    <p className="text-gray-400 text-sm">{info.content}</p>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
-                  <p className="text-gray-400 text-sm">{info.content}</p>
-                </div>
-              </a>
-            ))}
+                </Wrapper>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -316,8 +324,10 @@ export default function Contact() {
                     <a
                       key={index}
                       href={social.link}
-                      aria-label={social.label}
-                      className="p-3 bg-white/5 border border-white/10 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Point Zero on ${social.label}`}
+                      className="p-3 bg-white/5 border border-white/10 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                     >
                       {social.icon}
                     </a>

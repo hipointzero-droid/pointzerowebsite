@@ -270,6 +270,10 @@ export default function Blog() {
                             <img
                               src={post.thumbnail}
                               alt={post.title}
+                              loading="lazy"
+                              decoding="async"
+                              width="48"
+                              height="48"
                               className={`w-12 h-12 rounded-xl object-cover shrink-0 border ${
                                 post.id === activePostId ? 'border-cyan-500/40' : 'border-white/10'
                               }`}
@@ -335,6 +339,7 @@ export default function Blog() {
                         <img
                           src={activePost.image}
                           alt={activePost.title}
+                          decoding="async"
                           className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                         />
                       </div>

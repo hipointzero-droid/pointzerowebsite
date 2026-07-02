@@ -84,12 +84,19 @@ const CodeEditor = () => {
     };
   }, []);
 
+  // Single-pass tokenizer: chained .replace() calls would re-match the
+  // class names and quotes inside already-injected <span> markup and render
+  // raw HTML as visible text.
   const getHighlightedCode = (code) => {
-    return code
-      .replace(/(const|let|var|function|return)/g, '<span class="text-purple-400">$1</span>')
-      .replace(/(".*?")/g, '<span class="text-green-400">$1</span>')
-      .replace(/(PointZero|mission|services|deliver)/g, '<span class="text-cyan-400">$1</span>')
-      .replace(/(\[|\]|\{|\}|;|,|:|=>|\(|\))/g, '<span class="text-gray-500">$1</span>');
+    return code.replace(
+      /(".*?")|\b(const|let|var|function|return)\b|\b(PointZero|mission|services|deliver)\b|(=>|[[\]{};,:()])/g,
+      (match, str, keyword, identifier) => {
+        if (str) return `<span class="text-green-400">${str}</span>`;
+        if (keyword) return `<span class="text-purple-400">${keyword}</span>`;
+        if (identifier) return `<span class="text-cyan-400">${identifier}</span>`;
+        return `<span class="text-gray-500">${match}</span>`;
+      },
+    );
   };
 
   return (

@@ -1,11 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import image from "../../../assets/2.png";
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import AnimateOnScroll from '../../../components/AnimateOnScroll';
+import Picture from '../../../components/Picture';
 
 export default function InnovateSection() {
+  const navigate = useNavigate();
   return (
     <section className='relative bg-gradient-to-b from-gray-900 to-black py-24 overflow-hidden'>
       {/* Background Elements */}
@@ -62,7 +65,11 @@ export default function InnovateSection() {
             </div>
 
             {/* CTA */}
-            <button className='mt-10 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'>
+            <button
+              onClick={() => navigate('/about')}
+              className='mt-10 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'
+              aria-label="Learn more about Point Zero"
+            >
               Learn More About Us
             </button>
           </AnimateOnScroll>
@@ -76,9 +83,13 @@ export default function InnovateSection() {
 
               {/* Image Container */}
               <div className='relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-3xl border border-white/10 transition-all duration-300 hover:border-cyan-500/20 hover:shadow-xl hover:shadow-cyan-500/5'>
-                <img
+                <Picture
                   src={image}
-                  alt="Digital Innovation"
+                  alt="Point Zero engineers building AI, web and mobile software in Kathmandu"
+                  width="563"
+                  height="563"
+                  loading="lazy"
+                  decoding="async"
                   className='w-full h-auto rounded-2xl transition-transform duration-500 hover:scale-[1.02]'
                 />
 
@@ -97,7 +108,7 @@ export default function InnovateSection() {
 
                 {/* Floating Badge */}
                 <div className='absolute -top-4 -right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg'>
-                  Since 2019
+                  Since 2022
                 </div>
               </div>
             </div>
