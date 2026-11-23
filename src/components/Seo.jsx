@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const SITE = {
   origin: 'https://pointzero.com.np',
-  name: 'Pointzero',
+  name: 'Point Zero',
   defaultImage: 'https://pointzero.com.np/og-image.png',
 };
 
@@ -27,6 +27,17 @@ const upsertLink = (rel, href, extra = {}) => {
   }
   el.setAttribute('href', href);
   Object.entries(extra).forEach(([k, v]) => el.setAttribute(k, v));
+};
+
+const upsertHreflang = (lang, href) => {
+  let el = document.head.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', lang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
 };
 
 const upsertJsonLd = (id, json) => {
@@ -57,7 +68,8 @@ export default function Seo({
   breadcrumbs,
 }) {
   useEffect(() => {
-    const url = `${SITE.origin}${path}`;
+    const normalizedPath = path === '/' ? '/' : path.replace(/\/$/, '') || '/';
+    const url = `${SITE.origin}${normalizedPath === '/' ? '/' : normalizedPath}`;
     if (title) document.title = title;
 
     if (description) {
@@ -83,20 +95,28 @@ export default function Seo({
     upsertMeta('meta[property="og:image:alt"]', { property: 'og:image:alt', content: title || SITE.name });
 
     upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
+    upsertMeta('meta[name="twitter:url"]', { name: 'twitter:url', content: url });
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: title || document.title });
     if (description) upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description });
     upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: image });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: 'twitter:image:alt',
+      content: title || SITE.name,
+    });
 
     upsertLink('canonical', url);
+    upsertHreflang('en', url);
+    upsertHreflang('en-NP', url);
+    upsertHreflang('x-default', url);
 
     if (jsonLd) {
-      upsertJsonLd(`page:${path}`, jsonLd);
+      upsertJsonLd(`page:${normalizedPath}`, jsonLd);
     } else {
-      removeJsonLd(`page:${path}`);
+      removeJsonLd(`page:${normalizedPath}`);
     }
 
     if (breadcrumbs && breadcrumbs.length) {
-      upsertJsonLd(`breadcrumbs:${path}`, {
+      upsertJsonLd(`breadcrumbs:${normalizedPath}`, {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: breadcrumbs.map((b, i) => ({
@@ -107,7 +127,7 @@ export default function Seo({
         })),
       });
     } else {
-      removeJsonLd(`breadcrumbs:${path}`);
+      removeJsonLd(`breadcrumbs:${normalizedPath}`);
     }
   }, [title, description, path, image, keywords, type, noindex, jsonLd, breadcrumbs]);
 

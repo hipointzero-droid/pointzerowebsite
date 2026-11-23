@@ -27,7 +27,7 @@ export default function Card3D({
   children,
   className = '',
   maxTilt = 8,
-  glowColor = '34, 211, 238', // cyan-400 default
+  glowColor = '139, 163, 255', // brand accent brand
   ...rest
 }) {
   const ref = useRef(null);
@@ -94,7 +94,7 @@ export default function Card3D({
         className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
           background:
-            'conic-gradient(from 180deg at 50% 50%, rgba(34,211,238,0.6), rgba(59,130,246,0.5), rgba(168,85,247,0.6), rgba(34,211,238,0.6))',
+            'conic-gradient(from 180deg at 50% 50%, rgba(139, 163, 255,0.65), rgba(139, 163, 255,0.25), rgba(255,255,255,0.2), rgba(139, 163, 255,0.65))',
           padding: '1px',
           WebkitMask:
             'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',

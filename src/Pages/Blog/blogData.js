@@ -160,7 +160,7 @@ export const blogPosts = [
     author: 'Point Zero Team',
     image: pymentor,
     thumbnail: pymentor,
-    gradient: 'from-indigo-500 to-purple-600',
+    gradient: 'from-brand/40 to-brand/10',
     featured: false,
     content: [
       {
@@ -220,7 +220,7 @@ export const blogPosts = [
     author: 'Point Zero Team',
     image: tuneseven,
     thumbnail: tuneseven,
-    gradient: 'from-purple-500 to-pink-600',
+    gradient: 'from-brand/30 to-white/10',
     featured: false,
     content: [
       {
@@ -276,7 +276,7 @@ export const blogPosts = [
     author: 'Point Zero Team',
     image: chatmandu,
     thumbnail: chatmandu,
-    gradient: 'from-violet-500 to-purple-600',
+    gradient: 'from-brand/30 to-white/10',
     featured: false,
     content: [
       {
@@ -398,7 +398,7 @@ export const blogPosts = [
     author: 'Point Zero Team',
     image: bidesh,
     thumbnail: bidesh,
-    gradient: 'from-cyan-500 to-blue-600',
+    gradient: 'from-brand/40 to-brand/10',
     featured: false,
     content: [
       {
@@ -556,7 +556,7 @@ export const blogPosts = [
     author: 'Point Zero Team',
     image: nepaldental,
     thumbnail: nepaldental,
-    gradient: 'from-teal-500 to-cyan-600',
+    gradient: 'from-brand/30 to-brand/10',
     featured: false,
     content: [
       {
@@ -598,7 +598,7 @@ export const blogPosts = [
     author: 'Point Zero Team',
     image: mcq,
     thumbnail: mcq,
-    gradient: 'from-rose-500 to-pink-600',
+    gradient: 'from-brand/30 to-white/10',
     featured: false,
     content: [
       {
@@ -712,7 +712,7 @@ export const blogPosts = [
     author: 'Point Zero Tech Content',
     image: 'https://loremflickr.com/800/600/server,cloud',
     thumbnail: 'https://loremflickr.com/800/600/server,cloud',
-    gradient: 'from-gray-700 to-gray-900',
+    gradient: 'from-neutral-800 to-black',
     featured: false,
     content: [
       {
@@ -741,7 +741,7 @@ export const blogPosts = [
     author: 'Point Zero Tech Content',
     image: 'https://loremflickr.com/800/600/coding,monitor',
     thumbnail: 'https://loremflickr.com/800/600/coding,monitor',
-    gradient: 'from-cyan-500 to-blue-600',
+    gradient: 'from-brand/40 to-brand/10',
     featured: false,
     content: [
       {
@@ -770,7 +770,7 @@ export const blogPosts = [
     author: 'Point Zero Tech Content',
     image: 'https://loremflickr.com/800/600/ai,design',
     thumbnail: 'https://loremflickr.com/800/600/ai,design',
-    gradient: 'from-violet-500 to-fuchsia-600',
+    gradient: 'from-brand/30 to-white/10',
     featured: false,
     content: [
       {
@@ -857,7 +857,7 @@ export const blogPosts = [
     author: 'Point Zero Tech Content',
     image: 'https://loremflickr.com/800/600/programming,python',
     thumbnail: 'https://loremflickr.com/800/600/programming,python',
-    gradient: 'from-purple-600 to-pink-700',
+    gradient: 'from-brand/30 to-white/10',
     featured: false,
     content: [
       {
@@ -915,7 +915,7 @@ export const blogPosts = [
     author: 'Point Zero Tech Content',
     image: 'https://loremflickr.com/800/600/database,data',
     thumbnail: 'https://loremflickr.com/800/600/database,data',
-    gradient: 'from-indigo-600 to-purple-800',
+    gradient: 'from-brand/40 to-brand/10',
     featured: false,
     content: [
       {

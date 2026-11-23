@@ -1,117 +1,124 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import image from "../../../assets/2.png";
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import aboutImage from '../../../assets/about/kathmandu-city.jpg';
 import AnimateOnScroll from '../../../components/AnimateOnScroll';
 import Picture from '../../../components/Picture';
+import { Badge } from '../../../components/ui/badge';
+import { Button } from '../../../components/ui/button';
+
+const OUTCOMES = [
+  'Ship in weeks — RAG pilot in 14 days, MVP in 8–10 weeks',
+  'Sub-2-second LCP and 95+ Lighthouse on every web launch',
+  'Eval-gated AI releases — no "vibe-check" deploys to production',
+];
 
 export default function InnovateSection() {
   const navigate = useNavigate();
+
   return (
-    <section className='relative bg-gradient-to-b from-gray-900 to-black py-24 overflow-hidden'>
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-      </div>
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="relative overflow-hidden border-t border-white/10 bg-black py-20 sm:py-24"
+      itemScope
+      itemType="https://schema.org/AboutPage"
+    >
+      <meta itemProp="name" content="About Point Zero" />
+      <link itemProp="url" href="https://pointzero.com.np/#about" />
 
-      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex flex-col lg:flex-row items-center gap-16'>
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div className="flex flex-col items-center gap-14 lg:flex-row lg:items-start lg:gap-16">
+          <AnimateOnScroll className="w-full lg:w-1/2" as="div" variant="left">
+            <Badge className="mb-6 px-3.5 py-1.5">About Point Zero</Badge>
 
-          {/* Left Content */}
-          <AnimateOnScroll className='lg:w-1/2' as="div" variant="left">
-            {/* Section Tag */}
-            <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
-              <AutoAwesomeIcon className='w-4 h-4 text-cyan-400' />
-              <span className='text-sm font-medium text-cyan-400'>About Point Zero</span>
-            </div>
-
-            <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight'>
+            <h2
+              id="about-heading"
+              className="text-balance text-3xl font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-4xl lg:text-[2.65rem]"
+              itemProp="headline"
+            >
               The AI &amp; Software Engineering Partner for{' '}
-              <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-                Ambitious Teams
-              </span>
+              <span className="text-brand">Ambitious Teams</span>
             </h2>
 
-            <p className='mt-6 text-gray-400 text-lg leading-relaxed'>
-              Point Zero is a Kathmandu-based digital product studio that ships
-              production-grade AI, web and mobile software for startups and enterprises
-              in Nepal, the US, UK and the UAE. We move fast — RAG pilots in 2–3 weeks,
-              marketing sites in 2–4, MVPs in 8–10 — without trading away rigour.
-            </p>
+            <div itemProp="description">
+              <p className="mt-6 text-base leading-[1.7] text-neutral-400 sm:text-lg">
+                Point Zero is a Kathmandu-based digital product studio that ships
+                production-grade AI, web and mobile software for startups and enterprises
+                in Nepal, the US, UK and the UAE. We move fast — RAG pilots in 2–3 weeks,
+                marketing sites in 2–4, MVPs in 8–10 — without trading away rigour.
+              </p>
 
-            <p className='mt-4 text-gray-400 text-lg leading-relaxed'>
-              Senior engineers on the build, fixed-price discovery, weekly demos, and
-              evals or analytics tied to every release. The code lives in your GitHub
-              from day one, with a runbook your team can actually use.
-            </p>
-
-            {/* Feature Points — outcomes, not slogans */}
-            <div className='mt-8 space-y-4'>
-              {[
-                { icon: <RocketLaunchIcon className='w-5 h-5' />, text: 'Ship in weeks — RAG pilot in 14 days, MVP in 8–10 weeks' },
-                { icon: <TrendingUpIcon className='w-5 h-5' />, text: 'Sub-2-second LCP and 95+ Lighthouse on every web launch' },
-                { icon: <AutoAwesomeIcon className='w-5 h-5' />, text: 'Eval-gated AI releases — no "vibe-check" deploys to production' },
-              ].map((item, index) => (
-                <div key={index} className='flex items-center gap-4 group'>
-                  <div className='p-2.5 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg text-cyan-400 transition-all duration-300 group-hover:from-cyan-500/30 group-hover:to-blue-500/30'>
-                    {item.icon}
-                  </div>
-                  <span className='text-gray-300 font-medium'>{item.text}</span>
-                </div>
-              ))}
+              <p className="mt-4 text-base leading-[1.7] text-neutral-400 sm:text-lg">
+                Senior engineers on the build, fixed-price discovery, weekly demos, and
+                evals or analytics tied to every release. The code lives in your GitHub
+                from day one, with a runbook your team can actually use.
+              </p>
             </div>
 
-            {/* CTA */}
-            <button
+            <ul className="mt-8 space-y-3 border-t border-white/10 pt-8" aria-label="Point Zero delivery outcomes">
+              {OUTCOMES.map((text) => (
+                <li key={text} className="flex gap-3 text-[15px] leading-snug text-neutral-300 sm:text-base">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-white/40" aria-hidden />
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              className="mt-10"
               onClick={() => navigate('/about')}
-              className='mt-10 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'
               aria-label="Learn more about Point Zero"
             >
               Learn More About Us
-            </button>
+            </Button>
           </AnimateOnScroll>
 
-          {/* Right Content - Image */}
-          <AnimateOnScroll className='lg:w-1/2 relative' delay={1} as="div" variant="right">
-            {/* Decorative Frame */}
-            <div className='relative'>
-              {/* Gradient Border */}
-              <div className='absolute -inset-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl opacity-20 blur-lg'></div>
+          <AnimateOnScroll className="relative w-full lg:w-1/2" delay={1} as="div" variant="right">
+            <figure className="overflow-hidden rounded-xl border border-white/10 bg-black">
+              {/* VS Code–style chrome — matches hero code panel */}
+              <div className="relative flex items-center border-b border-white/10 bg-white/[0.02] px-4 py-3">
+                <div className="flex gap-2" aria-hidden>
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                </div>
+                <span className="pointer-events-none absolute inset-x-0 text-center font-mono text-sm text-neutral-500">
+                  kathmandu.jpg
+                </span>
+              </div>
 
-              {/* Image Container */}
-              <div className='relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-3xl border border-white/10 transition-all duration-300 hover:border-cyan-500/20 hover:shadow-xl hover:shadow-cyan-500/5'>
+              <div className="relative aspect-[4/3] overflow-hidden">
                 <Picture
-                  src={image}
-                  alt="Point Zero engineers building AI, web and mobile software in Kathmandu"
-                  width="563"
-                  height="563"
+                  src={aboutImage}
+                  alt="Boudhanath Stupa in Kathmandu, Nepal — Point Zero’s home city"
+                  width="1920"
+                  height="1280"
                   loading="lazy"
                   decoding="async"
-                  className='w-full h-auto rounded-2xl transition-transform duration-500 hover:scale-[1.02]'
+                  className="h-full w-full object-cover object-center grayscale contrast-[1.1]"
                 />
-
-                {/* Floating Card */}
-                <div className='absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur-lg border border-white/10 rounded-2xl p-4 shadow-xl'>
-                  <div className='flex items-center gap-3'>
-                    <div className='p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl'>
-                      <RocketLaunchIcon className='w-6 h-6 text-white' />
-                    </div>
-                    <div>
-                      <p className='text-white font-semibold'>Innovation First</p>
-                      <p className='text-gray-400 text-sm'>Driving digital transformation</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Badge */}
-                <div className='absolute -top-4 -right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg'>
-                  Since 2022
-                </div>
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"
+                  aria-hidden
+                />
+                <figcaption className="absolute bottom-0 left-0 right-0 px-5 pb-5 pt-12">
+                  <p className="font-mono text-sm font-medium tracking-wide text-white">Kathmandu</p>
+                  <p className="mt-0.5 font-mono text-xs text-neutral-400">Est. 2022 · AI · Web · Mobile</p>
+                </figcaption>
               </div>
-            </div>
+
+              <div
+                className="flex items-center justify-between border-t border-white/10 bg-white/[0.02] px-4 py-2 font-mono text-[11px] text-neutral-500"
+                aria-hidden
+              >
+                <span>UTF-8</span>
+                <span>JPG · Grayscale</span>
+                <span>Ln 1, Col 1</span>
+              </div>
+            </figure>
           </AnimateOnScroll>
         </div>
       </div>

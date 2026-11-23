@@ -1,42 +1,39 @@
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams, useParams, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
-import Footer from '../Home/Components/Footer';
-import StarsCanvas from '../../components/StarsLazy';
-import AnimateOnScroll from '../../components/AnimateOnScroll';
-import { blogPosts, blogCategories } from './blogData';
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams, useParams, useNavigate, Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import Footer from "../Home/Components/Footer";
+import StarsCanvas from "../../components/StarsLazy";
+import AnimateOnScroll from "../../components/AnimateOnScroll";
+import { blogPosts, blogCategories } from "./blogData";
 
 // Icons
-import ArticleIcon from '@mui/icons-material/Article';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import SearchIcon from '@mui/icons-material/Search';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import CloseIcon from '@mui/icons-material/Close';
-import Seo from '../../components/Seo';
+import ArticleIcon from "@mui/icons-material/Article";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import SearchIcon from "@mui/icons-material/Search";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import CloseIcon from "@mui/icons-material/Close";
+import Seo from "../../components/Seo";
 
 // Convert a category label (e.g. "AI / Mobile") to a URL slug ("ai-mobile").
 // Reversible for our small fixed set of categories.
 export function categoryToSlug(category) {
-  return String(category || '')
+  return String(category || "")
     .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/\//g, '-')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
+    .replace(/&/g, "and")
+    .replace(/\//g, "-")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 export function slugToCategory(slug, allCategories) {
-  if (!slug) return 'All';
+  if (!slug) return "All";
   const norm = String(slug).toLowerCase();
-  return (
-    allCategories.find((c) => categoryToSlug(c) === norm) ||
-    'All'
-  );
+  return allCategories.find((c) => categoryToSlug(c) === norm) || "All";
 }
 
 export default function Blog() {
@@ -45,20 +42,20 @@ export default function Blog() {
   const navigate = useNavigate();
   const [activePostId, setActivePostId] = useState(null);
   const [activeCategory, setActiveCategory] = useState(() =>
-    routeCategory ? slugToCategory(routeCategory, blogCategories) : 'All',
+    routeCategory ? slugToCategory(routeCategory, blogCategories) : "All",
   );
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Resolve the active post from either the clean URL (/blog/:slug)
   // or the legacy query string (?post=slug). Legacy URLs are upgraded
   // to the clean path so future shares and crawls land on the canonical URL.
   useEffect(() => {
-    const querySlug = searchParams.get('post');
+    const querySlug = searchParams.get("post");
     const effectiveSlug = routeSlug || querySlug;
 
     if (effectiveSlug) {
-      const post = blogPosts.find(p => p.slug === effectiveSlug);
+      const post = blogPosts.find((p) => p.slug === effectiveSlug);
       if (post) {
         setActivePostId(post.id);
         // Legacy ?post=slug → /blog/:slug (301-style replace on the client)
@@ -82,53 +79,60 @@ export default function Blog() {
   // Keep document.title in sync; the clean URL is now handled by router navigation.
   useEffect(() => {
     if (activePostId) {
-      const post = blogPosts.find(p => p.id === activePostId);
+      const post = blogPosts.find((p) => p.id === activePostId);
       if (post) document.title = `${post.title} | Point Zero Blog`;
     } else if (routeCategory) {
       const cat = slugToCategory(routeCategory, blogCategories);
       document.title = `${cat} — Point Zero Blog`;
     } else {
-      document.title = 'Blog — AI, RAG, Web & Mobile Engineering | Point Zero';
+      document.title = "Blog — AI, RAG, Web & Mobile Engineering | Point Zero";
     }
   }, [activePostId, routeCategory]);
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
-    const matchesSearch = searchQuery === '' ||
+  const filteredPosts = blogPosts.filter((post) => {
+    const matchesCategory =
+      activeCategory === "All" || post.category === activeCategory;
+    const matchesSearch =
+      searchQuery === "" ||
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+      post.tags.some((tag) =>
+        tag.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
     return matchesCategory && matchesSearch;
   });
 
-  const activePost = blogPosts.find(p => p.id === activePostId);
-  const featuredPosts = blogPosts.filter(p => p.featured);
+  const activePost = blogPosts.find((p) => p.id === activePostId);
+  const featuredPosts = blogPosts.filter((p) => p.featured);
 
   const formatDate = (dateStr) => {
-    return new Date(dateStr).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateStr).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
   // Get next and previous posts for navigation
-  const currentIndex = activePost ? blogPosts.findIndex(p => p.id === activePost.id) : -1;
+  const currentIndex = activePost
+    ? blogPosts.findIndex((p) => p.id === activePost.id)
+    : -1;
   const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   const handlePostClick = (postId) => {
     const post = blogPosts.find((p) => p.id === postId);
     setActivePostId(postId);
     setIsSidebarOpen(false);
     if (post) navigate(`/blog/${post.slug}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handlePostClose = () => {
     setActivePostId(null);
-    navigate('/blog');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate("/blog");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // ──────────────────────────────────────────────
@@ -141,50 +145,61 @@ export default function Blog() {
         ? activePost.excerpt
         : `Read "${activePost.title}" on the Point Zero engineering blog.`;
     const postDescriptionShort =
-      postDescription.length > 160 ? postDescription.slice(0, 157) + '…' : postDescription;
-    const articleBody =
-      Array.isArray(activePost.content)
-        ? activePost.content
-            .map((b) => {
-              if (b.type === 'paragraph' || b.type === 'heading' || b.type === 'quote') return b.text || '';
-              if (b.type === 'list' && Array.isArray(b.items)) return b.items.join(' ');
-              return '';
-            })
-            .filter(Boolean)
-            .join(' ')
-            .slice(0, 5000)
-        : undefined;
+      postDescription.length > 160
+        ? postDescription.slice(0, 157) + "…"
+        : postDescription;
+    const articleBody = Array.isArray(activePost.content)
+      ? activePost.content
+          .map((b) => {
+            if (
+              b.type === "paragraph" ||
+              b.type === "heading" ||
+              b.type === "quote"
+            )
+              return b.text || "";
+            if (b.type === "list" && Array.isArray(b.items))
+              return b.items.join(" ");
+            return "";
+          })
+          .filter(Boolean)
+          .join(" ")
+          .slice(0, 5000)
+      : undefined;
 
     const postJsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      '@id': `${postUrl}#post`,
-      mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": `${postUrl}#post`,
+      mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
       headline: activePost.title,
       description: postDescriptionShort,
       url: postUrl,
       datePublished: activePost.date,
       dateModified: activePost.date,
-      inLanguage: 'en-NP',
-      keywords: Array.isArray(activePost.tags) ? activePost.tags.join(', ') : undefined,
+      inLanguage: "en-NP",
+      keywords: Array.isArray(activePost.tags)
+        ? activePost.tags.join(", ")
+        : undefined,
       articleSection: activePost.category,
       articleBody,
       timeRequired: activePost.readTime,
       image: activePost.image
-        ? [`https://pointzero.com.np${typeof activePost.image === 'string' ? activePost.image : ''}`]
-        : ['https://pointzero.com.np/og-image.png'],
+        ? [
+            `https://pointzero.com.np${typeof activePost.image === "string" ? activePost.image : ""}`,
+          ]
+        : ["https://pointzero.com.np/og-image.png"],
       author: {
-        '@type': 'Organization',
-        name: activePost.author || 'Point Zero',
-        url: 'https://pointzero.com.np/',
+        "@type": "Organization",
+        name: activePost.author || "Point Zero",
+        url: "https://pointzero.com.np/",
       },
       publisher: {
-        '@type': 'Organization',
-        name: 'Point Zero',
-        url: 'https://pointzero.com.np/',
+        "@type": "Organization",
+        name: "Point Zero",
+        url: "https://pointzero.com.np/",
         logo: {
-          '@type': 'ImageObject',
-          url: 'https://pointzero.com.np/og-image.png',
+          "@type": "ImageObject",
+          url: "https://pointzero.com.np/og-image.png",
         },
       },
     };
@@ -194,12 +209,16 @@ export default function Blog() {
         <Seo
           title={`${activePost.title} | Point Zero Blog`}
           description={postDescriptionShort}
-          keywords={Array.isArray(activePost.tags) ? activePost.tags.join(', ') : undefined}
+          keywords={
+            Array.isArray(activePost.tags)
+              ? activePost.tags.join(", ")
+              : undefined
+          }
           path={`/blog/${activePost.slug}`}
           image="https://pointzero.com.np/og/blog.png"
           breadcrumbs={[
-            { name: 'Home', path: '/' },
-            { name: 'Blog', path: '/blog' },
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
             { name: activePost.title, path: `/blog/${activePost.slug}` },
           ]}
           type="article"
@@ -210,7 +229,7 @@ export default function Blog() {
         {/* Mobile sidebar toggle */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="fixed bottom-6 right-6 z-50 lg:hidden p-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full shadow-lg shadow-cyan-500/30 hover:scale-110 transition-transform"
+          className="fixed bottom-6 right-6 z-50 lg:hidden p-4 bg-white text-black rounded-full shadow-xl hover:scale-110 transition-transform"
           aria-label="Toggle blog list"
         >
           <ArticleIcon />
@@ -219,23 +238,24 @@ export default function Blog() {
         <div className="pt-24 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex gap-8">
-
               {/* Sidebar - Blog List */}
-              <aside className={`
-                fixed lg:sticky lg:top-24 inset-0 lg:inset-auto z-40 lg:z-auto
-                w-full lg:w-80 lg:min-w-[320px] lg:max-h-[calc(100vh-7rem)] lg:self-start
-                bg-black/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none
-                overflow-y-auto lg:overflow-y-auto scrollbar-hide
-                transition-transform duration-300
-                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-              `}>
+              <aside
+                className={`
+ fixed lg:sticky lg:top-24 inset-0 lg:inset-auto z-40 lg:z-auto
+ w-full lg:w-80 lg:min-w-[320px] lg:max-h-[calc(100vh-7rem)] lg:self-start
+ bg-black/95 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-none
+ overflow-y-auto lg:overflow-y-auto scrollbar-hide
+ transition-transform duration-300
+ ${isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+ `}
+              >
                 <div className="p-6 lg:p-0">
                   {/* Mobile close */}
                   <div className="flex items-center justify-between lg:hidden mb-6">
                     <h3 className="text-lg font-bold text-white">All Posts</h3>
                     <button
                       onClick={() => setIsSidebarOpen(false)}
-                      className="p-2 text-gray-400 hover:text-white"
+                      className="p-2 text-neutral-400 hover:text-white"
                     >
                       <CloseIcon />
                     </button>
@@ -243,13 +263,13 @@ export default function Blog() {
 
                   {/* Search in sidebar */}
                   <div className="relative mb-4">
-                    <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                    <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
                     <input
                       type="text"
                       placeholder="Search posts..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 transition-colors"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-brand/50 transition-colors"
                     />
                   </div>
 
@@ -261,8 +281,8 @@ export default function Blog() {
                         onClick={() => handlePostClick(post.id)}
                         className={`w-full text-left p-4 rounded-2xl transition-all duration-300 group ${
                           post.id === activePostId
-                            ? 'bg-gradient-to-r from-cyan-500/15 to-blue-500/15 border border-cyan-500/30'
-                            : 'bg-white/[0.02] border border-transparent hover:bg-white/5 hover:border-white/10'
+                            ? "bg-brand/10 border border-brand/30"
+                            : "bg-white/[0.02] border border-transparent hover:bg-white/5 hover:border-white/10"
                         }`}
                       >
                         <div className="flex items-start gap-3">
@@ -275,25 +295,35 @@ export default function Blog() {
                               width="48"
                               height="48"
                               className={`w-12 h-12 rounded-xl object-cover shrink-0 border ${
-                                post.id === activePostId ? 'border-cyan-500/40' : 'border-white/10'
+                                post.id === activePostId
+                                  ? "border-brand/40"
+                                  : "border-white/10"
                               }`}
                             />
                           )}
                           <div className="min-w-0">
-                            <h4 className={`text-sm font-semibold leading-snug line-clamp-2 ${
-                              post.id === activePostId ? 'text-cyan-400' : 'text-gray-300 group-hover:text-white'
-                            } transition-colors`}>
+                            <h4
+                              className={`text-sm font-semibold leading-snug line-clamp-2 ${
+                                post.id === activePostId
+                                  ? "text-brand"
+                                  : "text-neutral-300 group-hover:text-white"
+                              } transition-colors`}
+                            >
                               {post.title}
                             </h4>
                             <div className="flex items-center gap-3 mt-1.5">
-                              <span className={`inline-flex items-center text-xs px-2 py-0.5 rounded-md ${
-                                post.id === activePostId
-                                  ? 'bg-cyan-500/20 text-cyan-400'
-                                  : 'bg-white/5 text-gray-500'
-                              }`}>
+                              <span
+                                className={`inline-flex items-center text-xs px-2 py-0.5 rounded-md ${
+                                  post.id === activePostId
+                                    ? "bg-brand/10 text-brand"
+                                    : "bg-white/5 text-neutral-500"
+                                }`}
+                              >
                                 {post.category}
                               </span>
-                              <span className="text-xs text-gray-600">{post.readTime}</span>
+                              <span className="text-xs text-neutral-500">
+                                {post.readTime}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -308,7 +338,7 @@ export default function Blog() {
                 {/* Back button */}
                 <button
                   onClick={handlePostClose}
-                  className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors mb-8 group"
+                  className="inline-flex items-center gap-2 text-neutral-400 hover:text-brand transition-colors mb-8 group"
                 >
                   <ArrowBackIcon className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                   <span className="text-sm font-medium">Back to all posts</span>
@@ -318,8 +348,10 @@ export default function Blog() {
                   {/* Post header */}
                   <AnimateOnScroll as="header" variant="up">
                     <div className="mb-6">
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r ${activePost.gradient} bg-clip-text text-transparent border border-white/10`}>
-                        <LocalOfferIcon className="w-3.5 h-3.5 text-gray-400" />
+                      <span
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand/10 text-brand border border-white/10"
+                      >
+                        <LocalOfferIcon className="w-3.5 h-3.5 text-neutral-400" />
                         {activePost.category}
                       </span>
                     </div>
@@ -328,14 +360,16 @@ export default function Blog() {
                       {activePost.title}
                     </h1>
 
-                    <p className="mt-4 text-lg text-gray-400 leading-relaxed">
+                    <p className="mt-4 text-lg text-neutral-400 leading-relaxed">
                       {activePost.excerpt}
                     </p>
 
                     {/* Hero Image */}
                     {activePost.image && (
                       <div className="mt-8 relative rounded-2xl overflow-hidden border border-white/10">
-                        <div className={`absolute inset-0 bg-gradient-to-br ${activePost.gradient} opacity-10`}></div>
+                        <div
+                          className={`absolute inset-0 bg-brand/5 opacity-10`}
+                        ></div>
                         <img
                           src={activePost.image}
                           alt={activePost.title}
@@ -347,17 +381,17 @@ export default function Blog() {
 
                     {/* Meta */}
                     <div className="flex flex-wrap items-center gap-6 mt-8 pb-8 border-b border-white/10">
-                      <div className="flex items-center gap-2 text-gray-400">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xs font-bold">
+                      <div className="flex items-center gap-2 text-neutral-400">
+                        <div className="w-8 h-8 rounded-full bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center text-brand text-xs font-bold">
                           PZ
                         </div>
                         <span className="text-sm">{activePost.author}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-gray-500 text-sm">
+                      <div className="flex items-center gap-1.5 text-neutral-500 text-sm">
                         <CalendarTodayIcon className="w-4 h-4" />
                         {formatDate(activePost.date)}
                       </div>
-                      <div className="flex items-center gap-1.5 text-gray-500 text-sm">
+                      <div className="flex items-center gap-1.5 text-neutral-500 text-sm">
                         <AccessTimeIcon className="w-4 h-4" />
                         {activePost.readTime}
                       </div>
@@ -367,19 +401,29 @@ export default function Blog() {
                   {/* Post body */}
                   <div className="mt-10 space-y-8">
                     {activePost.content.map((block, index) => {
-                      if (block.type === 'paragraph') {
+                      if (block.type === "paragraph") {
                         return (
-                          <AnimateOnScroll key={index} as="p" variant="up" delay={1}>
-                            <span className="text-gray-300 leading-relaxed text-lg">
+                          <AnimateOnScroll
+                            key={index}
+                            as="p"
+                            variant="up"
+                            delay={1}
+                          >
+                            <span className="text-neutral-300 leading-relaxed text-lg">
                               {block.text}
                             </span>
                           </AnimateOnScroll>
                         );
                       }
 
-                      if (block.type === 'heading') {
+                      if (block.type === "heading") {
                         return (
-                          <AnimateOnScroll key={index} as="h2" variant="up" delay={1}>
+                          <AnimateOnScroll
+                            key={index}
+                            as="h2"
+                            variant="up"
+                            delay={1}
+                          >
                             <span className="text-2xl font-bold text-white mt-4 block">
                               {block.text}
                             </span>
@@ -387,13 +431,21 @@ export default function Blog() {
                         );
                       }
 
-                      if (block.type === 'list') {
+                      if (block.type === "list") {
                         return (
-                          <AnimateOnScroll key={index} as="ul" variant="up" delay={1}>
+                          <AnimateOnScroll
+                            key={index}
+                            as="ul"
+                            variant="up"
+                            delay={1}
+                          >
                             <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 space-y-3">
                               {block.items.map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 text-gray-300">
-                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-3 text-neutral-300"
+                                >
+                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
                                   <span>{item}</span>
                                 </li>
                               ))}
@@ -402,16 +454,21 @@ export default function Blog() {
                         );
                       }
 
-                      if (block.type === 'quote') {
+                      if (block.type === "quote") {
                         return (
-                          <AnimateOnScroll key={index} as="blockquote" variant="scale" delay={1}>
-                            <div className="relative pl-6 py-8 px-8 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-l-4 border-cyan-500 rounded-r-2xl">
+                          <AnimateOnScroll
+                            key={index}
+                            as="blockquote"
+                            variant="scale"
+                            delay={1}
+                          >
+                            <div className="relative pl-6 py-8 px-8 bg-white/[0.03] border-l-4 border-brand rounded-r-2xl">
                               <FormatQuoteIcon className="absolute top-4 right-4 w-8 h-8 text-white/10" />
-                              <p className="text-xl italic text-gray-200 leading-relaxed">
+                              <p className="text-xl italic text-neutral-200 leading-relaxed">
                                 "{block.text}"
                               </p>
                               {block.author && (
-                                <p className="mt-4 text-sm text-cyan-400 font-medium">
+                                <p className="mt-4 text-sm text-brand font-medium">
                                   — {block.author}
                                 </p>
                               )}
@@ -430,7 +487,7 @@ export default function Blog() {
                       {activePost.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm text-gray-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-colors cursor-default"
+                          className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-sm text-neutral-400 hover:text-brand hover:border-brand/30 transition-colors cursor-default"
                         >
                           #{tag}
                         </span>
@@ -438,17 +495,44 @@ export default function Blog() {
                     </div>
                   </div>
 
+                  <div className="mt-8 p-5 bg-white/[0.03] border border-white/10 rounded-2xl">
+                    <p className="text-sm font-medium text-white">
+                      Work with Point Zero
+                    </p>
+                    <p className="mt-1 text-sm text-neutral-400">
+                      Related services for founders and product teams.
+                    </p>
+                    <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                      {[
+                        { to: "/services/ai-development-nepal", label: "AI Development" },
+                        { to: "/services/rag-chatbot-development", label: "RAG Chatbots" },
+                        { to: "/services/web-development-nepal", label: "Web Development" },
+                        { to: "/services/mobile-app-development-nepal", label: "Mobile Apps" },
+                        { to: "/contact", label: "Contact" },
+                      ].map((item) => (
+                        <li key={item.to}>
+                          <Link
+                            to={item.to}
+                            className="text-sm text-neutral-300 underline-offset-4 hover:text-brand hover:underline"
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   {/* Post navigation */}
                   <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {prevPost && (
                       <button
                         onClick={() => handlePostClick(prevPost.id)}
-                        className="group text-left p-6 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-cyan-500/30 hover:bg-white/[0.05] transition-all duration-300"
+                        className="group text-left p-6 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-brand/30 hover:bg-white/[0.05] transition-all duration-300"
                       >
-                        <span className="text-xs text-gray-500 uppercase tracking-wider flex items-center gap-1">
+                        <span className="text-xs text-neutral-500 uppercase tracking-wider flex items-center gap-1">
                           <ArrowBackIcon className="w-3 h-3" /> Previous
                         </span>
-                        <h4 className="mt-2 text-sm font-semibold text-gray-300 group-hover:text-white transition-colors line-clamp-2">
+                        <h4 className="mt-2 text-sm font-semibold text-neutral-300 group-hover:text-white transition-colors line-clamp-2">
                           {prevPost.title}
                         </h4>
                       </button>
@@ -456,12 +540,12 @@ export default function Blog() {
                     {nextPost && (
                       <button
                         onClick={() => handlePostClick(nextPost.id)}
-                        className="group text-right p-6 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-cyan-500/30 hover:bg-white/[0.05] transition-all duration-300 sm:ml-auto"
+                        className="group text-right p-6 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-brand/30 hover:bg-white/[0.05] transition-all duration-300 sm:ml-auto"
                       >
-                        <span className="text-xs text-gray-500 uppercase tracking-wider flex items-center gap-1 justify-end">
+                        <span className="text-xs text-neutral-500 uppercase tracking-wider flex items-center gap-1 justify-end">
                           Next <ArrowForwardIcon className="w-3 h-3" />
                         </span>
-                        <h4 className="mt-2 text-sm font-semibold text-gray-300 group-hover:text-white transition-colors line-clamp-2">
+                        <h4 className="mt-2 text-sm font-semibold text-neutral-300 group-hover:text-white transition-colors line-clamp-2">
                           {nextPost.title}
                         </h4>
                       </button>
@@ -481,25 +565,25 @@ export default function Blog() {
   // ──────────────────────────────────────────────
   // LIST VIEW (default)
   // ──────────────────────────────────────────────
-  const onCategoryRoute = Boolean(routeCategory) && activeCategory !== 'All';
+  const onCategoryRoute = Boolean(routeCategory) && activeCategory !== "All";
   const categoryPath = onCategoryRoute
     ? `/blog/category/${categoryToSlug(activeCategory)}`
-    : '/blog';
+    : "/blog";
   const seoTitle = onCategoryRoute
-    ? `${activeCategory} — Point Zero Blog`
-    : 'Blog — AI, RAG, Web & Mobile Engineering | Point Zero';
+    ? `${activeCategory} Articles | Point Zero Blog`
+    : "Engineering Blog | AI, RAG, Web & Mobile | Point Zero";
   const seoDescription = onCategoryRoute
-    ? `${activeCategory} posts from Point Zero — engineering deep-dives, case studies and how-tos shipped by an AI & software studio in Kathmandu, Nepal.`
-    : 'Insights, case studies and engineering deep-dives on AI agents, RAG, vector databases, mobile and web development from the Point Zero team.';
+    ? `${activeCategory} articles from Point Zero — practical engineering notes on AI, software and product delivery from Kathmandu, Nepal.`
+    : "Practical engineering articles on AI agents, RAG architecture, Flutter, React, Django and software delivery from the Point Zero team.";
   const breadcrumbs = onCategoryRoute
     ? [
-        { name: 'Home', path: '/' },
-        { name: 'Blog', path: '/blog' },
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blog" },
         { name: activeCategory, path: categoryPath },
       ]
     : [
-        { name: 'Home', path: '/' },
-        { name: 'Blog', path: '/blog' },
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blog" },
       ];
 
   return (
@@ -507,29 +591,32 @@ export default function Blog() {
       <Seo
         title={seoTitle}
         description={seoDescription}
-        keywords="AI blog Nepal, RAG tutorials, LLM engineering blog, web development blog Nepal, software engineering insights, Pointzero blog"
+        keywords="AI blog Nepal, RAG tutorials, LLM engineering blog, web development blog Nepal, software engineering insights, Point Zero blog"
         path={categoryPath}
         image="https://pointzero.com.np/og/blog.png"
+        noindex={onCategoryRoute}
         breadcrumbs={breadcrumbs}
         jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'Blog',
-          name: onCategoryRoute ? `${activeCategory} — Point Zero Blog` : 'Point Zero Blog',
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: onCategoryRoute
+            ? `${activeCategory} — Point Zero Blog`
+            : "Point Zero Blog",
           url: `https://pointzero.com.np${categoryPath}`,
-          inLanguage: 'en-NP',
+          inLanguage: "en-NP",
           publisher: {
-            '@type': 'Organization',
-            name: 'Point Zero',
+            "@type": "Organization",
+            name: "Point Zero",
             logo: {
-              '@type': 'ImageObject',
-              url: 'https://pointzero.com.np/og-image.png',
+              "@type": "ImageObject",
+              url: "https://pointzero.com.np/og-image.png",
             },
           },
           blogPost: filteredPosts.slice(0, 10).map((p) => ({
-            '@type': 'BlogPosting',
+            "@type": "BlogPosting",
             headline: p.title,
             datePublished: p.date,
-            author: { '@type': 'Organization', name: 'Point Zero' },
+            author: { "@type": "Organization", name: "Point Zero" },
             url: `https://pointzero.com.np/blog/${p.slug}`,
           })),
         }}
@@ -542,28 +629,22 @@ export default function Blog() {
           <StarsCanvas />
         </Suspense>
 
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle"></div>
-          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse-slow animate-float-gentle" style={{ animationDelay: '2s' }}></div>
-        </div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12">
           <AnimateOnScroll className="text-center" as="div" variant="up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
-              <TrendingUpIcon className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm text-gray-300">Insights & Case Studies</span>
+              <TrendingUpIcon className="w-4 h-4 text-brand" />
+              <span className="text-sm text-neutral-300">
+                Insights & Case Studies
+              </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              From Our{' '}
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift">
-                Engineering Blog
-              </span>
+              From Our <span className="text-brand">Engineering Blog</span>
             </h1>
 
-            <p className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Deep dives into how we build, ship, and scale software for the Nepali market and beyond. 
-              Real projects. Real lessons. No fluff.
+            <p className="mt-6 text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+              Deep dives into how we build, ship, and scale software for the
+              Nepali market and beyond. Real projects. Real lessons. No fluff.
             </p>
           </AnimateOnScroll>
         </div>
@@ -576,13 +657,13 @@ export default function Blog() {
             <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
               {/* Search */}
               <div className="relative w-full md:w-80">
-                <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500" />
                 <input
                   type="text"
                   placeholder="Search articles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 transition-colors"
+                  className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:border-brand/50 transition-colors"
                   id="blog-search"
                 />
               </div>
@@ -595,8 +676,8 @@ export default function Blog() {
                     onClick={() => setActiveCategory(cat)}
                     className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                       activeCategory === cat
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20'
-                        : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-white'
+                        ? "bg-white text-black"
+                        : "bg-white/5 text-neutral-400 border border-white/10 hover:bg-white/10 hover:text-white"
                     }`}
                   >
                     {cat}
@@ -609,66 +690,92 @@ export default function Blog() {
       </section>
 
       {/* Featured Posts */}
-      {activeCategory === 'All' && searchQuery === '' && (
+      {activeCategory === "All" && searchQuery === "" && (
         <section className="relative py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimateOnScroll as="div" variant="up">
               <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                <span className="w-8 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
+                <span className="w-8 h-1 bg-brand rounded-full"></span>
                 Featured
               </h2>
             </AnimateOnScroll>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {featuredPosts.map((post, index) => (
-                <AnimateOnScroll key={post.id} as="div" variant="scale" delay={index + 1}>
+                <AnimateOnScroll
+                  key={post.id}
+                  as="div"
+                  variant="scale"
+                  delay={index + 1}
+                >
                   <button
                     onClick={() => handlePostClick(post.id)}
                     className="block w-full text-left group shine-wrap"
                   >
-                    <div className="relative bg-gray-900/60 backdrop-blur-sm border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/5 h-full">
+                    <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-1 hover:shadow-xl h-full">
                       {/* Image */}
                       {post.image && (
                         <div className="relative h-48 overflow-hidden">
-                          <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient} opacity-20`}></div>
-                          <img src={post.image} alt={`${post.title} — Point Zero blog cover`} loading="lazy" decoding="async" width="600" height="320" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-transparent"></div>
+                          <div
+                            className={`absolute inset-0 bg-brand/8 opacity-20`}
+                          ></div>
+                          <img
+                            src={post.image}
+                            alt={`${post.title} — Point Zero blog cover`}
+                            loading="lazy"
+                            decoding="async"
+                            width="600"
+                            height="320"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
                         </div>
                       )}
 
                       <div className="p-8">
-                      {/* Gradient accent */}
-                      {!post.image && <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${post.gradient}`}></div>}
+                        {/* Gradient accent */}
+                        {!post.image && (
+                          <div
+                            className={`absolute top-0 left-0 w-full h-1 bg-brand/15 text-brand`}
+                          ></div>
+                        )}
 
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className={`px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r ${post.gradient} text-white`}>
-                          {post.category}
-                        </span>
-                        <span className="text-xs text-gray-500">{post.readTime}</span>
-                      </div>
-
-                      <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug">
-                        {post.title}
-                      </h3>
-
-                      <p className="mt-3 text-gray-400 line-clamp-3 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-
-                      <div className="mt-6 flex items-center justify-between">
-                        <div className="flex flex-wrap gap-2">
-                          {post.tags.slice(0, 3).map((tag) => (
-                            <span key={tag} className="px-2.5 py-1 bg-white/5 rounded-lg text-xs text-gray-500">
-                              {tag}
-                            </span>
-                          ))}
+                        <div className="flex items-center gap-3 mb-4">
+                          <span
+                            className={`px-3 py-1 rounded-lg text-xs font-semibold bg-brand/15 text-brand text-white`}
+                          >
+                            {post.category}
+                          </span>
+                          <span className="text-xs text-neutral-500">
+                            {post.readTime}
+                          </span>
                         </div>
-                        <span className="text-cyan-400 text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                          Read <ArrowForwardIcon className="w-4 h-4" />
-                        </span>
+
+                        <h3 className="text-xl lg:text-2xl font-bold text-white group-hover:text-brand transition-colors leading-snug">
+                          {post.title}
+                        </h3>
+
+                        <p className="mt-3 text-neutral-400 line-clamp-3 leading-relaxed">
+                          {post.excerpt}
+                        </p>
+
+                        <div className="mt-6 flex items-center justify-between">
+                          <div className="flex flex-wrap gap-2">
+                            {post.tags.slice(0, 3).map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-2.5 py-1 bg-white/5 rounded-lg text-xs text-neutral-500"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <span className="text-brand text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Read <ArrowForwardIcon className="w-4 h-4" />
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
                   </button>
                 </AnimateOnScroll>
               ))}
@@ -680,10 +787,10 @@ export default function Blog() {
       {/* All Posts Grid */}
       <section className="relative py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {activeCategory === 'All' && searchQuery === '' && (
+          {activeCategory === "All" && searchQuery === "" && (
             <AnimateOnScroll as="div" variant="up">
               <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                <span className="w-8 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></span>
+                <span className="w-8 h-1 bg-brand/60 rounded-full"></span>
                 All Articles
               </h2>
             </AnimateOnScroll>
@@ -692,60 +799,81 @@ export default function Blog() {
           {filteredPosts.length === 0 ? (
             <AnimateOnScroll as="div" variant="scale">
               <div className="text-center py-20">
-                <SearchIcon className="w-12 h-12 text-gray-700 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-400">No posts found</h3>
-                <p className="text-gray-600 mt-2">Try adjusting your search or filter</p>
+                <SearchIcon className="w-12 h-12 text-neutral-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-neutral-400">
+                  No posts found
+                </h3>
+                <p className="text-neutral-500 mt-2">
+                  Try adjusting your search or filter
+                </p>
               </div>
             </AnimateOnScroll>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredPosts.map((post, index) => (
-                <AnimateOnScroll key={post.id} as="div" variant="scale" delay={index % 6}>
+                <AnimateOnScroll
+                  key={post.id}
+                  as="div"
+                  variant="scale"
+                  delay={index % 6}
+                >
                   <button
                     onClick={() => handlePostClick(post.id)}
                     className="block w-full text-left group shine-wrap h-full"
                   >
-                    <div className="relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 h-full flex flex-col">
+                    <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col">
                       {/* Thumbnail Image */}
                       {post.thumbnail && (
                         <div className="relative h-44 overflow-hidden">
-                          <div className={`absolute inset-0 bg-gradient-to-br ${post.gradient} opacity-15`}></div>
-                          <img src={post.thumbnail} alt={`${post.title} — Point Zero blog thumbnail`} loading="lazy" decoding="async" width="400" height="220" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                          <div
+                            className={`absolute inset-0 bg-brand/8 opacity-15`}
+                          ></div>
+                          <img
+                            src={post.thumbnail}
+                            alt={`${post.title} — Point Zero blog thumbnail`}
+                            loading="lazy"
+                            decoding="async"
+                            width="400"
+                            height="220"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                         </div>
                       )}
 
                       <div className="p-6 flex flex-col flex-grow">
-                      {/* Category badge */}
-                      <div className="flex items-center justify-between mb-4">
-                        <span className={`px-3 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r ${post.gradient} bg-clip-text text-transparent border border-white/10`}>
-                          {post.category}
-                        </span>
-                        <span className="text-xs text-gray-600 flex items-center gap-1">
-                          <AccessTimeIcon className="w-3.5 h-3.5" />
-                          {post.readTime}
-                        </span>
-                      </div>
+                        {/* Category badge */}
+                        <div className="flex items-center justify-between mb-4">
+                          <span
+                            className="px-3 py-1 rounded-lg text-xs font-semibold bg-brand/15 text-brand border border-white/10"
+                          >
+                            {post.category}
+                          </span>
+                          <span className="text-xs text-neutral-500 flex items-center gap-1">
+                            <AccessTimeIcon className="w-3.5 h-3.5" />
+                            {post.readTime}
+                          </span>
+                        </div>
 
-                      <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors leading-snug line-clamp-2">
-                        {post.title}
-                      </h3>
+                        <h3 className="text-lg font-bold text-white group-hover:text-brand transition-colors leading-snug line-clamp-2">
+                          {post.title}
+                        </h3>
 
-                      <p className="mt-3 text-gray-400 text-sm line-clamp-3 leading-relaxed flex-grow">
-                        {post.excerpt}
-                      </p>
+                        <p className="mt-3 text-neutral-400 text-sm line-clamp-3 leading-relaxed flex-grow">
+                          {post.excerpt}
+                        </p>
 
-                      <div className="mt-5 flex items-center justify-between pt-4 border-t border-white/5">
-                        <span className="text-xs text-gray-600">
-                          {formatDate(post.date)}
-                        </span>
-                        <span className="text-cyan-400 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                          Read
-                          <ArrowForwardIcon className="w-4 h-4" />
-                        </span>
+                        <div className="mt-5 flex items-center justify-between pt-4 border-t border-white/10">
+                          <span className="text-xs text-neutral-500">
+                            {formatDate(post.date)}
+                          </span>
+                          <span className="text-brand text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read
+                            <ArrowForwardIcon className="w-4 h-4" />
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
                   </button>
                 </AnimateOnScroll>
               ))}
@@ -757,22 +885,41 @@ export default function Blog() {
       {/* CTA Section */}
       <section className="relative py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimateOnScroll as="div" variant="scale" className="relative shine-wrap">
-            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
-            <div className="relative p-12 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl transition-all duration-300 hover:border-cyan-500/20">
+          <AnimateOnScroll
+            as="div"
+            variant="scale"
+            className="relative shine-wrap"
+          >
+            <div className="relative p-12 bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-3xl transition-all duration-300 hover:border-brand/20">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Got a Project Idea?
               </h2>
-              <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                We turn ideas into shipped products. Let's talk about what we can build together.
+              <p className="text-neutral-400 mb-8 max-w-xl mx-auto">
+                We turn ideas into shipped products. Let's talk about what we
+                can build together.
               </p>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105"
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-full transition-all duration-300 hover:bg-neutral-200 hover:scale-[1.02]"
               >
                 Start a Conversation
                 <ArrowForwardIcon className="w-5 h-5" />
-              </a>
+              </Link>
+              <p className="mt-6 text-sm text-neutral-500">
+                Or explore{" "}
+                <Link to="/services/ai-development-nepal" className="text-neutral-300 hover:text-brand underline-offset-4 hover:underline">
+                  AI development
+                </Link>
+                ,{" "}
+                <Link to="/services/web-development-nepal" className="text-neutral-300 hover:text-brand underline-offset-4 hover:underline">
+                  web development
+                </Link>
+                {" "}and{" "}
+                <Link to="/services/mobile-app-development-nepal" className="text-neutral-300 hover:text-brand underline-offset-4 hover:underline">
+                  mobile app development
+                </Link>
+                .
+              </p>
             </div>
           </AnimateOnScroll>
         </div>

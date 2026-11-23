@@ -111,11 +111,11 @@ function loadBlogIndex() {
 const routes = [
   {
     path: '/',
-    title: 'Point Zero — AI, RAG & Software Development Company in Nepal',
+    title: 'AI & Software Development Company in Nepal | Point Zero',
     description:
-      'Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps for startups and enterprises. Free discovery call.',
+      'Point Zero builds custom AI agents, RAG chatbots, websites, mobile apps and software solutions for startups and businesses in Nepal and worldwide.',
     keywords:
-      'software company in Nepal, AI development Nepal, RAG development Nepal, LLM developer Nepal, mobile app development Nepal, web development Nepal, hire developers Nepal, Pointzero',
+      'software development company Nepal, AI development company Nepal, software company Kathmandu, RAG chatbot development, web development Nepal, mobile app development Nepal, hire developers Nepal, Point Zero',
     h1: 'AI, RAG and Software Development Company in Nepal',
     bodyCopy:
       'Point Zero is a software development studio in Kathmandu, Nepal building production-grade AI agents, RAG chatbots, websites, mobile apps and custom software for startups and enterprises worldwide.',
@@ -123,11 +123,11 @@ const routes = [
   },
   {
     path: '/services',
-    title: 'Services — AI, RAG, Web, Mobile, UI/UX & DevOps | Point Zero',
+    title: 'Software Development Services in Nepal | Point Zero',
     description:
-      'Hire Point Zero for AI/RAG development, web apps, mobile apps, UI/UX, MVP build and DevOps. Trusted by startups and enterprises in Nepal and worldwide.',
+      "Explore Point Zero's AI, RAG, web, mobile, UI/UX, software engineering, QA and DevOps services for startups and businesses.",
     keywords:
-      'AI development services Nepal, RAG development services, LLM integration services, web development services Nepal, mobile app services Nepal, UI/UX design services, MVP development Nepal',
+      'software development services Nepal, IT services company Nepal, custom software development services, AI development services, web development Nepal, mobile app services Nepal, UI/UX design services, MVP development Nepal',
     h1: 'Software Development Services in Nepal',
     bodyCopy:
       'Point Zero builds AI agents, RAG chatbots, web platforms, mobile apps and MVPs. We work with Claude, OpenAI GPT, Google Gemini and open Llama models, with vector databases (pgvector, Pinecone, Weaviate, Qdrant) and modern stacks (React, Next.js, Flutter, Django, Node.js, PostgreSQL).',
@@ -135,9 +135,9 @@ const routes = [
   },
   {
     path: '/services/ai-development-nepal',
-    title: 'AI Development Company in Nepal — RAG, Agents & LLMs | Point Zero',
+    title: 'AI Development Company in Nepal | AI Agents & LLM Apps',
     description:
-      'Hire Point Zero — the top AI development company in Nepal. We ship RAG chatbots, AI agents and LLM apps with Claude, GPT, Gemini & Llama. Free discovery call.',
+      'Build intelligent AI agents, LLM applications and business automations with Point Zero. Custom AI development for startups and enterprises.',
     keywords:
       'AI development company Nepal, AI software development Nepal, RAG development Nepal, LLM development Nepal, AI agents Nepal, Claude developer Nepal, OpenAI integration Nepal, vector database Nepal, hire AI engineer Nepal',
     h1: 'AI Development Company in Nepal',
@@ -147,9 +147,9 @@ const routes = [
   },
   {
     path: '/services/rag-chatbot-development',
-    title: 'RAG Chatbot Development — Claude, GPT, Gemini | Point Zero',
+    title: 'RAG Chatbot Development Company | Point Zero Nepal',
     description:
-      'Production RAG chatbot development by Point Zero. Hybrid retrieval, re-ranking, evals and grounded citations. Pilot in 2–3 weeks from USD 3,000.',
+      'Build accurate AI chatbots grounded in your business documents and data using RAG, vector databases, LLMs and custom integrations.',
     keywords:
       'RAG chatbot development, RAG development Nepal, retrieval augmented generation, Claude RAG, GPT RAG, Gemini RAG, pgvector chatbot, Pinecone chatbot, AI knowledge base chatbot, LLM chatbot Nepal',
     h1: 'RAG Chatbot Development',
@@ -159,9 +159,9 @@ const routes = [
   },
   {
     path: '/services/web-development-nepal',
-    title: 'Web Development Company in Nepal — React, Next.js | Point Zero',
+    title: 'Web Development Company in Nepal | Point Zero',
     description:
-      'Top web development company in Kathmandu, Nepal. Marketing sites, SaaS, eCommerce on React, Next.js, Django, Node.js. From USD 1,500. Free quote.',
+      'Point Zero develops modern websites, SaaS platforms, business applications and custom web solutions using React, Next.js and Django.',
     keywords:
       'web development company Nepal, website development Kathmandu, React developer Nepal, Next.js developer Nepal, Django developer Nepal, Node.js developer Nepal, SaaS development Nepal, eCommerce development Nepal',
     h1: 'Web Development Company in Nepal',
@@ -171,9 +171,9 @@ const routes = [
   },
   {
     path: '/services/mobile-app-development-nepal',
-    title: 'Mobile App Development Company in Nepal — Flutter, iOS, Android | Point Zero',
+    title: 'Mobile App Development Company in Nepal | Point Zero',
     description:
-      'Top mobile app development company in Kathmandu, Nepal. iOS & Android with Flutter, React Native, Swift, Kotlin. From USD 2,500. Free quote.',
+      'Build professional iOS and Android applications with Point Zero. Flutter, React Native and native mobile app development for businesses.',
     keywords:
       'mobile app development company Nepal, Flutter developer Nepal, React Native developer Nepal, iOS developer Nepal, Android developer Nepal, Swift Kotlin Nepal, hire mobile developer Nepal, app development cost Nepal',
     h1: 'Mobile App Development Company in Nepal',
@@ -183,9 +183,9 @@ const routes = [
   },
   {
     path: '/services/mvp-development',
-    title: 'MVP Development Company — Launch in 8–10 Weeks | Point Zero',
+    title: 'MVP Development Company | SaaS Development Nepal',
     description:
-      'Point Zero builds startup MVPs end to end — auth, billing, admin, analytics. Lean scope, weekly demos, launch in 8–10 weeks. From USD 6,000.',
+      "Turn your business idea into a working SaaS platform or MVP with Point Zero's product engineering and software development team.",
     keywords:
       'MVP development company, MVP development Nepal, startup MVP, SaaS MVP, Lean MVP, build an MVP fast, MVP cost, MVP development agency, hire MVP team Nepal',
     h1: 'MVP Development for Ambitious Founders',
@@ -195,9 +195,9 @@ const routes = [
   },
   {
     path: '/services/ui-ux-design-nepal',
-    title: 'UI/UX Design Company in Nepal — Product, Web & Mobile | Point Zero',
+    title: 'UI/UX Design Company in Nepal | Point Zero',
     description:
-      'Top UI/UX design company in Kathmandu, Nepal. Product discovery, visual design, design systems, accessibility and CRO. Landing page design from USD 600.',
+      'Point Zero designs user-focused mobile apps, websites and digital products with research-led UX, Figma and professional design systems.',
     keywords:
       'UI UX design Nepal, UI UX design company Kathmandu, product design Nepal, Figma designer Nepal, design system Nepal, mobile app design Nepal, web design Nepal, UX research Nepal',
     h1: 'UI/UX Design Company in Nepal',
@@ -207,9 +207,9 @@ const routes = [
   },
   {
     path: '/services/devops-cloud-nepal',
-    title: 'DevOps & Cloud Infrastructure Services in Nepal | Point Zero',
+    title: 'DevOps and Cloud Infrastructure Services | Point Zero',
     description:
-      'DevOps & cloud services in Nepal — AWS, GCP, Terraform, CI/CD, observability, security and on-call. Cloud audit from USD 800. Free discovery call.',
+      'Build reliable cloud infrastructure with DevOps automation, CI/CD, cloud architecture, monitoring and deployment engineering.',
     keywords:
       'DevOps services Nepal, cloud infrastructure Nepal, AWS consultant Nepal, GCP consultant Nepal, Terraform Nepal, Kubernetes Nepal, SRE Nepal, observability Nepal, CI CD Nepal',
     h1: 'DevOps & Cloud Infrastructure in Nepal',
@@ -219,10 +219,10 @@ const routes = [
   },
   {
     path: '/about',
-    title: 'About Point Zero — Software & AI Studio in Kathmandu, Nepal',
+    title: 'About Point Zero | Software Engineering Company in Nepal',
     description:
-      'Meet the Point Zero team. We are a Kathmandu-based software studio shipping AI, web and mobile products since 2022 for clients in Nepal, the US and EU.',
-    keywords: 'about Pointzero, Point Zero team, software studio Nepal, AI company Kathmandu',
+      'Meet Point Zero, a Kathmandu-based digital product studio building AI, web and mobile solutions for ambitious businesses.',
+    keywords: 'about Point Zero, Point Zero team, software studio Nepal, AI company Kathmandu',
     h1: 'About Point Zero',
     bodyCopy:
       'Point Zero is a Nepal-based digital product studio founded in 2022. We partner with founders and product teams to design and ship AI, web and mobile software end-to-end.',
@@ -230,9 +230,9 @@ const routes = [
   },
   {
     path: '/industries',
-    title: 'Industries — Healthcare, Finance, EdTech, Logistics & More | Point Zero',
+    title: 'Industry Software Development | Healthcare, Fintech & More',
     description:
-      'Point Zero ships AI, web and mobile software across 13 industries — healthcare, finance, EdTech, logistics, retail, travel, legal, manufacturing and more.',
+      'Point Zero builds industry-focused AI, web and mobile software for healthcare, finance, education, logistics, retail, travel and more.',
     keywords:
       'healthcare app developer Nepal, fintech developer Nepal, EdTech developer Nepal, logistics software Nepal, retail software Nepal, travel app developer Nepal, legal tech Nepal, industry-specific software Nepal',
     h1: 'Industries we ship in — Healthcare, Finance, EdTech, Logistics and more',
@@ -242,11 +242,11 @@ const routes = [
   },
   {
     path: '/project',
-    title: 'Our Work — AI, Web & Mobile Case Studies | Point Zero',
+    title: 'Case Studies & Portfolio | Point Zero Software Projects',
     description:
-      'Selected case studies from Point Zero: WellNepa coaching marketplace, SajiloDera, Bachelor Question Bank, PyMentor AI Interview, ChatMandu and more.',
+      'Explore Point Zero case studies across AI, web and mobile — SajiloDera, Blinkit Study, MiRi Tubes, LSP One Stop, Bachelor Question Bank, Finland Citizenship 2027 and more.',
     keywords:
-      'Pointzero projects, software case studies Nepal, WellNepa, SajiloDera, Bachelor Question Bank, PyMentor, ChatMandu',
+      'Point Zero projects, software case studies Nepal, WellNepa, SajiloDera, Bachelor Question Bank, PyMentor, ChatMandu',
     h1: 'Selected Work & Case Studies',
     bodyCopy:
       'Real products we have shipped — AI agents, marketplaces, fintech tools, EdTech apps, and more. Each case study covers the brief, stack, results and growth metrics.',
@@ -254,9 +254,9 @@ const routes = [
   },
   {
     path: '/blog',
-    title: 'Blog — AI, RAG, Web & Mobile Engineering | Point Zero',
+    title: 'Engineering Blog | AI, RAG, Web & Mobile | Point Zero',
     description:
-      'Insights, case studies and engineering deep-dives on AI agents, RAG, vector databases, mobile and web development from the Point Zero team.',
+      'Practical engineering articles on AI agents, RAG architecture, Flutter, React, Django and software delivery from the Point Zero team.',
     keywords:
       'AI blog Nepal, RAG tutorials, LLM engineering blog, web development blog Nepal, software engineering insights',
     h1: 'Point Zero Engineering Blog',
@@ -266,11 +266,11 @@ const routes = [
   },
   {
     path: '/contact',
-    title: 'Contact Point Zero — Start Your AI or Software Project',
+    title: 'Contact Point Zero | Start Your Software Project',
     description:
-      'Tell us about your AI, web or mobile project. Free discovery call. Email hi.pointzero@gmail.com or call +977 9860486269. Reply within one business day.',
+      'Contact Point Zero to discuss AI development, web applications, mobile apps and custom software. Get a free project consultation.',
     keywords:
-      'contact Pointzero, hire AI developers Nepal, hire web developers Nepal, software development quote Nepal',
+      'contact Point Zero, hire AI developers Nepal, hire web developers Nepal, software development quote Nepal',
     h1: 'Talk to a Point Zero Engineer',
     bodyCopy:
       'Send your brief and we will respond within one business day with next steps. Free discovery call, transparent pricing, fixed-price or T&M with milestones.',
@@ -304,6 +304,15 @@ function buildSnapshot(template, route) {
   html = html.replace(
     /<meta\s+name="keywords"\s+content="[^"]*"\s*\/>/,
     `<meta name="keywords" content="${escapeAttr(route.keywords)}" />`,
+  );
+
+  // Robots — category/thin pages can opt into noindex
+  const robotsContent = route.noindex
+    ? 'noindex, nofollow'
+    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+  html = html.replace(
+    /<meta\s+name="robots"\s+content="[^"]*"\s*\/>/,
+    `<meta name="robots" content="${robotsContent}" />`,
   );
 
   // Canonical
@@ -640,18 +649,19 @@ function main() {
     written++;
   }
 
-  // Per-category landing pages — long-tail SEO target for category-level
-  // searches ("nepal case studies", "engineering blog nepal", etc.).
+  // Category landing pages exist for UX navigation but stay noindex to avoid
+  // thin/duplicate indexable category URLs competing with article pages.
   const categories = [...new Set(posts.map((p) => p.category).filter(Boolean))];
   for (const category of categories) {
     const categorySlug = categoryToSlug(category);
     const route = {
       path: `/blog/category/${categorySlug}`,
-      title: `${category} — Point Zero Blog`,
-      description: `${category} posts from Point Zero — engineering deep-dives, case studies and how-tos shipped by an AI & software studio in Kathmandu, Nepal.`,
+      title: `${category} Articles | Point Zero Blog`,
+      description: `${category} articles from Point Zero — practical engineering notes on AI, software and product delivery from Kathmandu, Nepal.`,
       keywords: `${category} blog Nepal, Point Zero ${category}, Nepal software ${category}, engineering blog Nepal`,
       h1: `${category} — Point Zero Blog`,
       bodyCopy: `All ${category} posts from Point Zero. Includes case studies and engineering deep-dives written by a senior team shipping AI, web and mobile software in Kathmandu, Nepal.`,
+      noindex: true,
     };
     const html = buildSnapshot(template, route);
     const outDir = join(DIST, 'blog', 'category', categorySlug);
@@ -660,10 +670,10 @@ function main() {
     written++;
   }
 
-  // Auto-generated blog sitemap. robots.txt already advertises this URL, so
-  // search engines pick it up without manual maintenance as posts change.
+  // Auto-generated blog sitemap — indexable posts + blog index only (no categories).
+  const today = new Date().toISOString().slice(0, 10);
   const blogUrls = posts.map((p) => {
-    const lastmod = p.date && /^\d{4}-\d{2}-\d{2}/.test(p.date) ? p.date.slice(0, 10) : '2026-06-20';
+    const lastmod = p.date && /^\d{4}-\d{2}-\d{2}/.test(p.date) ? p.date.slice(0, 10) : today;
     return `  <url>
     <loc>${ORIGIN}/blog/${p.slug}</loc>
     <lastmod>${lastmod}</lastmod>
@@ -671,23 +681,14 @@ function main() {
     <priority>0.7</priority>
   </url>`;
   });
-  const categoryUrls = categories.map((c) => {
-    return `  <url>
-    <loc>${ORIGIN}/blog/category/${categoryToSlug(c)}</loc>
-    <lastmod>2026-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
-  });
   const blogSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>${ORIGIN}/blog</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-${categoryUrls.join('\n')}
 ${blogUrls.join('\n')}
 </urlset>
 `;
@@ -757,8 +758,26 @@ ${rssItems}
 `;
   writeFileSync(join(DIST, 'rss.xml'), rssXml, 'utf8');
 
+  // Real HTTP 404 document for Netlify (status 404 → /404.html).
+  // Keeps crawlers from indexing homepage meta on unknown URLs.
+  const notFoundRoute = {
+    path: '/404',
+    title: 'Page Not Found | Point Zero',
+    description:
+      'The page you requested could not be found. Return to Point Zero to explore AI, web and mobile software services.',
+    keywords: 'Point Zero, 404',
+    h1: 'Page not found',
+    bodyCopy:
+      'This URL does not match any page on pointzero.com.np. Visit the homepage, services, or projects.',
+    noindex: true,
+    ogImage: '/og-image.png',
+  };
+  const notFoundHtml = buildSnapshot(template, notFoundRoute);
+  writeFileSync(join(DIST, '404.html'), notFoundHtml, 'utf8');
+  written++;
+
   console.log(
-    `[prerender] generated ${written} static HTML snapshots in dist/ (${posts.length} blog posts) + sitemap-blog.xml + rss.xml`,
+    `[prerender] generated ${written} static HTML snapshots in dist/ (${posts.length} blog posts) + sitemap-blog.xml + rss.xml + 404.html`,
   );
 }
 

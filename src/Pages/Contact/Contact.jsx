@@ -1,101 +1,105 @@
-import React, { useState, Suspense } from 'react';
-import Navbar from '../../components/Navbar';
-import Footer from '../Home/Components/Footer';
-import StarsCanvas from '../../components/StarsLazy';
-import Seo from '../../components/Seo';
+import React, { useState, Suspense } from "react";
+import Navbar from "../../components/Navbar";
+import Footer from "../Home/Components/Footer";
+import StarsCanvas from "../../components/StarsLazy";
+import Seo from "../../components/Seo";
 import {
   trackContactSubmit,
   trackContactSuccess,
   trackContactError,
   trackPhoneClick,
   trackEmailClick,
-} from '../../lib/analytics';
+} from "../../lib/analytics";
 
 // Icons
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import SendIcon from '@mui/icons-material/Send';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import SendIcon from "@mui/icons-material/Send";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Input } from "../../components/ui/input";
+import { Textarea } from "../../components/ui/textarea";
+import { Button } from "../../components/ui/button";
+import { cn } from "../../lib/utils";
 
 // Mailto is the universal fallback that works without backend setup. When a
 // real form endpoint (Formspree, Web3Forms, Netlify Forms, custom API) is
 // wired via VITE_CONTACT_FORM_ENDPOINT, we POST to it instead.
-const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || '';
-const CONTACT_EMAIL = 'hi.pointzero@gmail.com';
+const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || "";
+const CONTACT_EMAIL = "hi.pointzero@gmail.com";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const PHONE_RE = /^[+\d][\d\s\-().]{6,}$/;
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: '' });
+      setErrors({ ...errors, [e.target.name]: "" });
     }
   };
 
   function validate(data) {
     const next = {};
     if (!data.name.trim() || data.name.trim().length < 2) {
-      next.name = 'Please enter your name.';
+      next.name = "Please enter your name.";
     }
     if (!EMAIL_RE.test(data.email.trim())) {
-      next.email = 'Enter a valid email address.';
+      next.email = "Enter a valid email address.";
     }
     if (data.phone.trim() && !PHONE_RE.test(data.phone.trim())) {
-      next.phone = 'Enter a valid phone number, or leave blank.';
+      next.phone = "Enter a valid phone number, or leave blank.";
     }
     if (!data.subject.trim() || data.subject.trim().length < 3) {
-      next.subject = 'Give your message a short subject.';
+      next.subject = "Give your message a short subject.";
     }
     if (!data.message.trim() || data.message.trim().length < 10) {
-      next.message = 'Tell us a bit more — at least 10 characters.';
+      next.message = "Tell us a bit more — at least 10 characters.";
     }
     return next;
   }
 
   function openMailtoFallback(data) {
     // Mailto is rate-limit safe and works on every device without a backend.
-    const subject = `[Point Zero] ${data.subject || 'New project enquiry'}`;
+    const subject = `[Point Zero] ${data.subject || "New project enquiry"}`;
     const lines = [
       `Name: ${data.name}`,
       `Email: ${data.email}`,
-      data.phone ? `Phone: ${data.phone}` : '',
-      '',
+      data.phone ? `Phone: ${data.phone}` : "",
+      "",
       data.message,
-      '',
-      '— Sent from pointzero.com.np/contact',
+      "",
+      "— Sent from pointzero.com.np/contact",
     ].filter(Boolean);
-    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
     window.location.href = href;
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitError('');
+    setSubmitError("");
 
     const fieldErrors = validate(formData);
     if (Object.keys(fieldErrors).length > 0) {
       setErrors(fieldErrors);
-      trackContactError('validation');
+      trackContactError("validation");
       return;
     }
     setErrors({});
@@ -105,11 +109,14 @@ export default function Contact() {
     try {
       if (FORM_ENDPOINT) {
         const res = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
           body: JSON.stringify({
             ...formData,
-            source: 'pointzero.com.np/contact',
+            source: "pointzero.com.np/contact",
             ts: new Date().toISOString(),
           }),
         });
@@ -121,13 +128,13 @@ export default function Contact() {
         openMailtoFallback(formData);
       }
       setSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       trackContactSuccess({ subject: formData.subject });
     } catch (err) {
       setSubmitError(
         "Couldn't send the message. Please email hi.pointzero@gmail.com or call +977 9860486269.",
       );
-      trackContactError(err?.message || 'network');
+      trackContactError(err?.message || "network");
     } finally {
       setIsSubmitting(false);
     }
@@ -136,75 +143,87 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: <EmailIcon className="w-6 h-6" />,
-      title: 'Email Us',
-      content: 'hi.pointzero@gmail.com',
-      link: 'mailto:hi.pointzero@gmail.com',
-      gradient: 'from-cyan-500 to-blue-600',
+      title: "Email Us",
+      content: "hi.pointzero@gmail.com",
+      link: "mailto:hi.pointzero@gmail.com",
+      gradient: "from-brand/40 to-brand/10",
     },
     {
       icon: <PhoneIcon className="w-6 h-6" />,
-      title: 'Call Us',
-      content: '+977 9860486269',
-      link: 'tel:+9779860486269',
-      gradient: 'from-purple-500 to-pink-600',
+      title: "Call Us",
+      content: "+977 9860486269",
+      link: "tel:+9779860486269",
+      gradient: "from-brand/30 to-white/10",
     },
     {
       icon: <LocationOnIcon className="w-6 h-6" />,
-      title: 'Visit Us',
-      content: 'Kathmandu, Nepal',
-      link: 'https://www.google.com/maps/search/?api=1&query=Kathmandu%2C+Nepal',
+      title: "Visit Us",
+      content: "Kathmandu, Nepal",
+      link: "https://www.google.com/maps/search/?api=1&query=Kathmandu%2C+Nepal",
       external: true,
-      gradient: 'from-orange-500 to-red-600',
+      gradient: "from-orange-500 to-red-600",
     },
     {
       icon: <AccessTimeIcon className="w-6 h-6" />,
-      title: 'Working Hours',
-      content: 'Sun - Fri: 9AM - 6PM',
-      link: '',
-      gradient: 'from-green-500 to-emerald-600',
+      title: "Working Hours",
+      content: "Sun - Fri: 9AM - 6PM",
+      link: "",
+      gradient: "from-green-500 to-emerald-600",
     },
   ];
 
   const socialLinks = [
-    { icon: <FacebookIcon />, link: 'https://www.facebook.com/pointzero.com.np/', label: 'Facebook' },
-    { icon: <InstagramIcon />, link: 'https://www.instagram.com/pointzero.com.np/', label: 'Instagram' },
-    { icon: <LinkedInIcon />, link: 'https://www.linkedin.com/company/pointzero-np/', label: 'LinkedIn' },
+    {
+      icon: <FacebookIcon />,
+      link: "https://www.facebook.com/pointzero.com.np/",
+      label: "Facebook",
+    },
+    {
+      icon: <InstagramIcon />,
+      link: "https://www.instagram.com/pointzero.com.np/",
+      label: "Instagram",
+    },
+    {
+      icon: <LinkedInIcon />,
+      link: "https://www.linkedin.com/company/pointzero-np/",
+      label: "LinkedIn",
+    },
   ];
 
   return (
     <div className="bg-black min-h-screen">
       <Seo
-        title="Contact Point Zero — Start Your AI or Software Project"
-        description="Tell us about your AI, web or mobile project. Free discovery call. Email hi.pointzero@gmail.com or call +977 9860486269. Reply within one business day."
+        title="Contact Point Zero | Start Your Software Project"
+        description="Contact Point Zero to discuss AI development, web applications, mobile apps and custom software. Get a free project consultation."
         keywords="contact Pointzero, hire AI developers Nepal, hire web developers Nepal, software development quote Nepal, AI consultant Kathmandu"
         path="/contact"
         image="https://pointzero.com.np/og/contact.png"
         breadcrumbs={[
-          { name: 'Home', path: '/' },
-          { name: 'Contact', path: '/contact' },
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
         ]}
         jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'ContactPage',
-          name: 'Contact Pointzero',
-          url: 'https://pointzero.com.np/contact',
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact Point Zero",
+          url: "https://pointzero.com.np/contact",
           mainEntity: {
-            '@type': 'Organization',
-            name: 'Pointzero',
-            email: 'hi.pointzero@gmail.com',
-            telephone: '+977-9860486269',
+            "@type": "Organization",
+            name: "Point Zero",
+            email: "hi.pointzero@gmail.com",
+            telephone: "+977-9860486269",
             address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Kathmandu',
-              addressCountry: 'NP',
+              "@type": "PostalAddress",
+              addressLocality: "Kathmandu",
+              addressCountry: "NP",
             },
             contactPoint: {
-              '@type': 'ContactPoint',
-              contactType: 'sales',
-              email: 'hi.pointzero@gmail.com',
-              telephone: '+977-9860486269',
-              areaServed: 'Worldwide',
-              availableLanguage: ['English', 'Nepali'],
+              "@type": "ContactPoint",
+              contactType: "sales",
+              email: "hi.pointzero@gmail.com",
+              telephone: "+977-9860486269",
+              areaServed: "Worldwide",
+              availableLanguage: ["English", "Nepali"],
             },
           },
         }}
@@ -217,28 +236,20 @@ export default function Contact() {
           <StarsCanvas />
         </Suspense>
 
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 -left-40 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl"></div>
-        </div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8">
-              <RocketLaunchIcon className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm text-gray-300">Let's Connect</span>
+              <RocketLaunchIcon className="w-4 h-4 text-brand" />
+              <span className="text-sm text-neutral-300">Let's Connect</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-              Get In{' '}
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Touch
-              </span>
+              Get In <span className="text-brand">Touch</span>
             </h1>
 
-            <p className="mt-8 text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Have a project in mind? We'd love to hear from you. Send us a message
-              and we'll respond as soon as possible.
+            <p className="mt-8 text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+              Have a project in mind? We'd love to hear from you. Send us a
+              message and we'll respond as soon as possible.
             </p>
           </div>
         </div>
@@ -249,14 +260,18 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => {
-              const Wrapper = info.link ? 'a' : 'div';
+              const Wrapper = info.link ? "a" : "div";
               const wrapperProps = info.link
                 ? {
                     href: info.link,
-                    ...(info.external ? { target: '_blank', rel: 'noreferrer' } : {}),
+                    ...(info.external
+                      ? { target: "_blank", rel: "noreferrer" }
+                      : {}),
                     onClick: () => {
-                      if (info.link.startsWith('mailto:')) trackEmailClick('contact_card');
-                      else if (info.link.startsWith('tel:')) trackPhoneClick('contact_card');
+                      if (info.link.startsWith("mailto:"))
+                        trackEmailClick("contact_card");
+                      else if (info.link.startsWith("tel:"))
+                        trackPhoneClick("contact_card");
                     },
                   }
                 : {};
@@ -264,15 +279,21 @@ export default function Contact() {
                 <Wrapper
                   key={index}
                   {...wrapperProps}
-                  className="group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-6 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                  className="group relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                 >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${info.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
+                  <div
+                    className={`absolute -inset-1 bg-brand/15 ring-1 ring-brand/25 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}
+                  ></div>
                   <div className="relative">
-                    <div className={`inline-flex p-3 bg-gradient-to-br ${info.gradient} rounded-xl mb-4`}>
+                    <div
+                      className={`inline-flex p-3 bg-white/[0.04] ring-1 ring-white/10 text-brand rounded-xl mb-4`}
+                    >
                       <span className="text-white">{info.icon}</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-1">{info.title}</h3>
-                    <p className="text-gray-400 text-sm">{info.content}</p>
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      {info.title}
+                    </h3>
+                    <p className="text-neutral-400 text-sm">{info.content}</p>
                   </div>
                 </Wrapper>
               );
@@ -288,30 +309,28 @@ export default function Contact() {
             {/* Left Side - Info */}
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Let's Build Something{' '}
-                <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-                  Amazing Together
-                </span>
+                Let's Build Something{" "}
+                <span className="text-brand">Amazing Together</span>
               </h2>
 
-              <p className="text-gray-400 leading-relaxed mb-8">
-                Whether you're looking to build a new website, develop a mobile app,
-                or transform your digital presence, we're here to help. Our team of
-                experts is ready to turn your vision into reality.
+              <p className="text-neutral-400 leading-relaxed mb-8">
+                Whether you're looking to build a new website, develop a mobile
+                app, or transform your digital presence, we're here to help. Our
+                team of experts is ready to turn your vision into reality.
               </p>
 
               <div className="space-y-4 mb-8">
                 {[
-                  'Free consultation and project estimation',
-                  'Dedicated team of experienced developers',
-                  '24/7 support and maintenance',
-                  'On-time delivery guaranteed',
+                  "Free consultation and project estimation",
+                  "Dedicated team of experienced developers",
+                  "24/7 support and maintenance",
+                  "On-time delivery guaranteed",
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <div className="p-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full">
+                    <div className="p-1 bg-brand/20 ring-1 ring-brand/30 rounded-full">
                       <CheckCircleIcon className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-gray-300">{item}</span>
+                    <span className="text-neutral-300">{item}</span>
                   </div>
                 ))}
               </div>
@@ -327,7 +346,7 @@ export default function Contact() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`Point Zero on ${social.label}`}
-                      className="p-3 bg-white/5 border border-white/10 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                      className="p-3 bg-white/5 border border-white/10 rounded-xl text-neutral-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
                     >
                       {social.icon}
                     </a>
@@ -338,171 +357,234 @@ export default function Contact() {
 
             {/* Right Side - Form */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl"></div>
-
-              <div className="relative bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10">
+              <div className="relative bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-10">
                 {submitted ? (
                   <div className="text-center py-12">
-                    <div className="inline-flex p-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mb-6">
+                    <div className="inline-flex p-4 bg-white/[0.04] ring-1 ring-white/10 rounded-full mb-6 text-brand">
                       <CheckCircleIcon className="w-12 h-12 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">Thank You!</h3>
-                    <p className="text-gray-400 mb-6">
-                      Your message has been sent successfully. We'll get back to you soon!
+                    <h3 className="text-2xl font-bold text-white mb-4">
+                      Thank You!
+                    </h3>
+                    <p className="text-neutral-400 mb-6">
+                      Your message has been sent successfully. We'll get back to
+                      you soon!
                     </p>
-                    <button
+                    <Button
+                      type="button"
+                      variant="default"
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
                     >
                       Send Another Message
-                    </button>
+                    </Button>
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-2xl font-bold text-white mb-2">Send us a Message</h3>
-                    <p className="text-gray-400 mb-8">Fill out the form below and we'll get back to you shortly.</p>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      Send us a Message
+                    </h3>
+                    <p className="text-neutral-400 mb-8">
+                      Fill out the form below and we'll get back to you shortly.
+                    </p>
 
-                    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                    <form
+                      onSubmit={handleSubmit}
+                      noValidate
+                      className="space-y-6"
+                    >
                       {submitError && (
-                        <div role="alert" className="px-4 py-3 bg-red-500/10 border border-red-500/30 text-red-200 rounded-xl text-sm">
+                        <div
+                          role="alert"
+                          className="px-4 py-3 bg-red-500/10 border border-red-500/30 text-red-200 rounded-xl text-sm"
+                        >
                           {submitError}
                         </div>
                       )}
 
                       <div className="grid sm:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="contact-name" className="block text-sm font-medium text-gray-300 mb-2">
+                          <label
+                            htmlFor="contact-name"
+                            className="block text-sm font-medium text-neutral-300 mb-2"
+                          >
                             Your Name
                           </label>
-                          <input
+                          <Input
                             id="contact-name"
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            aria-invalid={errors.name ? 'true' : 'false'}
-                            aria-describedby={errors.name ? 'err-name' : undefined}
+                            aria-invalid={errors.name ? "true" : "false"}
+                            aria-describedby={
+                              errors.name ? "err-name" : undefined
+                            }
                             placeholder="John Doe"
-                            className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 ${
-                              errors.name
-                                ? 'border-red-500/60 focus:border-red-500 focus:ring-red-500'
-                                : 'border-white/10 focus:border-cyan-500 focus:ring-cyan-500'
-                            }`}
+                            className={cn(
+                              errors.name &&
+                                "border-red-500/60 focus-visible:border-red-500 focus-visible:ring-red-500",
+                            )}
                           />
                           {errors.name && (
-                            <p id="err-name" className="mt-2 text-xs text-red-300">{errors.name}</p>
+                            <p
+                              id="err-name"
+                              className="mt-2 text-xs text-red-300"
+                            >
+                              {errors.name}
+                            </p>
                           )}
                         </div>
                         <div>
-                          <label htmlFor="contact-email" className="block text-sm font-medium text-gray-300 mb-2">
+                          <label
+                            htmlFor="contact-email"
+                            className="block text-sm font-medium text-neutral-300 mb-2"
+                          >
                             Your Email
                           </label>
-                          <input
+                          <Input
                             id="contact-email"
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            aria-invalid={errors.email ? 'true' : 'false'}
-                            aria-describedby={errors.email ? 'err-email' : undefined}
+                            aria-invalid={errors.email ? "true" : "false"}
+                            aria-describedby={
+                              errors.email ? "err-email" : undefined
+                            }
                             placeholder="john@example.com"
-                            className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 ${
-                              errors.email
-                                ? 'border-red-500/60 focus:border-red-500 focus:ring-red-500'
-                                : 'border-white/10 focus:border-cyan-500 focus:ring-cyan-500'
-                            }`}
+                            className={cn(
+                              errors.email &&
+                                "border-red-500/60 focus-visible:border-red-500 focus-visible:ring-red-500",
+                            )}
                           />
                           {errors.email && (
-                            <p id="err-email" className="mt-2 text-xs text-red-300">{errors.email}</p>
+                            <p
+                              id="err-email"
+                              className="mt-2 text-xs text-red-300"
+                            >
+                              {errors.email}
+                            </p>
                           )}
                         </div>
                       </div>
 
                       <div className="grid sm:grid-cols-2 gap-6">
                         <div>
-                          <label htmlFor="contact-phone" className="block text-sm font-medium text-gray-300 mb-2">
+                          <label
+                            htmlFor="contact-phone"
+                            className="block text-sm font-medium text-neutral-300 mb-2"
+                          >
                             Phone Number
                           </label>
-                          <input
+                          <Input
                             id="contact-phone"
                             type="tel"
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            aria-invalid={errors.phone ? 'true' : 'false'}
-                            aria-describedby={errors.phone ? 'err-phone' : undefined}
+                            aria-invalid={errors.phone ? "true" : "false"}
+                            aria-describedby={
+                              errors.phone ? "err-phone" : undefined
+                            }
                             placeholder="+977 98XXXXXXXX"
-                            className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 ${
-                              errors.phone
-                                ? 'border-red-500/60 focus:border-red-500 focus:ring-red-500'
-                                : 'border-white/10 focus:border-cyan-500 focus:ring-cyan-500'
-                            }`}
+                            className={cn(
+                              errors.phone &&
+                                "border-red-500/60 focus-visible:border-red-500 focus-visible:ring-red-500",
+                            )}
                           />
                           {errors.phone && (
-                            <p id="err-phone" className="mt-2 text-xs text-red-300">{errors.phone}</p>
+                            <p
+                              id="err-phone"
+                              className="mt-2 text-xs text-red-300"
+                            >
+                              {errors.phone}
+                            </p>
                           )}
                         </div>
                         <div>
-                          <label htmlFor="contact-subject" className="block text-sm font-medium text-gray-300 mb-2">
+                          <label
+                            htmlFor="contact-subject"
+                            className="block text-sm font-medium text-neutral-300 mb-2"
+                          >
                             Subject
                           </label>
-                          <input
+                          <Input
                             id="contact-subject"
                             type="text"
                             name="subject"
                             value={formData.subject}
                             onChange={handleChange}
                             required
-                            aria-invalid={errors.subject ? 'true' : 'false'}
-                            aria-describedby={errors.subject ? 'err-subject' : undefined}
+                            aria-invalid={errors.subject ? "true" : "false"}
+                            aria-describedby={
+                              errors.subject ? "err-subject" : undefined
+                            }
                             placeholder="Project Inquiry"
-                            className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 ${
-                              errors.subject
-                                ? 'border-red-500/60 focus:border-red-500 focus:ring-red-500'
-                                : 'border-white/10 focus:border-cyan-500 focus:ring-cyan-500'
-                            }`}
+                            className={cn(
+                              errors.subject &&
+                                "border-red-500/60 focus-visible:border-red-500 focus-visible:ring-red-500",
+                            )}
                           />
                           {errors.subject && (
-                            <p id="err-subject" className="mt-2 text-xs text-red-300">{errors.subject}</p>
+                            <p
+                              id="err-subject"
+                              className="mt-2 text-xs text-red-300"
+                            >
+                              {errors.subject}
+                            </p>
                           )}
                         </div>
                       </div>
 
                       <div>
-                        <label htmlFor="contact-message" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label
+                          htmlFor="contact-message"
+                          className="block text-sm font-medium text-neutral-300 mb-2"
+                        >
                           Your Message
                         </label>
-                        <textarea
+                        <Textarea
                           id="contact-message"
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
                           required
                           rows={5}
-                          aria-invalid={errors.message ? 'true' : 'false'}
-                          aria-describedby={errors.message ? 'err-message' : undefined}
+                          aria-invalid={errors.message ? "true" : "false"}
+                          aria-describedby={
+                            errors.message ? "err-message" : undefined
+                          }
                           placeholder="Tell us about your project..."
-                          className={`w-full px-4 py-3 bg-white/5 border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-300 resize-none ${
-                            errors.message
-                              ? 'border-red-500/60 focus:border-red-500 focus:ring-red-500'
-                              : 'border-white/10 focus:border-cyan-500 focus:ring-cyan-500'
-                          }`}
+                          className={cn(
+                            errors.message &&
+                              "border-red-500/60 focus-visible:border-red-500 focus-visible:ring-red-500",
+                          )}
                         />
                         {errors.message && (
-                          <p id="err-message" className="mt-2 text-xs text-red-300">{errors.message}</p>
+                          <p
+                            id="err-message"
+                            className="mt-2 text-xs text-red-300"
+                          >
+                            {errors.message}
+                          </p>
                         )}
                       </div>
 
-                      <button
+                      <Button
                         type="submit"
+                        variant="default"
+                        size="lg"
                         disabled={isSubmitting}
-                        className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full"
                       >
                         {isSubmitting ? (
                           <>
-                            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                            <svg
+                              className="animate-spin h-5 w-5"
+                              viewBox="0 0 24 24"
+                            >
                               <circle
                                 className="opacity-25"
                                 cx="12"
@@ -526,7 +608,7 @@ export default function Contact() {
                             <SendIcon className="w-5 h-5" />
                           </>
                         )}
-                      </button>
+                      </Button>
                     </form>
                   </>
                 )}
@@ -540,8 +622,7 @@ export default function Contact() {
       <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-3xl blur-2xl"></div>
-            <div className="relative bg-gray-900/50 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden">
+            <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.64603902677!2d85.25610865!3d27.708954449999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2044600!5e0!3m2!1sen!2snp!4v1699000000000!5m2!1sen!2snp"
                 width="100%"

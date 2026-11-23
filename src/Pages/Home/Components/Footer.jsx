@@ -8,6 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate, Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png';
 import AnimateOnScroll from '../../../components/AnimateOnScroll';
+import { Button } from '../../../components/ui/button';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -34,49 +35,44 @@ export default function Footer() {
 
   const quickLinks = [
     { name: 'About Us', path: '/about' },
+    { name: 'All Services', path: '/services' },
+    { name: 'Industries', path: '/industries' },
     { name: 'Our Projects', path: '/project' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
-    <footer className='relative bg-gray-950 overflow-hidden'>
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Newsletter Section */}
+    <footer className='relative bg-neutral-950 overflow-hidden'>
       <div className='relative z-10 border-b border-white/10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
-          <AnimateOnScroll className='flex flex-col lg:flex-row items-center justify-between gap-8 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 shine-wrap transition-all duration-300 hover:border-cyan-500/20' as="div" variant="scale">
+          <AnimateOnScroll className='flex flex-col lg:flex-row items-center justify-between gap-8 bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-12 transition-all duration-300 hover:border-white/20' as="div" variant="scale">
             <div className='text-center lg:text-left'>
               <h3 className='text-2xl lg:text-3xl font-bold text-white'>
                 Ready to Start Your Project?
               </h3>
-              <p className='mt-2 text-gray-400'>
+              <p className='mt-2 text-neutral-400'>
                 Get in touch with us for a free consultation and quote.
               </p>
             </div>
-            <button
+            <Button
+              type="button"
+              size="lg"
               onClick={() => navigate("/contact")}
-              className='group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950'
+              className="group"
             >
               <span>Get Free Estimation</span>
               <ArrowForwardIcon className='w-5 h-5 transition-transform group-hover:translate-x-1' />
-            </button>
+            </Button>
           </AnimateOnScroll>
         </div>
       </div>
 
-      {/* Main Footer Content */}
       <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
 
-          {/* Company Info */}
           <div className='lg:col-span-1'>
-            <Link to="/" className='inline-block' aria-label="Pointzero — Home">
+            <Link to="/" className='inline-block' aria-label="Point Zero — Home">
               <img
                 src={logo}
                 alt="Point Zero — AI and software studio in Kathmandu, Nepal"
@@ -87,29 +83,27 @@ export default function Footer() {
                 decoding="async"
               />
             </Link>
-            <p className='mt-6 text-gray-400 leading-relaxed'>
-              Pointzero is a digital product studio in Nepal. We design and ship modern websites,
+            <p className='mt-6 text-neutral-400 leading-relaxed'>
+              Point Zero is a digital product studio in Nepal. We design and ship modern websites,
               mobile apps and custom software for ambitious teams.
             </p>
 
-            {/* Contact Info */}
             <address className='not-italic mt-8 space-y-4'>
-              <a href="mailto:hi.pointzero@gmail.com" className='flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors'>
+              <a href="mailto:hi.pointzero@gmail.com" className='flex items-center gap-3 text-neutral-400 hover:text-brand transition-colors'>
                 <EmailIcon className='w-5 h-5' aria-hidden="true" />
                 <span>hi.pointzero@gmail.com</span>
               </a>
-              <a href="tel:+9779860486269" className='flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition-colors'>
+              <a href="tel:+9779860486269" className='flex items-center gap-3 text-neutral-400 hover:text-brand transition-colors'>
                 <PhoneIcon className='w-5 h-5' aria-hidden="true" />
                 <span>+977 986-0486269</span>
               </a>
-              <div className='flex items-start gap-3 text-gray-400'>
+              <div className='flex items-start gap-3 text-neutral-400'>
                 <LocationOnIcon className='w-5 h-5 shrink-0' aria-hidden="true" />
                 <span>Kathmandu, Nepal</span>
               </div>
             </address>
           </div>
 
-          {/* Services */}
           <div>
             <h3 className='text-white font-semibold text-lg mb-6'>Our Services</h3>
             <ul className='space-y-3'>
@@ -117,9 +111,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     to={service.path}
-                    className='text-gray-400 hover:text-cyan-400 transition-colors inline-flex items-center gap-2 group'
+                    className='text-neutral-400 hover:text-brand transition-colors inline-flex items-center gap-2 group'
                   >
-                    <span className='w-1.5 h-1.5 bg-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity'></span>
+                    <span className='w-1.5 h-1.5 bg-brand rounded-full opacity-0 group-hover:opacity-100 transition-opacity'></span>
                     {service.name}
                   </Link>
                 </li>
@@ -127,7 +121,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hire Team */}
           <div>
             <h3 className='text-white font-semibold text-lg mb-6'>Hire Developer Team</h3>
             <ul className='space-y-3'>
@@ -135,9 +128,9 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     to={item.path}
-                    className='text-gray-400 hover:text-cyan-400 transition-colors inline-flex items-center gap-2 group'
+                    className='text-neutral-400 hover:text-brand transition-colors inline-flex items-center gap-2 group'
                   >
-                    <span className='w-1.5 h-1.5 bg-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity'></span>
+                    <span className='w-1.5 h-1.5 bg-brand rounded-full opacity-0 group-hover:opacity-100 transition-opacity'></span>
                     {item.name}
                   </Link>
                 </li>
@@ -145,7 +138,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Quick Links & Social */}
           <div>
             <h3 className='text-white font-semibold text-lg mb-6'>Quick Links</h3>
             <ul className='space-y-3'>
@@ -153,16 +145,15 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     to={link.path}
-                    className='text-gray-400 hover:text-cyan-400 transition-colors inline-flex items-center gap-2 group'
+                    className='text-neutral-400 hover:text-brand transition-colors inline-flex items-center gap-2 group'
                   >
-                    <span className='w-1.5 h-1.5 bg-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity'></span>
+                    <span className='w-1.5 h-1.5 bg-brand rounded-full opacity-0 group-hover:opacity-100 transition-opacity'></span>
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            {/* Social Links */}
             <div className='mt-8'>
               <h3 className='text-white font-semibold text-lg mb-4'>Follow Us</h3>
               <ul className='flex gap-3 list-none p-0'>
@@ -175,8 +166,8 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      aria-label={`Pointzero on ${social.label}`}
-                      className='p-2.5 text-gray-400 bg-white/5 rounded-lg transition-all duration-300 hover:bg-cyan-500/20 hover:text-cyan-400 hover:scale-110 border border-white/5 hover:border-cyan-500/30 inline-flex'
+                      aria-label={`Point Zero on ${social.label}`}
+                      className='p-2.5 text-neutral-400 bg-white/[0.03] rounded-lg transition-all duration-300 hover:bg-white/[0.06] hover:text-brand border border-white/10 hover:border-white/20 inline-flex'
                     >
                       {social.icon}
                     </a>
@@ -188,16 +179,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className='relative z-10 border-t border-white/10'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
-            <p className='text-gray-500 text-sm text-center md:text-left'>
-              &copy; {new Date().getFullYear()} Pointzero. All rights reserved.
+            <p className='text-neutral-500 text-sm text-center md:text-left'>
+              &copy; {new Date().getFullYear()} Point Zero. All rights reserved.
             </p>
-            <nav aria-label="Footer legal" className='flex items-center gap-6 text-sm text-gray-500'>
-              <Link to="/contact" className='hover:text-cyan-400 transition-colors'>Contact</Link>
-              <a href="mailto:hi.pointzero@gmail.com" className='hover:text-cyan-400 transition-colors'>Email us</a>
+            <nav aria-label="Footer legal" className='flex items-center gap-6 text-sm text-neutral-500'>
+              <Link to="/contact" className='hover:text-brand transition-colors'>Contact</Link>
+              <a href="mailto:hi.pointzero@gmail.com" className='hover:text-brand transition-colors'>Email us</a>
             </nav>
           </div>
         </div>

@@ -1,131 +1,130 @@
 import React from 'react';
-import WebIcon from '@mui/icons-material/Web';
-import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import CodeIcon from '@mui/icons-material/Code';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import CloudIcon from '@mui/icons-material/Cloud';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { useNavigate } from 'react-router-dom';
 import AnimateOnScroll from '../../../components/AnimateOnScroll';
+import { Badge } from '../../../components/ui/badge';
+import { Button } from '../../../components/ui/button';
+import { trackCTAClick } from '../../../lib/analytics';
+
+const SERVICES = [
+  {
+    title: 'Web Development',
+    description:
+      'Modern websites and web applications—bringing your online presence to life with sleek design and seamless functionality.',
+    path: '/services/web-development-nepal',
+  },
+  {
+    title: 'App Development',
+    description:
+      'Transforming ideas into intuitive mobile experiences that captivate and engage users across all platforms.',
+    path: '/services/mobile-app-development-nepal',
+  },
+  {
+    title: 'Software Development',
+    description:
+      'Building robust, scalable software solutions tailored to your unique business needs and goals.',
+    path: '/services/mvp-development',
+  },
+  {
+    title: 'Software Testing & QA',
+    description:
+      'Guaranteeing perfection in every line of code, ensuring your software runs flawlessly every time.',
+    path: '/services',
+  },
+  {
+    title: 'Infrastructure & DevOps',
+    description:
+      'Architecting resilient infrastructure and implementing DevOps practices for unmatched efficiency.',
+    path: '/services/devops-cloud-nepal',
+  },
+  {
+    title: 'Hire Dedicated Developers',
+    description:
+      'Expand your team with seasoned professionals dedicated to bringing your projects to fruition.',
+    path: '/services/ai-development-nepal',
+  },
+];
 
 export default function Features() {
-  const services = [
-    {
-      icon: <WebIcon className='w-8 h-8' />,
-      title: 'Web Development',
-      description: 'Modern websites and web applications—bringing your online presence to life with sleek design and seamless functionality.',
-      gradient: 'from-cyan-500 to-blue-600',
-      bgGradient: 'from-cyan-500/10 to-blue-500/10',
-    },
-    {
-      icon: <PhoneIphoneIcon className='w-8 h-8' />,
-      title: 'App Development',
-      description: 'Transforming ideas into intuitive mobile experiences that captivate and engage users across all platforms.',
-      gradient: 'from-purple-500 to-pink-600',
-      bgGradient: 'from-purple-500/10 to-pink-500/10',
-    },
-    {
-      icon: <CodeIcon className='w-8 h-8' />,
-      title: 'Software Development',
-      description: 'Building robust, scalable software solutions tailored to your unique business needs and goals.',
-      gradient: 'from-orange-500 to-red-600',
-      bgGradient: 'from-orange-500/10 to-red-500/10',
-    },
-    {
-      icon: <BugReportIcon className='w-8 h-8' />,
-      title: 'Software Testing & QA',
-      description: 'Guaranteeing perfection in every line of code, ensuring your software runs flawlessly every time.',
-      gradient: 'from-green-500 to-emerald-600',
-      bgGradient: 'from-green-500/10 to-emerald-500/10',
-    },
-    {
-      icon: <CloudIcon className='w-8 h-8' />,
-      title: 'Infrastructure & DevOps',
-      description: 'Architecting resilient infrastructure and implementing DevOps practices for unmatched efficiency.',
-      gradient: 'from-blue-500 to-indigo-600',
-      bgGradient: 'from-blue-500/10 to-indigo-500/10',
-    },
-    {
-      icon: <GroupsIcon className='w-8 h-8' />,
-      title: 'Hire Dedicated Developers',
-      description: 'Expand your team with seasoned professionals dedicated to bringing your projects to fruition.',
-      gradient: 'from-yellow-500 to-orange-600',
-      bgGradient: 'from-yellow-500/10 to-orange-500/10',
-    },
-  ];
+  const navigate = useNavigate();
+
+  const go = (path, label) => {
+    trackCTAClick(label, 'what_we_offer');
+    navigate(path);
+  };
 
   return (
-    <section aria-labelledby="services-overview-heading" className='relative bg-black py-24 overflow-hidden'>
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        {/* Section Header */}
-        <AnimateOnScroll className='text-center mb-16' as="div">
-          <div className='inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-6'>
-            <CodeIcon className='w-4 h-4 text-cyan-400' />
-            <span className='text-sm font-medium text-cyan-400'>What We Offer</span>
-          </div>
-          <h2 id="services-overview-heading" className='text-3xl sm:text-4xl lg:text-5xl font-bold text-white'>
-            What we{' '}
-            <span className='bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-shift'>
-              build for you
-            </span>
+    <section
+      aria-labelledby="services-overview-heading"
+      className="relative overflow-hidden border-t border-white/10 bg-black py-20 sm:py-24"
+    >
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <AnimateOnScroll className="max-w-3xl" as="div">
+          <Badge className="mb-6 px-3.5 py-1.5">What We Offer</Badge>
+          <h2
+            id="services-overview-heading"
+            className="text-balance text-3xl font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-4xl lg:text-[2.65rem]"
+          >
+            What we build for{' '}
+            <span className="text-brand">you</span>
           </h2>
-          <p className='mt-4 text-gray-400 max-w-2xl mx-auto text-lg'>
-            End‑to‑end digital product capability—web, mobile, software, QA, infrastructure and dedicated
-            teams—under one roof, accountable to your roadmap.
+          <p className="mt-5 max-w-2xl text-base leading-[1.7] text-neutral-400 sm:text-lg">
+            End‑to‑end digital product capability—web, mobile, software, QA,
+            infrastructure and dedicated teams—under one roof, accountable to
+            your roadmap.
           </p>
         </AnimateOnScroll>
 
-        {/* Services Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {services.map((service, index) => (
-            <AnimateOnScroll key={index} delay={index % 6} as="div" variant="scale">
-            <div
-              className='group relative bg-gray-900/50 backdrop-blur-sm border border-white/5 rounded-2xl p-8 transition-all duration-500 hover:border-white/20 hover:bg-gray-900/80 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/5 shine-wrap'
-            >
-              {/* Gradient Glow on Hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+        <ul className="mt-14 divide-y divide-white/10 border-y border-white/10" aria-label="Services we offer">
+          {SERVICES.map((service, index) => (
+            <AnimateOnScroll key={service.title} delay={index % 6} as="li" variant="up">
+              <button
+                type="button"
+                onClick={() => go(service.path, service.title)}
+                className="group grid w-full grid-cols-1 gap-3 py-7 text-left transition-colors sm:grid-cols-[4.5rem_1fr_auto] sm:items-start sm:gap-8 sm:py-8"
+                aria-label={`${service.title} — Learn more`}
+              >
+                <span className="font-mono text-xs tracking-widest text-neutral-600 transition-colors group-hover:text-neutral-400">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
 
-              {/* Content */}
-              <div className='relative z-10'>
-                {/* Icon */}
-                <div className={`inline-flex p-4 bg-gradient-to-br ${service.gradient} rounded-xl text-white shadow-lg mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                  {service.icon}
-                </div>
+                <span className="min-w-0">
+                  <span className="block text-lg font-medium tracking-tight text-white transition-colors group-hover:text-brand sm:text-xl">
+                    {service.title}
+                  </span>
+                  <span className="mt-2 block max-w-xl text-[15px] leading-relaxed text-neutral-400 sm:text-base">
+                    {service.description}
+                  </span>
+                </span>
 
-                {/* Title */}
-                <h3 className='text-xl font-bold text-white mb-3 group-hover:text-white transition-colors'>
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className='text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors'>
-                  {service.description}
-                </p>
-
-                {/* Learn More Link */}
-                <div className='mt-6 flex items-center gap-2 text-cyan-400 font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0'>
-                  <span>Learn More</span>
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="inline-flex items-center gap-2 pt-1 text-sm font-medium text-neutral-500 transition-colors group-hover:text-white sm:justify-self-end">
+                  Learn More
+                  <svg
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </div>
-              </div>
-            </div>
+                </span>
+              </button>
             </AnimateOnScroll>
           ))}
-        </div>
+        </ul>
 
-        {/* Bottom CTA */}
-        <AnimateOnScroll className='mt-16 text-center' delay={2} as="div">
-          <p className='text-gray-400 mb-6'>Need a custom solution? We've got you covered.</p>
-          <button className='px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black'>
+        <AnimateOnScroll className="mt-14 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between" delay={2} as="div">
+          <p className="text-base text-neutral-400">
+            Need a custom solution? We&apos;ve got you covered.
+          </p>
+          <Button
+            type="button"
+            size="lg"
+            onClick={() => go('/contact', 'Discuss Your Project')}
+            aria-label="Discuss your project with Point Zero"
+          >
             Discuss Your Project
-          </button>
+          </Button>
         </AnimateOnScroll>
       </div>
     </section>

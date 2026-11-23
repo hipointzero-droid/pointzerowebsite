@@ -27,18 +27,20 @@ export default function Home() {
       {
         '@type': ['Organization', 'ProfessionalService', 'LocalBusiness'],
         '@id': `${ORIGIN}/#organization`,
-        name: 'Pointzero',
+        name: 'Point Zero',
         legalName: 'Point Zero',
+        alternateName: ['Pointzero', 'PointZero'],
         url: `${ORIGIN}/`,
         logo: `${ORIGIN}/og-image.png`,
         image: `${ORIGIN}/og-image.png`,
         description:
-          'Pointzero is a digital product studio in Kathmandu, Nepal building modern websites, mobile apps, custom software and AI/RAG products.',
+          'Point Zero is a Kathmandu-based digital product studio that ships production-grade AI, web and mobile software for startups and enterprises in Nepal, the US, UK and the UAE.',
         email: 'hi.pointzero@gmail.com',
         telephone: '+977-9860486269',
         priceRange: '$$',
-        areaServed: ['Nepal', 'Worldwide'],
-        slogan: 'Your trusted development partner in Nepal — from idea to AI‑powered product.',
+        areaServed: ['Nepal', 'United States', 'United Kingdom', 'United Arab Emirates', 'Worldwide'],
+        foundingDate: '2022',
+        slogan: 'The AI & Software Engineering Partner for Ambitious Teams',
         knowsAbout: [
           'Web Development',
           'Mobile App Development',
@@ -100,7 +102,7 @@ export default function Home() {
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Pointzero services',
+          name: 'Point Zero services',
           itemListElement: [
             {
               '@type': 'Offer',
@@ -170,30 +172,58 @@ export default function Home() {
         alternateName: 'Pointzero',
         publisher: { '@id': `${ORIGIN}/#organization` },
         inLanguage: 'en-NP',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${ORIGIN}/blog?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
       },
       {
         '@type': 'WebPage',
         '@id': `${ORIGIN}/#webpage`,
         url: `${ORIGIN}/`,
-        name: 'Point Zero — AI, RAG & Software Development Company in Nepal',
+        name: 'AI & Software Development Company in Nepal | Point Zero',
         isPartOf: { '@id': `${ORIGIN}/#website` },
         about: { '@id': `${ORIGIN}/#organization` },
         primaryImageOfPage: `${ORIGIN}/og-image.png`,
         inLanguage: 'en-NP',
-        // Speakable picks out the heading and FAQ block — voice assistants
-        // (Google Assistant, Alexa) and AI crawlers can quote these aloud.
+        hasPart: { '@id': `${ORIGIN}/#about-section` },
         speakable: {
           '@type': 'SpeakableSpecification',
-          cssSelector: ['#hero-heading', '#faq-heading', '#testimonials-heading'],
+          cssSelector: ['#hero-heading', '#about-heading', '#faq-heading', '#testimonials-heading'],
         },
+      },
+      {
+        '@type': 'WebPageElement',
+        '@id': `${ORIGIN}/#about-section`,
+        name: 'About Point Zero',
+        url: `${ORIGIN}/#about`,
+        isPartOf: { '@id': `${ORIGIN}/#webpage` },
+        about: { '@id': `${ORIGIN}/#organization` },
+        headline: 'The AI & Software Engineering Partner for Ambitious Teams',
+        description:
+          'Point Zero is a Kathmandu-based digital product studio that ships production-grade AI, web and mobile software for startups and enterprises in Nepal, the US, UK and the UAE.',
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['#about-heading'],
+        },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${ORIGIN}/#about-outcomes`,
+        name: 'Point Zero delivery focus',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Scoped delivery — RAG pilots and MVPs with clear timelines',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Performance-minded web launches with Core Web Vitals in mind',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Eval-gated AI releases before production deploy',
+          },
+        ],
       },
     ],
   };
@@ -201,9 +231,9 @@ export default function Home() {
   return (
     <div className="bg-black">
       <Seo
-        title="Point Zero — AI, RAG & Software Development Company in Nepal"
-        description="Top software company in Kathmandu, Nepal. We ship AI agents, RAG chatbots, web apps & mobile apps for startups and enterprises. Free discovery call."
-        keywords="software company in Nepal, AI development Nepal, RAG development Nepal, LLM developer Nepal, mobile app development Nepal, web development Nepal, hire developers Nepal, Pointzero"
+        title="AI & Software Development Company in Nepal | Point Zero"
+        description="Point Zero builds custom AI agents, RAG chatbots, websites, mobile apps and software solutions for startups and businesses in Nepal and worldwide."
+        keywords="software development company Nepal, AI development company Nepal, software company Kathmandu, RAG chatbot development, web development Nepal, mobile app development Nepal, hire developers Nepal, Point Zero"
         path="/"
         image="https://pointzero.com.np/og/home.png"
         jsonLd={orgJsonLd}
@@ -212,7 +242,7 @@ export default function Home() {
 
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-cyan-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-brand focus:text-black focus:px-4 focus:py-2 focus:rounded-lg"
       >
         Skip to main content
       </a>
